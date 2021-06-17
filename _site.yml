@@ -10,7 +10,8 @@ navbar:
     href: https://cds.unibas.ch
   right:
     - text: "Is this the link I'm looking for?"
-      href: session1.html
+      menu:
+        href: session1.html
     - text: "Sessions"
       menu:
       - text: "Session 1: What is a BSc thesis?"
