@@ -23,7 +23,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-![An overview of the BSc thesis timeline - see specific dates below](resources/bsc_plan.png)
+%![An overview of the BSc thesis timeline - see specific dates below](resources/bsc_plan.png)
 
 ## Writing a BSc thesis made easy(er)!
 
