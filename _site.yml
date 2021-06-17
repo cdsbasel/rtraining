@@ -1,0 +1,29 @@
+name: "cds_bsc_HS21"
+title: "Home"
+description: |
+  A companion website
+output_dir: "docs"
+navbar:
+  navbar:
+  logo:
+    image: resources/unibas.png
+    href: https://cds.unibas.ch
+  right:
+    - text: "Sessions"
+      menu:
+      - text: "Session 1: What is a BSc thesis?"
+        href: session1.html
+      - text: "Session 2: Research Synthesis"
+        href: session2.html
+      - text: "Session 3: Systematic Reviews and Meta-analyses"
+        href: session3.html
+      - text: "Session 4: Academic Writing"
+        href: session4.html
+      - text: "Session 5: Individual Meetings"
+        href: session5.html
+      - text: "Session 6: Lightning Talks"
+        href: session6.html
+        search: true
+output:   
+  distill::distill_article:
+    toc: true

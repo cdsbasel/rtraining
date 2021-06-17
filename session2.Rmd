@@ -1,0 +1,17 @@
+---
+title: "Research Synthesis"
+description: |
+  **Session 2**: A brief introduction to research synthesis
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Research Synthesis
+
+Read the paper by Gurevitch et al. (2018) for a quick overview of the history of research synthesis (60 minutes). 
+
+### Recommended Reading
+
+Gurevitch, J., Koricheva, J., Nakagawa, S., & Stewart, G. (2018). Meta-analysis and the science of research synthesis. *Nature, 555*(7695), 175–182. [http://doi.org/10.1038/nature25753](https://github.com/matarui/cds_bsc_HS21/raw/main/docs/literature/Gurevitch_2018_Nature.pdf)

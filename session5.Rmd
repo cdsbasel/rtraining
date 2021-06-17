@@ -1,0 +1,19 @@
+---
+title: "Individual Meetings"
+description: |
+  **Session 5**: Students discuss plans with the instructor
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Individual meetings
+
+Please prepare/update and email the following materials to the instructor at least 5 days before your meeting:
+
+- an Exposé detailing the research proposal;
+
+- a folder with supporting materials (e.g., table with results of literature search, background readings);
+
+- a list of outstanding questions.

@@ -1,0 +1,27 @@
+---
+title: "What is a BSc thesis?"
+description: |
+  **Session 1**: Introduction
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## What is a BSc thesis?
+
+A bachelor thesis demonstrates your ability to advance scientific knowledge while obeying ethical principles of scientific conduct. Specific steps typically include
+
+– developing a research question;
+
+– conducting a systematic literature search; 
+
+– summarising extant theories and/or empirical results;
+
+– collecting and analysing data;
+
+– reporting procedures and results appropriately (i.e., using APA guidelines).
+
+## Examples
+
+You can find a number of example bachelor theses on [ADAM](https://adam.unibas.ch/goto_adam_fold_1029085.html).

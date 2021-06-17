@@ -1,0 +1,20 @@
+---
+title: "Lightning Talks"
+description: |
+  **Session 6**: Students present their BSc thesis plans in 5 minutes or less
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Lightning talks
+
+A lightning talk is a very short presentation lasting only a few minutes. The goal of these lightining talks is to give all students an overview of other bachelor-thesis projects as well as receive feedback from peers. 
+
+**Form**: ca. 4 slides; 1) a cover slide identifying the speaker and title/topic; 2) a slide with the key research question(s) and relevant background literature; 3) a slide with methodological strategy and expected/preliminary results; 4) a slide with discussion points or outstanding issues. Use bullet points/header only and tables/figures as appropriate. 
+**Delivery**: Write down as text your presentation before giving the talk; practice delivery several times; do not read from slides; emphasize motivation and research question (the why) at least as much as you focus on methods and expected results (the how). 
+
+
+
+

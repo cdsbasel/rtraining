@@ -1,0 +1,13 @@
+---
+title: "Academic Writing"
+description: |
+  **Session 4**: Writing an Exposé and a BSc thesis
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### Recommended Resources
+
+Check out the APA Style Guide Online at [https://apastyle.apa.org/](https://apastyle.apa.org/).
