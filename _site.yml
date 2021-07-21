@@ -1,7 +1,7 @@
-name: "cds_bsc_HS21"
+name: "cds_Rtraining_HS21"
 title: "Home"
 description: |
-  A companion website
+  CDS R training website
 output_dir: "docs"
 navbar:
   navbar:
@@ -9,24 +9,23 @@ navbar:
     image: resources/unibas.png
     href: https://cds.unibas.ch
   right:
-    - text: "Is this the link I'm looking for?"
+    - text: "S1 (Fall)"
       menu:
+      - text: "1: Introduction"
         href: session1.html
-    - text: "Sessions"
-      menu:
-      - text: "Session 1: What is a BSc thesis?"
-        href: session1.html
-      - text: "Session 2: Research Synthesis"
+      - text: "2: Visualization Basics"
         href: session2.html
-      - text: "Session 3: Systematic Reviews and Meta-analyses"
+      - text: "3: Programming Basics"
         href: session3.html
-      - text: "Session 4: Academic Writing"
+      - text: "4: Working with Tibbles / Isolating Data with dplyr"
         href: session4.html
-      - text: "Session 5: Individual Meetings"
+      - text: "5: Derive Information with dplyr"
         href: session5.html
-      - text: "Session 6: Lightning Talks"
+      - text: "6: Exploratory Data Analysis"
         href: session6.html
         search: true
+    - text: "Is this the link I'm looking for?"
+      href: session1.html
 output:   
   distill::distill_article:
     toc: true
