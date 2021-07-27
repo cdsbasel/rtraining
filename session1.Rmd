@@ -42,4 +42,4 @@ We have uploaded a file on Github called *Tourismus*, which is a dataset from Ba
   
   1. Create a new dataset called **tourismus** by reading in the data on our Github page using this url: https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/Tourismus.csv
   
-  2. Inspect the dataset and answer the questions using functions. What does each column show? How many rows are there? Which country had the highest number of tourists? *Note.* If you get stuck or don't know where to start, make sure to look at the **Useful Links and Resources** that we have compiled for you, which you can find on the homepage.
+  2. Inspect the dataset and answer the questions using functions. What does each column show? How many rows are there? Which country had the highest number of tourists? *Note.* If you get stuck or don't know where to start, make sure to look at the *Useful Links and Resources* that we have compiled for you, which you can find on the homepage.

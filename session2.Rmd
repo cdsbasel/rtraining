@@ -10,14 +10,22 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## 2.1 Understanding ggplot2
 
-There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R.:) [ggplot2](https://ggplot2.tidyverse.org/) is a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details. 
+There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R. :)
+
+We will be focusing on [ggplot2](https://ggplot2.tidyverse.org/), a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details. 
 
 **Go through the RStudio Primer 1.1 on [Data Visualization Basics](https://rstudio.cloud/learn/primers/1.1)** and **complete the assignments below.**
 
-**Tip 1:** Again, cheatsheets will make your life easy! Click [here](resources/session1/data-visualization-2.1.pdf) to download the cheatsheet for *Data Visualization with ggplot2*.
+**Tip 1:** Again, cheatsheets will make your (R) life easy! Click [here](resources/session1/data-visualization-2.1.pdf) to download the cheatsheet for *Data Visualization with ggplot2*.
 
 **Tip 2:** Check out the [R graph gallery](https://www.r-graph-gallery.com/) for an example of graphics and code.
 
-### Assignment
+## Assignment
 
+### Task A
 
+In our Github page, there is a data called *taxation*, which is data from Basel on income and inequality. 
+
+  1. Create a dataset called **taxation** using the file on our Github page. This time, try to download the data on your computer and read it in R locally. 
+
+  2. 
