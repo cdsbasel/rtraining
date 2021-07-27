@@ -32,9 +32,14 @@ One of the most common, beginner problems that we run into is *loading the data 
 **Tip 1:** Focus on the chapters *Fast Reading of Data From txt|csv Files into R: readr package* and *Reading data From Excel Files (xls|xlsx) into R*, as these are the most common data files that you will be encountering throughout your R journey!
 
 **Tip 2:** Use the Cheatsheets! They are a great way of quickly looking for a function you need. Click [here](resources/session1/data-import.pdf) to download the the cheatsheet for *Data Import with readr*.
-![](resources/session1/R_data-import-1.jpg)
+
 
 
 ## Assignment
 
-
+### Task A
+We have uploaded a file on Github called *Tourismus*, which is a dataset from Basel City on Tourism from foreign countries. 
+  
+  1. Create a new dataset called **tourismus** by reading in the data on our Github page using this url: https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/Tourismus.csv
+  
+  2. Inspect the dataset and answer the questions using functions. What does each column show? How many rows are there? Which country had the highest number of tourists? *Note.* If you get stuck or don't know where to start, make sure to look at the **Useful Links and Resources** that we have compiled for you, which you can find on the homepage.

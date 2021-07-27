@@ -1,17 +1,23 @@
 ---
-title: "Research Synthesis"
+title: "The Basics: Visualization Basics"
 description: |
-  **Session 2**: A brief introduction to research synthesis
+  **Session 2**: Visualization Basics
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Research Synthesis
+## 2.1 Understanding ggplot2
 
-Read the paper by Gurevitch et al. (2018) for a quick overview of the history of research synthesis (60 minutes). 
+There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R.:) [ggplot2](https://ggplot2.tidyverse.org/) is a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details. 
 
-### Recommended Reading
+**Go through the RStudio Primer 1.1 on [Data Visualization Basics](https://rstudio.cloud/learn/primers/1.1)** and **complete the assignments below.**
 
-Gurevitch, J., Koricheva, J., Nakagawa, S., & Stewart, G. (2018). Meta-analysis and the science of research synthesis. *Nature, 555*(7695), 175–182. [http://doi.org/10.1038/nature25753](https://github.com/matarui/cds_bsc_HS21/raw/main/docs/literature/Gurevitch_2018_Nature.pdf)
+**Tip 1:** Again, cheatsheets will make your life easy! Click [here](resources/session1/data-visualization-2.1.pdf) to download the cheatsheet for *Data Visualization with ggplot2*.
+
+**Tip 2:** Check out the [R graph gallery](https://www.r-graph-gallery.com/) for an example of graphics and code.
+
+### Assignment
+
+

@@ -86,29 +86,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Home: Research Synthesis</title>
+  <title>Home: The Basics: Visualization Basics</title>
 
-  <meta property="description" itemprop="description" content="**Session 2**: A brief introduction to research synthesis"/>
+  <meta property="description" itemprop="description" content="**Session 2**: Visualization Basics"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Home: Research Synthesis"/>
+  <meta property="og:title" content="Home: The Basics: Visualization Basics"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="**Session 2**: A brief introduction to research synthesis"/>
+  <meta property="og:description" content="**Session 2**: Visualization Basics"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Home"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Home: Research Synthesis"/>
-  <meta property="twitter:description" content="**Session 2**: A brief introduction to research synthesis"/>
+  <meta property="twitter:title" content="Home: The Basics: Visualization Basics"/>
+  <meta property="twitter:description" content="**Session 2**: Visualization Basics"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Research Synthesis"]},{"type":"character","attributes":{},"value":["**Session 2**: A brief introduction to research synthesis"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["The Basics: Visualization Basics"]},{"type":"character","attributes":{},"value":["**Session 2**: Visualization Basics"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2053,7 +2053,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Research Synthesis","description":"**Session 2**: A brief introduction to research synthesis","authors":[]}
+{"title":"The Basics: Visualization Basics","description":"**Session 2**: Visualization Basics","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2069,19 +2069,20 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="nav-right">
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-Sessions
+S1 (Fall)
  
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="session1.html">Session 1: What is a BSc thesis?</a>
-<a href="session2.html">Session 2: Research Synthesis</a>
-<a href="session3.html">Session 3: Systematic Reviews and Meta-analyses</a>
-<a href="session4.html">Session 4: Academic Writing</a>
-<a href="session5.html">Session 5: Individual Meetings</a>
-<a href="session6.html">Session 6: Lightning Talks</a>
+<a href="session1.html">1: Introduction</a>
+<a href="session2.html">2: Visualization Basics</a>
+<a href="session3.html">3: Programming Basics</a>
+<a href="session4.html">4: Working with Tibbles / Isolating Data with dplyr</a>
+<a href="session5.html">5: Derive Information with dplyr</a>
+<a href="session6.html">6: Exploratory Data Analysis</a>
 </div>
 </div>
+<a href="session1.html">Is this the link I'm looking for?</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2091,10 +2092,10 @@ Sessions
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Research Synthesis</h1>
+<h1>The Basics: Visualization Basics</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p><strong>Session 2</strong>: A brief introduction to research synthesis</p></p>
+<p><p><strong>Session 2</strong>: Visualization Basics</p></p>
 </div>
 
 
@@ -2103,17 +2104,19 @@ Sessions
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#research-synthesis">Research Synthesis</a>
+<li><a href="#understanding-ggplot2">2.1 Understanding ggplot2</a>
 <ul>
-<li><a href="#recommended-reading">Recommended Reading</a></li>
+<li><a href="#assignment">Assignment</a></li>
 </ul></li>
 </ul>
 </nav>
 </div>
-<h2 id="research-synthesis">Research Synthesis</h2>
-<p>Read the paper by Gurevitch et al. (2018) for a quick overview of the history of research synthesis (60 minutes).</p>
-<h3 id="recommended-reading">Recommended Reading</h3>
-<p>Gurevitch, J., Koricheva, J., Nakagawa, S., &amp; Stewart, G. (2018). Meta-analysis and the science of research synthesis. <em>Nature, 555</em>(7695), 175–182. <a href="https://github.com/matarui/cds_bsc_HS21/raw/main/docs/literature/Gurevitch_2018_Nature.pdf">http://doi.org/10.1038/nature25753</a></p>
+<h2 id="understanding-ggplot2">2.1 Understanding ggplot2</h2>
+<p>There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R.:) <a href="https://ggplot2.tidyverse.org/">ggplot2</a> is a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
+<p><strong>Go through the RStudio Primer 1.1 on <a href="https://rstudio.cloud/learn/primers/1.1">Data Visualization Basics</a></strong> and <strong>complete the assignments below.</strong></p>
+<p><strong>Tip 1:</strong> Again, cheatsheets will make your life easy! Click <a href="resources/session1/data-visualization-2.1.pdf">here</a> to download the cheatsheet for <em>Data Visualization with ggplot2</em>.</p>
+<p><strong>Tip 2:</strong> Check out the <a href="https://www.r-graph-gallery.com/">R graph gallery</a> for an example of graphics and code.</p>
+<h3 id="assignment">Assignment</h3>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
