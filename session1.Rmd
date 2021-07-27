@@ -1,5 +1,5 @@
 ---
-title: "What is a BSc thesis?"
+title: "The Basics: Introduction"
 description: |
   **Session 1**: Introduction
 ---
@@ -8,20 +8,33 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## What is a BSc thesis?
+## 1.1 Getting Started
 
-A bachelor thesis demonstrates your ability to advance scientific knowledge while obeying ethical principles of scientific conduct. Specific steps typically include
+We assume that you all have some degree of experience with R in your bachelor studies. However, if you are completely new to R or if you haven't used R for a long time, we recommend that you watch these videos as a refresher. 
 
-– developing a research question;
+**Introduction to RStudio from MarinStats**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/riONFzJdXcs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-– conducting a systematic literature search; 
+**Download and Install R & RStudio from MarinStats**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/cX532N_XLIs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-– summarising extant theories and/or empirical results;
+**Simple Arithmetic in R from MarinStats**
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UYclmg1_KLk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-– collecting and analysing data;
 
-– reporting procedures and results appropriately (i.e., using APA guidelines).
+## 1.2 Importing and Exporting Data
+[![](resources/session1/importing_data.png)](http://www.sthda.com/english/wiki/importing-data-into-r)
 
-## Examples
+One of the most common, beginner problems that we run into is *loading the data in R.* Most of these problems arise because there are different functions we need to use for different file types.  
+ 
+**Read [this chapter](http://www.sthda.com/english/wiki/importing-data-into-r) from the STHDA wiki page on Importing Data into R**, which provides an excellent overview of the different functions to import data from txt, csv and Excel into R and also explanations on how to use them. 
 
-You can find a number of example bachelor theses on [ADAM](https://adam.unibas.ch/goto_adam_fold_1029085.html).
+**Tip 1:** Focus on the chapters *Fast Reading of Data From txt|csv Files into R: readr package* and *Reading data From Excel Files (xls|xlsx) into R*, as these are the most common data files that you will be encountering throughout your R journey!
+
+**Tip 2:** Use the Cheatsheets! They are a great way of quickly looking for a function you need. Click [here](resources/session1/data-import.pdf) to download the the cheatsheet for *Data Import with readr*.
+![](resources/session1/R_data-import-1.jpg)
+
+
+## Assignment
+
+
