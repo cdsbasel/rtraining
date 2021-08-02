@@ -37,7 +37,6 @@ One of the most common, beginner problems that we run into is *loading the data 
 
 ## Assignment
 
-### Task A
 We have uploaded a file on Github called *Tourismus*, which is a dataset from Basel City on Tourism from foreign countries. 
   
   1. Create a new dataset called **tourismus** by reading in the data on our Github page using this url: https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/Tourismus.csv

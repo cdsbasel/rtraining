@@ -24,8 +24,6 @@ navbar:
       - text: "6: Exploratory Data Analysis"
         href: session6.html
         search: true
-    - text: "Is this the link I'm looking for?"
-      href: session1.html
 output:   
   distill::distill_article:
     toc: true

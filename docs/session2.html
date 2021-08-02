@@ -2082,7 +2082,6 @@ S1 (Fall)
 <a href="session6.html">6: Exploratory Data Analysis</a>
 </div>
 </div>
-<a href="session1.html">Is this the link I'm looking for?</a>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
 </div>
 </nav>
@@ -2104,19 +2103,25 @@ S1 (Fall)
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#understanding-ggplot2">2.1 Understanding ggplot2</a>
-<ul>
+<li><a href="#understanding-ggplot2">2.1 Understanding ggplot2</a></li>
 <li><a href="#assignment">Assignment</a></li>
-</ul></li>
 </ul>
 </nav>
 </div>
 <h2 id="understanding-ggplot2">2.1 Understanding ggplot2</h2>
-<p>There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R.:) <a href="https://ggplot2.tidyverse.org/">ggplot2</a> is a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
+<p>There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R. :)</p>
+<p>We will be focusing on <a href="https://ggplot2.tidyverse.org/">ggplot2</a>, a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
 <p><strong>Go through the RStudio Primer 1.1 on <a href="https://rstudio.cloud/learn/primers/1.1">Data Visualization Basics</a></strong> and <strong>complete the assignments below.</strong></p>
-<p><strong>Tip 1:</strong> Again, cheatsheets will make your life easy! Click <a href="resources/session1/data-visualization-2.1.pdf">here</a> to download the cheatsheet for <em>Data Visualization with ggplot2</em>.</p>
+<p><strong>Tip 1:</strong> Again, cheatsheets will make your (R) life easy! Click <a href="resources/session1/data-visualization-2.1.pdf">here</a> to download the cheatsheet for <em>Data Visualization with ggplot2</em>.</p>
 <p><strong>Tip 2:</strong> Check out the <a href="https://www.r-graph-gallery.com/">R graph gallery</a> for an example of graphics and code.</p>
-<h3 id="assignment">Assignment</h3>
+<h2 id="assignment">Assignment</h2>
+<p>In our Github page, there is a data called <em>taxation</em>, which is data from Basel on income and inequality.</p>
+<ol type="1">
+<li><p>Create a dataset called <strong>taxation</strong> using the file on our Github page. This time, download the data on your computer and read it in R locally.</p></li>
+<li><p>Create a plot using this dataset. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs.</p></li>
+</ol>
+<p>Below is an example of a plot showing the median income of the quarters by year. <em>Note.</em> To control the order of the discrete variables, you need to know some wrangling. You can sort the variable “quarter” with arrange() and factor it with mutate().</p>
+<p><img src="resources/session2/inequality_basel.png" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
