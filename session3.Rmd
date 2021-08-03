@@ -1,25 +1,25 @@
 ---
-title: "Systematic Review and Meta-analysis"
+title: "The Basics: Programming Basics"
 description: |
-  **Session 3**: A brief introduction to systematic literature search and meta-analysis
+  **Session 3**: Programming Basics
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## PRISMA
+## 3.3 Learning the R language
 
-Are you familiar with the "Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA)" and the associated [website](http://prisma-statement.org)?
+To use R while understanding it's language will help you use R more easily. In this session, you will learn about
 
-Take a few minutes to look into the [website](http://prisma-statement.org/Default.aspx) and read the paper by Page et al. (2021) referenced below (60 minutes), paying particular attention to the checklist and flow diagrams presented. 
+  - **functions** and their **arguments**
+  - **objects**
+  - R’s basic **data types**
+  - R’s basic **data structures** including vectors and lists
+  - R’s **package system**
 
-[![Prisma](resources/prisma.png)](http://prisma-statement.org/)
+**Go through the RStudio Primer 1.2 on [Programming Basics](https://rstudio.cloud/learn/primers/1.2).** 
 
-### Exercise
+There are **no additional assignments** for this session. 
 
-Pick a systematic literature search and/or meta-analysis that you are familiar with or search for one using an literature database of your choice. To what extent does the report follow the PRISMA guidelines? 
 
-### Recommended Reading
-
-Page, M. J., McKenzie, J. E., Bossuyt, P. M., Boutron, I., Hoffmann, T. C., Mulrow, C. D., et al. (2021). The PRISMA 2020 statement: An updated guideline for reporting systematic reviews. *BMJ, 372*, n71. [http://doi.org/10.1136/bmj.n71](https://github.com/matarui/cds_bsc_HS21/raw/main/docs/literature/Page_2021_BMJ.pdf)

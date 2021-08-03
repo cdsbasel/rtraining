@@ -29,7 +29,7 @@ In our Github page, there is a data called *taxation*, which is data from Basel 
 
   2. Create a plot using this dataset. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs. 
   
-Below is an example of a plot showing the median income of the quarters by year. *Note.* To control the order of the discrete variables, you need to know some wrangling. You can sort the variable "quarter" with arrange() and factor it with mutate().
+Below is an example of a plot showing the median income of the quarters by year. *Note.* If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable "quarter" with `arrange()` and turn it into a factor with `mutate()`.
   
   ![](resources/session2/inequality_basel.png)
   

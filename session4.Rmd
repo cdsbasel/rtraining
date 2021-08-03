@@ -1,13 +1,36 @@
 ---
-title: "Academic Writing"
+title: "Work with Data: Working with Tibbles/Isolating Data with dplyr"
 description: |
-  **Session 4**: Writing an Exposé and a BSc thesis
+  **Session 4**: Working with Tibbles/Isolating Data with dplyr
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### Recommended Resources
+### 4.1 Working with Tibbles
 
-Check out the APA Style Guide Online at [https://apastyle.apa.org/](https://apastyle.apa.org/).
+Throughout this R Training, you will mostly be confronted with **tibbles**. Tibbles, or `tbl_df`, *are* in fact data frames, but they keep what has proven to be effective, and throwing out what is not. 
+
+According to the [tibble documentation](https://tibble.tidyverse.org/), tibbles are "data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced `print()` method which makes them easier to use with large datasets containing complex objects."
+
+**Go through the RStudio Primer 2.1 on [Working with Tibbles](https://rstudio.cloud/learn/primers/2.1),** which will give you a sneak peak into the world of tibbles. If you want to learn more on tibbles and data frames, we highly recommend reading the [tibbles chapter](https://r4ds.had.co.nz/tibbles.html) in *R for Data Science*. 
+
+
+### 4.2 Isolating Data with dplyr
+
+When you have your dataset loaded and ready to go, you will first need to look at your data and make some changes before computing analyses or making visualizations. With the `dplyr` package, you can easily manipulate and transform your data so that you can work with it much better. In this and the following session, you will learn about a few of the most important and useful functions for data manipulation. These functions are *essential* for working with data in R, so take some time to understand them thoroughly and play around with them on your own data!
+
+**Go through the RStudio Primer 2.2 on [Isolating Data with dplyr](https://rstudio.cloud/learn/primers/2.2),** and **complete the assignments below.**
+
+**Tip 1:** `dplyr` also has a cheatsheet for you - download it [here](resources/session4/data-transformation.pdf).
+
+#### Assignment
+
+select arrange filter pipes
+We will be using the **taxation** data set from Session 2. 
+
+  1. Select the columns **year, quarter, income_mean** and **income_median** using `select()`. Try to figure out more than one way to select the columns.
+  2. Select all columns with the name **wealth**. *Note.* Try using `starts_with()`or `contains()`.
+  3. Filter quarters that had a mean income of over 60000 in the year 2017. What are the quarters?
+  4. Re-order by **year** and **wealth_median.**

@@ -86,29 +86,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
 
   <!--radix_placeholder_meta_tags-->
-  <title>Home: Academic Writing</title>
+  <title>Home: Work with Data: Working with Tibbles/Isolating Data with dplyr</title>
 
-  <meta property="description" itemprop="description" content="**Session 4**: Writing an Exposé and a BSc thesis"/>
+  <meta property="description" itemprop="description" content="**Session 4**: Working with Tibbles/Isolating Data with dplyr"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Home: Academic Writing"/>
+  <meta property="og:title" content="Home: Work with Data: Working with Tibbles/Isolating Data with dplyr"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="**Session 4**: Writing an Exposé and a BSc thesis"/>
+  <meta property="og:description" content="**Session 4**: Working with Tibbles/Isolating Data with dplyr"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Home"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Home: Academic Writing"/>
-  <meta property="twitter:description" content="**Session 4**: Writing an Exposé and a BSc thesis"/>
+  <meta property="twitter:title" content="Home: Work with Data: Working with Tibbles/Isolating Data with dplyr"/>
+  <meta property="twitter:description" content="**Session 4**: Working with Tibbles/Isolating Data with dplyr"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Academic Writing"]},{"type":"character","attributes":{},"value":["**Session 4**: Writing an Exposé and a BSc thesis"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Work with Data: Working with Tibbles/Isolating Data with dplyr"]},{"type":"character","attributes":{},"value":["**Session 4**: Working with Tibbles/Isolating Data with dplyr"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2053,7 +2053,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Academic Writing","description":"**Session 4**: Writing an Exposé and a BSc thesis","authors":[]}
+{"title":"Work with Data: Working with Tibbles/Isolating Data with dplyr","description":"**Session 4**: Working with Tibbles/Isolating Data with dplyr","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2069,17 +2069,17 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="nav-right">
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-Sessions
+S1 (Fall)
  
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="session1.html">Session 1: What is a BSc thesis?</a>
-<a href="session2.html">Session 2: Research Synthesis</a>
-<a href="session3.html">Session 3: Systematic Reviews and Meta-analyses</a>
-<a href="session4.html">Session 4: Academic Writing</a>
-<a href="session5.html">Session 5: Individual Meetings</a>
-<a href="session6.html">Session 6: Lightning Talks</a>
+<a href="session1.html">1: Introduction</a>
+<a href="session2.html">2: Visualization Basics</a>
+<a href="session3.html">3: Programming Basics</a>
+<a href="session4.html">4: Working with Tibbles / Isolating Data with dplyr</a>
+<a href="session5.html">5: Derive Information with dplyr</a>
+<a href="session6.html">6: Exploratory Data Analysis</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2091,10 +2091,10 @@ Sessions
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Academic Writing</h1>
+<h1>Work with Data: Working with Tibbles/Isolating Data with dplyr</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p><strong>Session 4</strong>: Writing an Exposé and a BSc thesis</p></p>
+<p><p><strong>Session 4</strong>: Working with Tibbles/Isolating Data with dplyr</p></p>
 </div>
 
 
@@ -2103,12 +2103,20 @@ Sessions
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#recommended-resources">Recommended Resources</a></li>
+<li><a href="#working-with-tibbles">4.1 Working with Tibbles</a></li>
+<li><a href="#isolating-data-with-dplyr">4.2 Isolating Data with dplyr</a></li>
 </ul>
 </nav>
 </div>
-<h3 id="recommended-resources">Recommended Resources</h3>
-<p>Check out the APA Style Guide Online at <a href="https://apastyle.apa.org/">https://apastyle.apa.org/</a>.</p>
+<h3 id="working-with-tibbles">4.1 Working with Tibbles</h3>
+<p>Throughout this R Training, you will mostly be confronted with <strong>tibbles</strong>. Tibbles, or <code>tbl_df</code>, <em>are</em> in fact data frames, but they keep what has proven to be effective, and throwing out what is not.</p>
+<p>According to the <a href="https://tibble.tidyverse.org/">tibble documentation</a>, tibbles are “data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced <code>print()</code> method which makes them easier to use with large datasets containing complex objects.”</p>
+<p><strong>Go through the RStudio Primer 2.1 on <a href="https://rstudio.cloud/learn/primers/2.1">Working with Tibbles</a>,</strong> which will give you a sneak peak into the world of tibbles. If you want to learn more on tibbles and data frames, we highly recommend reading the <a href="https://r4ds.had.co.nz/tibbles.html">tibbles chapter</a> in <em>R for Data Science</em>.</p>
+<h3 id="isolating-data-with-dplyr">4.2 Isolating Data with dplyr</h3>
+<p>When you have your dataset loaded and ready to go (ideally as a tibble), you will first need to look at your data and make some changes before computing analyses or making visualizations. With the <code>dplyr</code> package, you can easily manipulate and transform your data so that you can work much better. In this and the following session, you will learn a few of the most important and useful functions for data manipulation. These functions are <em>essential</em> for working with data in R, so take some time to understand them thoroughly and play around with your own data!</p>
+<p><strong>Go through the RStudio Primer 2.2 on <a href="https://rstudio.cloud/learn/primers/2.2">Isolating Data with dplyr</a>,</strong> and <strong>complete the assignments below.</strong></p>
+<p><strong>Tip 1:</strong> dplyr also has a cheatsheet for you - download it <a href="resources/session4/data-transformation.pdf">here</a>.</p>
+<h4 id="assignment">Assignment</h4>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
