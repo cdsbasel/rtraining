@@ -23,10 +23,8 @@ In the previous session, you learned how you can systematically explore your dat
 - [**Customize Your Plots**](https://rstudio.cloud/learn/primers/3.8)
 
 
+### Assignment
 
-think about possible graphics** that you can employ for EDA in your own master project. 
-
-There are **no additional assignments** for this session.
 
 
 
