@@ -1,19 +1,21 @@
 ---
-title: "Lightning Talks"
+title: "Visualize Data: Exploratory Data Analysis"
 description: |
-  **Session 6**: Students present their BSc thesis plans in 5 minutes or less
+  **Session 6**: Exploratory Data Analysis
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Lightning talks
+## 6.1 Explore your data
+![](resources/session6/eda.png)
 
-A lightning talk is a very short presentation lasting only a few minutes. The goal of these lightining talks is to give all students an overview of other bachelor-thesis projects as well as receive feedback from peers. 
+In this module, you will learn how to use `ggplot2` to visualize patterns within values and relationships between variables. You will first learn **Exploratory data analysis** or **EDA**, a way to use visualization and transformation to explore your data systematically.
 
-**Form**: ca. 4 slides; 1) a cover slide identifying the speaker and title/topic; 2) a slide with the key research question(s) and relevant background literature; 3) a slide with methodological strategy and expected/preliminary results; 4) a slide with discussion points or outstanding issues. Use bullet points/header only and tables/figures as appropriate. 
-**Delivery**: Write down as text your presentation before giving the talk; practice delivery several times; do not read from slides; emphasize motivation and research question (the why) at least as much as you focus on methods and expected results (the how). 
+**Go through the RStudio Primer 3.1 on [Exploratory Data Analysis](https://rstudio.cloud/learn/primers/3.1)** and **think about possible graphics** that you can employ for EDA in your own master project. 
+
+There are **no additional assignments** for this session.
 
 
 

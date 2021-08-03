@@ -1,19 +1,22 @@
 ---
-title: "Individual Meetings"
+title: "Work with Data: Derive Information with dplyr"
 description: |
-  **Session 5**: Students discuss plans with the instructor
+  **Session 5**: Derive Information with dplyr
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Individual meetings
+## 5.1 Derive Information with dplyr
 
-Please prepare/update and email the following materials to the instructor at least 5 days before your meeting:
+In this session, you will continue learning data manipulation with `dplyr`.
 
-- an Exposé detailing the research proposal;
+**Go through the RStudio Primer 2.3 on [Derive Information with dplyr](https://rstudio.cloud/learn/primers/2.3),** and **complete the assignments below.**
 
-- a folder with supporting materials (e.g., table with results of literature search, background readings);
+### Assignment
+ 
+Using the **taxation** dataset, complete the following tasks:
 
-- a list of outstanding questions.
+  1. Create a new column called `income_labels`, where you have 4 new income categories **below 5000, 5000-7999, 8000-10999, and above 11000.** You can code the categories as numbers from 1 to 4. 
+  2. How many observations are there for each of the four categories by year and by quarter? Use `group_by()` and `summarize()` to answer.

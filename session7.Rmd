@@ -1,0 +1,33 @@
+---
+title: "Visualize Data: Charts and Plots"
+description: |
+  **Session 7**: Charts and Plots
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## 7.1 Making graphics
+
+In the previous session, you learned how you can systematically explore your data and which questions to ask in order to determine the best visualizations for your data. In this session, you will learn about the individual charts and plots and how to make them.
+
+**Go through the following RStudio Primers:**
+
+- [**Bar charts**](https://rstudio.cloud/learn/primers/3.2)
+- [**Histograms**](https://rstudio.cloud/learn/primers/3.3) 
+- [**Boxplots and Counts**](https://rstudio.cloud/learn/primers/3.4)
+- [**Scatterplots**](https://rstudio.cloud/learn/primers/3.5)
+- [**Line Plots**](https://rstudio.cloud/learn/primers/3.6)
+- [**Overplotting and Big Data**](https://rstudio.cloud/learn/primers/3.7)
+- [**Customize Your Plots**](https://rstudio.cloud/learn/primers/3.8)
+
+
+
+think about possible graphics** that you can employ for EDA in your own master project. 
+
+There are **no additional assignments** for this session.
+
+
+
+

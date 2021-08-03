@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## S1 (Fall): Basic R skills
 
-For the first semester (S1 Fall), there are 11 topics for four modules in this R training. For each topic, we have compiled different online materials for you to go through, as well as assignments for you to test your skills. This training is a self-guided learning, which allows you to engage with the material at your own pace and at times that suit you the most. These topics will help you acquire basic skills in R, which will be most useful in the upcoming CDS Hackathons. 
+For the first semester (S1 Fall), there are 11 topics for four modules in this R training. For each topic, we have compiled different online materials for you to go through, as well as assignments for you to test your skills. This program is largely based on the great online tutorials from RStudio called [Primers](https://rstudio.cloud/learn/primers). This training is a self-guided learning, which allows you to engage with the material at your own pace and at times that suit you the most. These topics will help you acquire basic skills in R, which will be most useful in the upcoming CDS Hackathons. 
 
 Each session takes around 1-2 hours. The deadline to complete all sessions is by XXX, where you will have a meeting with our CDS team members to review and discuss your progress. For any questions, please write XXX
 
