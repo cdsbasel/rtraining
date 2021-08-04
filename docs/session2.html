@@ -2080,6 +2080,12 @@ S1 (Fall)
 <a href="session4.html">4: Working with Tibbles / Isolating Data with dplyr</a>
 <a href="session5.html">5: Derive Information with dplyr</a>
 <a href="session6.html">6: Exploratory Data Analysis</a>
+<a href="session7.html">7: Charts and Plots</a>
+<a href="session8.html">8: Reshape Data</a>
+<a href="session9.html">9: Separate and Unite Columns</a>
+<a href="session10.html">10: Join Data Sets</a>
+<a href="session11.html">11: Long and Wide Format with tidyr</a>
+<a href="session12.html">12: Review</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2103,8 +2109,10 @@ S1 (Fall)
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#understanding-ggplot2">2.1 Understanding ggplot2</a></li>
+<li><a href="#understanding-ggplot2">2.1 Understanding ggplot2</a>
+<ul>
 <li><a href="#assignment">Assignment</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -2114,13 +2122,13 @@ S1 (Fall)
 <p><strong>Go through the RStudio Primer 1.1 on <a href="https://rstudio.cloud/learn/primers/1.1">Data Visualization Basics</a></strong> and <strong>complete the assignments below.</strong></p>
 <p><strong>Tip 1:</strong> Again, cheatsheets will make your (R) life easy! Click <a href="resources/session1/data-visualization-2.1.pdf">here</a> to download the cheatsheet for <em>Data Visualization with ggplot2</em>.</p>
 <p><strong>Tip 2:</strong> Check out the <a href="https://www.r-graph-gallery.com/">R graph gallery</a> for an example of graphics and code.</p>
-<h2 id="assignment">Assignment</h2>
+<h3 id="assignment">Assignment</h3>
 <p>In our Github page, there is a data called <em>taxation</em>, which is data from Basel on income and inequality.</p>
 <ol type="1">
-<li><p>Create a dataset called <strong>taxation</strong> using the file on our Github page. This time, download the data on your computer and read it in R locally.</p></li>
-<li><p>Create a plot using this dataset. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs.</p></li>
+<li><p>Create a data set called <strong>taxation</strong> using the file on our Github page. This time, download the data on your computer and read it in R locally.</p></li>
+<li><p>Create a plot using this data set. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs.</p></li>
 </ol>
-<p>Below is an example of a plot showing the median income of the quarters by year. <em>Note.</em> If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable “quarter” with arrange() and factor it with <code>mutate()</code>.</p>
+<p>Below is an example of a plot showing the median income of the quarters by year. <em>Note.</em> If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable “quarter” with <code>arrange()</code> and turn it into a factor with <code>mutate()</code>.</p>
 <p><img src="resources/session2/inequality_basel.png" /></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

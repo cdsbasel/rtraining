@@ -1,0 +1,22 @@
+---
+title: "Tidy your Data: Separate and Unite Columns"
+description: |
+  **Session 9**: Separate and Unite Columns
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+### 9.1 Tidying data
+
+In the last session, you learned how to use `gather()` and `spread()` to tidy the layout of your data. In this session, you will learn how to separate or combine cells using `separate()` and `unite()`.
+
+**Go through the RStudio Primer 4.2 [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.2).**
+  
+
+
+
+
+
+

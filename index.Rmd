@@ -36,20 +36,20 @@ Please note that this site is *work-in-progress* and will be updated throughout 
 
 
 ::: l-body
-| # | Modul     | Topic                         | Slides |
-|---| ---------|-------------------------------|--------|
-| 1 | The Basics | [Introduction](session1.html) | [pdf](index.html) |
-| 2 | The Basics | [Visualization Basics](session2.html) | [pdf](index.html) |
-| 3 | The Basics | [Programming Basics](session3.html) | [pdf](index.html) |
-| 4 | Work with Data | [Working with Tibbles/Isolating Data with dplyr](session4.html) |  |
-| 5 | Work with Data | [Derive Information with dplyr](session5.html) |  |
-| 6 | Visualize Data | [Exploratory Data Analysis](session6.html) | [pdf](index.html) |
-| 7 | Visualize Data | [Charts and Plots](session2.html) | [pdf](index.html) |
-| 8 | Tidy your Data | [Reshape Data](session3.html) | [pdf](index.html) |
-| 9 | Tidy your Data | [Separate and Unite Columns](session4.html) | [pdf](index.html) |
-| 10 | Tidy your Data | [Join Data Sets](session5.html) |  |
-| 11 | Tidy your Data | [Long and Wide Format with tidyr](session2.html) | [pdf](index.html) |
-| 12 | Review | [Review and Meeting with CDS Team](session6.html) |  |
+| # | Modul     | Topic                         |
+|---| ---------|-------------------------------|
+| 1 | The Basics | [Introduction](session1.html) |
+| 2 | The Basics | [Visualization Basics](session2.html) |
+| 3 | The Basics | [Programming Basics](session3.html) ||
+| 4 | Work with Data | [Working with Tibbles/Isolating Data with dplyr](session4.html) |
+| 5 | Work with Data | [Derive Information with dplyr](session5.html) |
+| 6 | Visualize Data | [Exploratory Data Analysis](session6.html) |
+| 7 | Visualize Data | [Charts and Plots](session7.html) |
+| 8 | Tidy your Data | [Reshape Data](session8.html) |
+| 9 | Tidy your Data | [Separate and Unite Columns](session9.html) |
+| 10 | Tidy your Data | [Join Data Sets](session10.html) |
+| 11 | Tidy your Data | [Long and Wide Format with tidyr](session11.html) |
+| 12 | Review | [Review and Meeting with CDS Team](session12.html) |
 
 :::
 

@@ -23,6 +23,18 @@ navbar:
         href: session5.html
       - text: "6: Exploratory Data Analysis"
         href: session6.html
+      - text: "7: Charts and Plots"
+        href: session7.html
+      - text: "8: Reshape Data"  
+        href: session8.html
+      - text: "9: Separate and Unite Columns"
+        href: session9.html
+      - text: "10: Join Data Sets"
+        href: session10.html
+      - text: "11: Long and Wide Format with tidyr"
+        href: session11.html
+      - text: "12: Review"  
+        href: session12.html
         search: true
 output:   
   distill::distill_article:

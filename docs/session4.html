@@ -2080,6 +2080,12 @@ S1 (Fall)
 <a href="session4.html">4: Working with Tibbles / Isolating Data with dplyr</a>
 <a href="session5.html">5: Derive Information with dplyr</a>
 <a href="session6.html">6: Exploratory Data Analysis</a>
+<a href="session7.html">7: Charts and Plots</a>
+<a href="session8.html">8: Reshape Data</a>
+<a href="session9.html">9: Separate and Unite Columns</a>
+<a href="session10.html">10: Join Data Sets</a>
+<a href="session11.html">11: Long and Wide Format with tidyr</a>
+<a href="session12.html">12: Review</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2104,19 +2110,29 @@ S1 (Fall)
 <h3>Contents</h3>
 <ul>
 <li><a href="#working-with-tibbles">4.1 Working with Tibbles</a></li>
-<li><a href="#isolating-data-with-dplyr">4.2 Isolating Data with dplyr</a></li>
+<li><a href="#isolating-data-with-dplyr">4.2 Isolating Data with dplyr</a>
+<ul>
+<li><a href="#assignment">Assignment</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
-<h3 id="working-with-tibbles">4.1 Working with Tibbles</h3>
+<h2 id="working-with-tibbles">4.1 Working with Tibbles</h2>
 <p>Throughout this R Training, you will mostly be confronted with <strong>tibbles</strong>. Tibbles, or <code>tbl_df</code>, <em>are</em> in fact data frames, but they keep what has proven to be effective, and throwing out what is not.</p>
 <p>According to the <a href="https://tibble.tidyverse.org/">tibble documentation</a>, tibbles are “data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced <code>print()</code> method which makes them easier to use with large datasets containing complex objects.”</p>
 <p><strong>Go through the RStudio Primer 2.1 on <a href="https://rstudio.cloud/learn/primers/2.1">Working with Tibbles</a>,</strong> which will give you a sneak peak into the world of tibbles. If you want to learn more on tibbles and data frames, we highly recommend reading the <a href="https://r4ds.had.co.nz/tibbles.html">tibbles chapter</a> in <em>R for Data Science</em>.</p>
-<h3 id="isolating-data-with-dplyr">4.2 Isolating Data with dplyr</h3>
-<p>When you have your dataset loaded and ready to go (ideally as a tibble), you will first need to look at your data and make some changes before computing analyses or making visualizations. With the <code>dplyr</code> package, you can easily manipulate and transform your data so that you can work much better. In this and the following session, you will learn a few of the most important and useful functions for data manipulation. These functions are <em>essential</em> for working with data in R, so take some time to understand them thoroughly and play around with your own data!</p>
+<h2 id="isolating-data-with-dplyr">4.2 Isolating Data with dplyr</h2>
+<p>When you have your dataset loaded and ready to go, you will first need to look at your data and make some changes before computing analyses or making visualizations. With the <code>dplyr</code> package, you can easily manipulate and transform your data so that you can work with it much better. In this and the following session, you will learn about a few of the most important and useful functions for data manipulation. These functions are <em>essential</em> for working with data in R, so take some time to understand them thoroughly and play around with them on your own data!</p>
 <p><strong>Go through the RStudio Primer 2.2 on <a href="https://rstudio.cloud/learn/primers/2.2">Isolating Data with dplyr</a>,</strong> and <strong>complete the assignments below.</strong></p>
-<p><strong>Tip 1:</strong> dplyr also has a cheatsheet for you - download it <a href="resources/session4/data-transformation.pdf">here</a>.</p>
-<h4 id="assignment">Assignment</h4>
+<p><strong>Tip 1:</strong> <code>dplyr</code> also has a cheatsheet for you - download it <a href="resources/session4/data-transformation.pdf">here</a>.</p>
+<h3 id="assignment">Assignment</h3>
+<p>We will be using the <strong>taxation</strong> data set from Session 2.</p>
+<ol type="1">
+<li>Select the columns <strong>year, quarter, income_mean</strong> and <strong>income_median</strong> using <code>select()</code>. Try to figure out more than one way to select the columns.</li>
+<li>Select all columns with the name <strong>wealth</strong>. <em>Note.</em> Try using <code>starts_with()</code>or <code>contains()</code>.</li>
+<li>Filter quarters that had a mean income of over 60000 in the year 2017. What are the quarters?</li>
+<li>Re-order by <strong>year</strong> and <strong>wealth_median.</strong></li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

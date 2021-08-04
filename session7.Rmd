@@ -25,7 +25,17 @@ In the previous session, you learned how you can systematically explore your dat
 
 ### Assignment
 
+Download and read the **verbrechen** data from [our Github page](https://github.com/cdsbasel/rtraining/tree/main/data), or read it directly using this url: https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv
 
+  1. Look at the data using the functions that you have learned in the previous sessions to get a general idea of the variables. You can use e.g. `group_by(), summarize() and filter()`. Some ideas for questions are: What is the minimum, mean and maximum number of `verbrechen` by state? What type of `verbrechen` is the most common type?
+  2. Make a Scatterplot between `bevoelkerung` and a type of crime of your choice. Adjust the colour or shape of the dots to show the different states or counties. You will have to use the functions mentioned above to first manipulate your data.
+  
+  **Tip 1:** To show the thousand separators in the axis labels, add `scale_y_continuous(labels = comma) + scale_x_continuous(labels = comma)` from the package `scales` in your code.
+  
+Here is an example of a scatterplot:
+  
+![](resources/session7/crime_in_the_states.png)
 
+**Tip 2:** Of course, there is a ggplot2 cheatsheet for [*Data Visualization*](resources/session7/data-visualization-2.1.pdf) as well :)
 
 

@@ -20,14 +20,14 @@ We will be focusing on [ggplot2](https://ggplot2.tidyverse.org/), a package part
 
 **Tip 2:** Check out the [R graph gallery](https://www.r-graph-gallery.com/) for an example of graphics and code.
 
-## Assignment
+### Assignment
 
 
 In our Github page, there is a data called *taxation*, which is data from Basel on income and inequality. 
 
-  1. Create a dataset called **taxation** using the file on our Github page. This time, download the data on your computer and read it in R locally. 
+  1. Create a data set called **taxation** using the file on our Github page. This time, download the data on your computer and read it in R locally. 
 
-  2. Create a plot using this dataset. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs. 
+  2. Create a plot using this data set. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs. 
   
 Below is an example of a plot showing the median income of the quarters by year. *Note.* If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable "quarter" with `arrange()` and turn it into a factor with `mutate()`.
   

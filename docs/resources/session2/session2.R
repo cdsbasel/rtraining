@@ -2,11 +2,14 @@
 ### Session 2: Visualization Basics
 ### 02.08.21
 
+# set working directory to project folder
+setwd("C:/Users/HOME/Desktop/CDS/R_Training/rtraining")
 
 library(tidyverse)
-my_data <- read_csv(file.choose())
+taxation <- read_csv("data/taxation.csv")
 
-my_plot <- my_data %>%
+# make plot as 'my_plot'
+my_plot <- taxation %>%
   arrange(year, income_median) %>%
   mutate(quarter = as_factor(quarter)) %>%
   ggplot(aes(x = year, 
@@ -26,6 +29,7 @@ my_plot <- my_data %>%
      subtitle = "Income development in Basel Quarters",
      caption = "Source: Open Data from Basel City")
 
+# save plot
 ggsave(filename = "inequality_basel.png",
        plot = my_plot,
        device = "png",
