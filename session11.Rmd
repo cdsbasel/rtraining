@@ -1,14 +1,14 @@
 ---
-title: "Tidy your Data: Join Data Sets"
+title: "Tidy your Data: Long and Wide Format with tidyr"
 description: |
-  **Session 10**: Join Data Sets
+  **Session 11**: Long and Wide Format with tidyr
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### 10.1 Tidying data
+### 11.1 Tidying data
 
 Often observations are spread across multiple data sets, and you will have to join data sets into one single table. 
 

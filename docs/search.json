@@ -85,16 +85,16 @@
       "title": "Tidy your Data: Reshape Data",
       "description": "**Session 8**: Reshape Data",
       "author": [],
-      "contents": "\r\n\r\nContents\r\n8.1 Tidying data\r\n\r\n8.1 Tidying data\r\n In order to work with your data more efficiently, you should store it as a tidydata In tidy data, each variable forms a column, and each observation forms a row. This is crucial for data manipulation, visualization and further analyses. If you keep all your data tidy, you will not have to spend hours transforming one format of data into another, in order to run analyses or to make graphics in R.\r\nIn the last 4 sessions, you will learn how to tidy your data with ease. For this session, you will familiarize yourself with the functions gather() and spread(), with which you can manipulate the layout of your dataset.\r\nGo through the RStudio Primer 4.1 Reshape Data.\r\nTip 1: The cheatsheet Data Wrangling with dplyr and tidyr has visual examples of what the tidying functions do to the dataset, which will be of use in these last sessions.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-08-04T18:17:21+09:00"
+      "contents": "\r\n\r\nContents\r\n8.1 Tidying data\r\n\r\n8.1 Tidying data\r\n In order to work with your data more efficiently, you should store it as tidydata. In tidy data, each variable forms a column, and each observation forms a row. This is crucial for data manipulation, visualization and further analyses. If you keep all your data tidy, you will not have to spend hours transforming one format of data into another, in order to run analyses or to make graphics in R.\r\nIn the last 4 sessions, you will learn how to tidy your data with ease. For this session, you will familiarize yourself with the functions pivot_longer() and pivot_wider(), which are modern alternatives to gather() and spread(). With pivot_longer() and pivot_wider(), you can manipulate the layout of your data set.\r\nGo through the Tidy Data Topic in RStudio Primer 4.1 Reshape Data. Then, read the chapter Pivoting in R for Data Science and complete the exercises there.\r\nTip 1: The cheatsheet Data Wrangling with dplyr and tidyr has visual examples of what the tidying functions do to the data set, which will be of use in these last sessions.\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-05T14:17:23+09:00"
     },
     {
       "path": "session9.html",
       "title": "Tidy your Data: Separate and Unite Columns",
       "description": "**Session 9**: Separate and Unite Columns",
       "author": [],
-      "contents": "\r\n\r\nContents\r\n9.1 Tidying data\r\n\r\n9.1 Tidying data\r\nIn the last session, you learned how to use gather() and spread() to tidy the layout of your data. In this session, you will learn how to separate or combine cells using separate() and unite().\r\nGo through the RStudio Primer 4.2 Separate and Unite Columns.\r\n\r\n\r\n\r\n",
-      "last_modified": "2021-08-04T18:19:32+09:00"
+      "contents": "\r\n\r\nContents\r\n9.1 Tidying data\r\n\r\n9.1 Tidying data\r\nIn the last session, you learned how to use pivot_longer() and pivot_wider() to tidy the layout of your data. In this session, you will learn how to separate or combine cells using separate() and unite().\r\nGo through the RStudio Primer 4.2 Separate and Unite Columns.\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-08-05T14:20:11+09:00"
     }
   ],
   "collections": []
