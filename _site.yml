@@ -31,10 +31,8 @@ navbar:
         href: session9.html
       - text: "10: Join Data Sets"
         href: session10.html
-      - text: "11: Long and Wide Format with tidyr"
+      - text: "11: Review"
         href: session11.html
-      - text: "12: Review"  
-        href: session12.html
         search: true
 output:   
   distill::distill_article:
