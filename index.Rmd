@@ -48,7 +48,7 @@ Please note that this site is *work-in-progress* and will be updated throughout 
 | 8 | Tidy your Data | [Reshape Data](session8.html) |
 | 9 | Tidy your Data | [Separate and Unite Columns](session9.html) |
 | 10 | Tidy your Data | [Join Data Sets](session10.html) |
-| 11 | Tidy your Data | [Review and Meeting with CDS Team](session11.html) |
+| 11 | Review | [Review and Meeting with CDS Team](session11.html) |
 
 :::
 

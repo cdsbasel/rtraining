@@ -8,13 +8,18 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### 9.1 Tidying data
+## 9.1 Tidying data
 
 In the last session, you learned how to use `pivot_longer()` and `pivot_wider()` to tidy the layout of your data. In this session, you will learn how to separate or combine cells using `separate()` and `unite()`.
 
 **Go through the RStudio Primer 4.2 [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.2).**
   
 
+### Assignment
+
+Reload the `billboard` dataset from the package `tidyr`.
+
+  1. Separate the column `data.entered` into three new columns containing the corresponding values: `year`, `month` and `date`.
 
 
 

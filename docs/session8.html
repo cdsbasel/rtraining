@@ -2084,8 +2084,7 @@ S1 (Fall)
 <a href="session8.html">8: Reshape Data</a>
 <a href="session9.html">9: Separate and Unite Columns</a>
 <a href="session10.html">10: Join Data Sets</a>
-<a href="session11.html">11: Long and Wide Format with tidyr</a>
-<a href="session12.html">12: Review</a>
+<a href="session11.html">11: Review</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2109,15 +2108,25 @@ S1 (Fall)
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#tidying-data">8.1 Tidying data</a></li>
+<li><a href="#tidying-data">8.1 Tidying data</a>
+<ul>
+<li><a href="#assignment">Assignment</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
-<h3 id="tidying-data">8.1 Tidying data</h3>
+<h2 id="tidying-data">8.1 Tidying data</h2>
 <p><img src="resources/session8/tidy_data.png" /> In order to work with your data more efficiently, you should store it as <em>tidydata</em>. In tidy data, each variable forms a <strong>column</strong>, and each observation forms a <strong>row.</strong> This is <em>crucial</em> for data manipulation, visualization and further analyses. If you keep all your data tidy, you will not have to spend hours transforming one format of data into another, in order to run analyses or to make graphics in R.</p>
 <p>In the last 4 sessions, you will learn how to tidy your data with ease. For this session, you will familiarize yourself with the functions <code>pivot_longer()</code> and <code>pivot_wider()</code>, which are modern alternatives to <code>gather()</code> and <code>spread()</code>. With <code>pivot_longer()</code> and <code>pivot_wider()</code>, you can manipulate the layout of your data set.</p>
 <p><strong>Go through the <em>Tidy Data</em> Topic in RStudio Primer 4.1 <a href="https://rstudio.cloud/learn/primers/4.1">Reshape Data</a>.</strong> Then, <strong>read the chapter <a href="https://r4ds.had.co.nz/tidy-data.html#pivoting"><em>Pivoting</em></a> in <em>R for Data Science</em> and complete the exercises there.</strong></p>
 <p><strong>Tip 1:</strong> The cheatsheet <a href="resources/session8/data-wrangling.pdf"><em>Data Wrangling with dplyr and tidyr</em></a> has visual examples of what the tidying functions do to the data set, which will be of use in these last sessions.</p>
+<h3 id="assignment">Assignment</h3>
+<p>For this assignment, you will use the <code>billboard</code> dataset that comes with the <code>tidyr()</code> package. This dataset shows the billboard rank of songs in the year 2000.</p>
+<ol type="1">
+<li>Look the the <code>billboard</code> data set. You will need to load <code>tidyr()</code> and <code>dplyr()</code> individually, because the data set is embedded in the packages.</li>
+<li>Using a pivot function, make a new dataset called <code>billboard_longer</code>, and store the weeks to a variable named <code>week</code> and the values to <code>rank</code>. Drop the missing values.</li>
+<li>Calculate the average rank of each song. Which three songs have the highest average rank? Did you know these songs already?</li>
+</ol>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

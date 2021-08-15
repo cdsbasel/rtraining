@@ -8,11 +8,18 @@ description: |
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-### 10.1 Tidying data
+## 10.1 Tidying data
 
 Often observations are spread across multiple data sets, and you will have to join data sets into one single table. 
 
 **Go through the RStudio Primer 4.3 [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.3)** and learn about the different functions to join data sets.
+
+### Assignment
+
+For this assignment, we will be joining the dataset **taxation** we used in Session 2 and 4 and a dataset from **Open Data Basel City**.
+You can download this new dataset from [this webpage](https://data.bs.ch/explore/dataset/100011/information/?disjunctive.publikationsjahr&disjunctive.wohnviertel_id&disjunctive.wohnviertel_name&sort=-publikationsjahr) and call it **kennzahlen_basel**.
+
+  1. Look at the two datasets. Join the **kennzahlen_basel** to the **taxation** dataset by year and quarter, retaining only the years that are present in both datasets (2015 to 2017).
 
 
   
