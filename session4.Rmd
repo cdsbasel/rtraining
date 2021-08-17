@@ -27,9 +27,33 @@ When you have your dataset loaded and ready to go, you will first need to look a
 
 ### Assignment
 
-We will be using the **taxation** data set from Session 2. 
+We will be using the **taxation** data set from Session 2. The four assignments do not build upon each other.
 
   1. Select the columns **year, quarter, income_mean** and **income_median** using `select()`. Try to figure out more than one way to select the columns.
   2. Select all columns with the name **wealth**. *Note.* Try using `starts_with()`or `contains()`.
   3. Filter quarters that had a mean income of over 60000 in the year 2017. What are the quarters?
-  4. Re-order by **year** and **wealth_median.** 
+  4. Arrange rows by **year** and **income_mean** The output should look like this:
+```{r include=TRUE}
+library(tidyverse)
+taxation <- read_csv("data/taxation.csv")
+taxation %>% arrange(year, income_mean)
+```
+
+### Solution
+``` {r echo = T, results = 'hide'}
+library(tidyverse)
+taxation <- read_csv("data/taxation.csv")
+
+ select columns
+taxation %>% select(year, quarter, income_mean, income_median)
+taxation %>% select(!c(quarter_no, N, income_gini, wealth_mean, wealth_median, wealth_gini))
+
+ select columns starting with "wealth"
+taxation %>% select(starts_with("wealth"))
+
+ filter by year 2017 and mean income over 60000
+taxation %>% filter(income_mean >60000 & year == 2017)
+
+ arrange rows by year and mean income
+taxation %>% arrange(year, income_mean)
+```

@@ -22,7 +22,6 @@ We will be focusing on [ggplot2](https://ggplot2.tidyverse.org/), a package part
 
 ### Assignment
 
-
 In our Github page, there is a data called *taxation*, which is data from Basel on income and inequality. 
 
   1. Create a data set called **taxation** using the file on our Github page. This time, download the data on your computer and read it in R locally. 
@@ -31,6 +30,40 @@ In our Github page, there is a data called *taxation*, which is data from Basel 
   
 Below is an example of a plot showing the median income of the quarters by year. *Note.* If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable "quarter" with `arrange()` and turn it into a factor with `mutate()`.
   
-  ![](resources/session2/inequality_basel.png)
+![](resources/session2/inequality_basel.png)
   
-  
+
+### Solution
+``` {r echo = T, results = 'hide'}
+library(tidyverse)
+taxation <- read_csv("data/taxation.csv")
+
+# make plot as 'my_plot'
+my_plot <- taxation %>%
+  arrange(year, income_median) %>%
+  mutate(quarter = as_factor(quarter)) %>%
+  ggplot(aes(x = year, 
+           y = income_median, 
+           col = quarter)) +
+  geom_line() + 
+  geom_point() +
+  theme_minimal() +
+  theme(
+    legend.position = "bottom",
+    legend.title = element_blank(),
+    # reduce legend text size
+    legend.text = element_text(size = 7)) +
+  labs(x = "Year",
+     y = "Median income",
+     title = "Inequality in Basel",
+     subtitle = "Income development in Basel Quarters",
+     caption = "Source: Open Data from Basel City")
+
+# save plot
+ggsave(filename = "inequality_basel.png",
+       plot = my_plot,
+       device = "png",
+       path = "resources/session2",
+       width = 7, 
+       height = 7)
+```
