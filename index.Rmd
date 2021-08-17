@@ -1,9 +1,7 @@
 ---
-title: "R Training for Master Students at the CDS"
+title: "R Training for Master Students at the Center for Cognitive Decision Sciences (CDS)"
 description: |
-  Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This training is a part of the CDS Masterproject.
-  
-  **Instructor:** [Rui Mata](https://psychologie.unibas.ch/de/personen/rui-mata/about-me/), University of Basel
+  Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This training is a part of the [CDS Masterproject](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/msc-project/).
   
   **Last updated:** `r format(Sys.time(), "%a %b %d %X %Y")`
   
@@ -25,32 +23,15 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ![An overview of the R Training Program timeline - see specific topics below](resources/CDS_R_Training.png)
 
-## S1 (Fall): Basic R skills
-
-For the first semester (S1 Fall), there are 10 topics for four modules in this R training. For each topic, we have compiled different online materials for you to go through, as well as assignments for you to test your skills. This program is largely based on the great online tutorials from RStudio called [Primers](https://rstudio.cloud/learn/primers). This training is a self-guided learning, which allows you to engage with the material at your own pace and at times that suit you the most. These topics will help you acquire basic skills in R, which will be most useful in the upcoming CDS Hackathons. 
-
-Each session takes around 1-2 hours. The deadline to complete all sessions is by XXX, where you will have a meeting with our CDS team members to review and discuss your progress. For any questions, please write to our PhD student [Yunrui Lui](yunrui.liu@unibas.ch). 
-
 Please note that this site is *work-in-progress* and will be updated throughout the HS21 semester.
 
+## [S1 (Fall): Basic R skills](session0.html)
 
+## S2 (Spring): Intermediate R skills
+To be announced
 
-::: l-body
-| # | Modul     | Topic                         |
-|---| ---------|-------------------------------|
-| 1 | The Basics | [Introduction](session1.html) |
-| 2 | The Basics | [Visualization Basics](session2.html) |
-| 3 | The Basics | [Programming Basics](session3.html) ||
-| 4 | Work with Data | [Working with Tibbles/Isolating Data with dplyr](session4.html) |
-| 5 | Work with Data | [Derive Information with dplyr](session5.html) |
-| 6 | Visualize Data | [Exploratory Data Analysis](session6.html) |
-| 7 | Visualize Data | [Charts and Plots](session7.html) |
-| 8 | Tidy your Data | [Reshape Data](session8.html) |
-| 9 | Tidy your Data | [Separate and Unite Columns](session9.html) |
-| 10 | Tidy your Data | [Join Data Sets](session10.html) |
-| 11 | Review | [Review and Meeting with CDS Team](session11.html) |
-
-:::
+## S3 (Fall): Advanced R skills
+To be announced
 
 ## Tips to getting started
 
