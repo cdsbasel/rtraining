@@ -15,7 +15,7 @@ Each session takes around 1-2 hours. The deadline to complete all sessions is by
 
 
 ::: l-body
-| # | Modul     | Topic                         |
+| # | Module     | Topic                         |
 |---| ---------|-------------------------------|
 | 1 | The Basics | [Getting Started](session1.html) |
 | 2 | The Basics | [Visualization Basics](session2.html) |
