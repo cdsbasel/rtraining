@@ -2112,6 +2112,7 @@ S1 (Fall)
 <li><a href="#tidying-data">10.1 Tidying data</a>
 <ul>
 <li><a href="#assignment">Assignment</a></li>
+<li><a href="#solution">Solution</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2122,9 +2123,56 @@ S1 (Fall)
 <h3 id="assignment">Assignment</h3>
 <p>For this assignment, we will be joining the dataset <strong>taxation</strong> we used in Session 2 and 4 and a dataset from <strong>Open Data Basel City</strong>. You can download this new dataset from <a href="https://data.bs.ch/explore/dataset/100011/information/?disjunctive.publikationsjahr&amp;disjunctive.wohnviertel_id&amp;disjunctive.wohnviertel_name&amp;sort=-publikationsjahr">this webpage</a> and call it <strong>kennzahlen_basel</strong>.</p>
 <ol type="1">
-<li>Look at the two datasets. Join the <strong>kennzahlen_basel</strong> to the <strong>taxation</strong> dataset by year and quarter, retaining only the years that are present in both datasets (2015 to 2017).</li>
+<li>Look at the two datasets. Join the <strong>kennzahlen_basel</strong> to the <strong>taxation</strong> dataset by year and quarter, retaining only the years that are present in both datasets (2015 to 2017). Your output should look like this:</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="layout-chunk" data-layout="l-body">
+<pre style="max-height: 100px;"><code># A tibble: 63 x 29
+    year quarter            quarter_no     N income_mean income_median
+   &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
+ 1  2015 Altstadt Grossbas~          1  1675       98117         51000
+ 2  2015 Vorstädte                   2  2999       99422         58511
+ 3  2015 Am Ring                     3  6239       75841         52788
+ 4  2015 Breite                      4  5497       56292         47242
+ 5  2015 St. Alban                   5  6439      100470         61125
+ 6  2015 Gundeldingen                6 11541       55575         47248
+ 7  2015 Bruderholz                  7  4986      115298         65114
+ 8  2015 Bachletten                  8  8112       77778         57698
+ 9  2015 Gotthelf                    9  4191       63532         50790
+10  2015 Iselin                     10  9739       51788         44777
+# ... with 53 more rows, and 23 more variables: income_gini &lt;dbl&gt;,
+#   wealth_mean &lt;dbl&gt;, wealth_median &lt;dbl&gt;, wealth_gini &lt;dbl&gt;,
+#   Wohnviertel ID &lt;dbl&gt;, Anteil Sozialhilfeempfänger &lt;chr&gt;,
+#   Anteil Ausländer &lt;chr&gt;,
+#   Anteil Personen ohne Religionszugehörigkeit &lt;chr&gt;,
+#   Anteil Personen in Einpersonenhaushalten &lt;chr&gt;,
+#   Gymnasialquote &lt;chr&gt;, Altersquotient &lt;chr&gt;,
+#   Anteil Sesshafte &lt;chr&gt;, Jugendquotient &lt;chr&gt;,
+#   Baujahr der Wohngebäude &lt;dbl&gt;, Anteil Einfamilienhäuser &lt;chr&gt;,
+#   Anteil Grünflächen &lt;chr&gt;, Fläche pro Wohnung &lt;dbl&gt;,
+#   Wohnfläche pro Person &lt;dbl&gt;,
+#   Vermögenssteuer pro Veranlagung &lt;dbl&gt;,
+#   Einkommenssteuer pro Veranlagung &lt;dbl&gt;,
+#   Erwerbstätigenquote &lt;chr&gt;, Arbeitsplätze pro Einwohner &lt;chr&gt;,
+#   Arbeitslosenquote &lt;chr&gt;</code></pre>
+</div>
+<h3 id="solution">Solution</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>taxation</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/taxation.csv"</span><span class='op'>)</span>
+<span class='va'>kennzahlen_basel</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv2</span><span class='op'>(</span><span class='st'>"data/kennzahlen_basel.csv"</span><span class='op'>)</span> 
+
+<span class='co'># change the variable name in kennzahlen_basel to match taxation</span>
+<span class='va'>kennzahlen_basel</span> <span class='op'>&lt;-</span> <span class='va'>kennzahlen_basel</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>rename</span><span class='op'>(</span>year <span class='op'>=</span> <span class='va'>Publikationsjahr</span>,
+         quarter <span class='op'>=</span> <span class='va'>`Wohnviertel Name`</span><span class='op'>)</span>
+
+<span class='co'># join datasets by year and county</span>
+<span class='va'>combined_data</span> <span class='op'>&lt;-</span> <span class='va'>taxation</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>inner_join</span><span class='op'>(</span><span class='va'>kennzahlen_basel</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"year"</span>, <span class='st'>"quarter"</span><span class='op'>)</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

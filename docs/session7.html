@@ -2112,6 +2112,7 @@ S1 (Fall)
 <li><a href="#making-graphics">7.1 Making graphics</a>
 <ul>
 <li><a href="#assignment">Assignment</a></li>
+<li><a href="#solution">Solution</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2138,6 +2139,42 @@ S1 (Fall)
 <p>Here is an example of a scatterplot:</p>
 <p><img src="resources/session7/crime_in_the_states.png" /></p>
 <p><strong>Tip 2:</strong> Of course, there is a ggplot2 cheatsheet for <a href="resources/session7/data-visualization-2.1.pdf"><em>Data Visualization</em></a> as well :)</p>
+<h3 id="solution">Solution</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://scales.r-lib.org'>scales</a></span><span class='op'>)</span> <span class='co'># to later add commas to the axis numbers</span>
+<span class='va'>verbrechen</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/verbrechen.csv"</span><span class='op'>)</span>
+
+<span class='co'># for axis numbers</span>
+<span class='fu'><a href='https://rdrr.io/r/base/options.html'>options</a></span><span class='op'>(</span>scipen<span class='op'>=</span><span class='fl'>10000</span><span class='op'>)</span>
+
+<span class='co'># make plot as 'my_plot'</span>
+<span class='va'>my_plot</span> <span class='op'>&lt;-</span> <span class='va'>verbrechen</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>verbrechen</span> <span class='op'>==</span> <span class='st'>"diebstahl"</span> <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>staat</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarise</span><span class='op'>(</span>sum <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>haeufigkeit</span><span class='op'>)</span>,
+            population <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>bevoelkerung</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>population</span>, 
+             y <span class='op'>=</span> <span class='va'>sum</span>, 
+             col <span class='op'>=</span> <span class='va'>staat</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>geom_point</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>3</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme_minimal</span><span class='op'>(</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>theme</span><span class='op'>(</span>
+    legend.position <span class='op'>=</span> <span class='st'>"bottom"</span>,
+    legend.title <span class='op'>=</span> <span class='fu'>element_blank</span><span class='op'>(</span><span class='op'>)</span>,
+    <span class='co'># reduce legend text size</span>
+    legend.text <span class='op'>=</span> <span class='fu'>element_text</span><span class='op'>(</span>size <span class='op'>=</span> <span class='fl'>9</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>labs</span><span class='op'>(</span>x <span class='op'>=</span> <span class='st'>"Population"</span>,
+       y <span class='op'>=</span> <span class='st'>"Frequency"</span>,
+       title <span class='op'>=</span> <span class='st'>"Crime in the States"</span>,
+       subtitle <span class='op'>=</span> <span class='st'>"Relationship between Population and Frequency of Theft by State"</span>,
+       caption <span class='op'>=</span> <span class='st'>"Source: Open Data from UCI Machine Learning Repository"</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_y_continuous</span><span class='op'>(</span>labels <span class='op'>=</span> <span class='va'>comma</span><span class='op'>)</span> <span class='op'>+</span>
+  <span class='fu'>scale_x_continuous</span><span class='op'>(</span>labels <span class='op'>=</span> <span class='va'>comma</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

@@ -39,21 +39,19 @@ taxation <- read_csv("data/taxation.csv")
 taxation %>% arrange(year, income_mean)
 ```
 
+
 ### Solution
 ``` {r echo = T, results = 'hide'}
-library(tidyverse)
-taxation <- read_csv("data/taxation.csv")
-
- select columns
+# select columns
 taxation %>% select(year, quarter, income_mean, income_median)
 taxation %>% select(!c(quarter_no, N, income_gini, wealth_mean, wealth_median, wealth_gini))
 
- select columns starting with "wealth"
+# select columns starting with "wealth"
 taxation %>% select(starts_with("wealth"))
 
- filter by year 2017 and mean income over 60000
+# filter quarters
 taxation %>% filter(income_mean >60000 & year == 2017)
 
- arrange rows by year and mean income
+# arrange rows 
 taxation %>% arrange(year, income_mean)
 ```

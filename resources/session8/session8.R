@@ -1,6 +1,6 @@
 ### R Training
 ### Session 8: Reshape Data
-### 12.08.21
+
 
 # load packages individually, in order to load the "billboard" dataset
 library(tidyr)

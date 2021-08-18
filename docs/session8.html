@@ -2112,6 +2112,7 @@ S1 (Fall)
 <li><a href="#tidying-data">8.1 Tidying data</a>
 <ul>
 <li><a href="#assignment">Assignment</a></li>
+<li><a href="#solution">Solution</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2126,9 +2127,49 @@ S1 (Fall)
 <ol type="1">
 <li>Look the the <code>billboard</code> data set. You will need to load <code>tidyr()</code> and <code>dplyr()</code> individually, because the data set is embedded in the packages.</li>
 <li>Using a pivot function, make a new dataset called <code>billboard_longer</code>, and store the weeks to a variable named <code>week</code> and the values to <code>rank</code>. Drop the missing values.</li>
-<li>Calculate the average rank of each song. Which three songs have the highest average rank? Did you know these songs already?</li>
+<li>Calculate the average rank of each song. Which three songs have the highest average rank? Did you know these songs already? You should get a table as such:
+<div class="layout-chunk" data-layout="l-body">
+</li>
 </ol>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<pre><code># A tibble: 316 x 2
+   track                   average
+   &lt;chr&gt;                     &lt;dbl&gt;
+ 1 Maria, Maria               10.5
+ 2 Music                      13.5
+ 3 Bye Bye Bye                14.3
+ 4 Hot Boyz                   14.3
+ 5 Independent Women Pa...    14.8
+ 6 Be With You                15.8
+ 7 Try Again                  16.7
+ 8 I Knew I Loved You         17.4
+ 9 My Love Is Your Love       17.9
+10 There U Go                 18.6
+# ... with 306 more rows</code></pre>
+</div>
+<h3 id="solution">Solution</h3>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># load packages individually, in order to load the "billboard" dataset</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://tidyr.tidyverse.org'>tidyr</a></span><span class='op'>)</span>
+<span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
+
+<span class='va'>billboard_longer</span> <span class='op'>&lt;-</span> <span class='va'>billboard</span> <span class='op'>%&gt;%</span> 
+  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/pivot_longer.html'>pivot_longer</a></span><span class='op'>(</span>
+    cols <span class='op'>=</span> <span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>starts_with</a></span><span class='op'>(</span><span class='st'>"wk"</span><span class='op'>)</span>, 
+    names_to <span class='op'>=</span> <span class='st'>"week"</span>, 
+    names_prefix <span class='op'>=</span> <span class='st'>"wk"</span>,
+    values_to <span class='op'>=</span> <span class='st'>"rank"</span>,
+    values_drop_na <span class='op'>=</span> <span class='cn'>TRUE</span>,
+  <span class='op'>)</span>
+
+<span class='va'>billboard_longer</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>track</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>average <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/mean.html'>mean</a></span><span class='op'>(</span><span class='va'>rank</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>average</span><span class='op'>)</span>
+</code></pre>
+</div>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>

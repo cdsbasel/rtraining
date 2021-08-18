@@ -1,6 +1,6 @@
 ### R Training
 ### Session 7: Charts and Plots
-### 04.08.21
+
 
 # set working directory to project folder
 setwd("C:/Users/HOME/Desktop/CDS/R_Training/rtraining")

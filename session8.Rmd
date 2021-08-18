@@ -26,6 +26,44 @@ For this assignment, you will use the `billboard` dataset that comes with the `t
 
   1. Look the the `billboard` data set. You will need to load `tidyr()` and `dplyr()` individually, because the data set is embedded in the packages.
   2. Using a pivot function, make a new dataset called `billboard_longer`, and store the weeks to a variable named `week` and the values to `rank`. Drop the missing values.
-  3. Calculate the average rank of each song. Which three songs have the highest average rank? Did you know these songs already?
+  3. Calculate the average rank of each song. Which three songs have the highest average rank? Did you know these songs already? You should get a table as such:
+```{r include=TRUE}
+library(tidyr)
+library(dplyr)
 
+billboard_longer <- billboard %>% 
+  pivot_longer(
+    cols = starts_with("wk"), 
+    names_to = "week", 
+    names_prefix = "wk",
+    values_to = "rank",
+    values_drop_na = TRUE,
+  )
 
+billboard_longer %>%
+  group_by(track) %>%
+  summarise(average = mean(rank)) %>%
+  arrange(average)
+```
+  
+
+### Solution
+```{r echo = T, results = 'hide'}
+# load packages individually, in order to load the "billboard" dataset
+library(tidyr)
+library(dplyr)
+
+billboard_longer <- billboard %>% 
+  pivot_longer(
+    cols = starts_with("wk"), 
+    names_to = "week", 
+    names_prefix = "wk",
+    values_to = "rank",
+    values_drop_na = TRUE,
+  )
+
+billboard_longer %>%
+  group_by(track) %>%
+  summarise(average = mean(rank)) %>%
+  arrange(average)
+```

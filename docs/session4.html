@@ -2155,20 +2155,17 @@ S1 (Fall)
 <h3 id="solution">Solution</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='http://tidyverse.tidyverse.org'>tidyverse</a></span><span class='op'>)</span>
-<span class='va'>taxation</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/taxation.csv"</span><span class='op'>)</span>
-
-<span class='co'># select columns</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># select columns</span>
 <span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>quarter</span>, <span class='va'>income_mean</span>, <span class='va'>income_median</span><span class='op'>)</span>
 <span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>quarter_no</span>, <span class='va'>N</span>, <span class='va'>income_gini</span>, <span class='va'>wealth_mean</span>, <span class='va'>wealth_median</span>, <span class='va'>wealth_gini</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># select columns starting with "wealth"</span>
 <span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='fu'>starts_with</span><span class='op'>(</span><span class='st'>"wealth"</span><span class='op'>)</span><span class='op'>)</span>
 
-<span class='co'># filter by year 2017 and mean income over 60000</span>
+<span class='co'># filter quarters</span>
 <span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>income_mean</span> <span class='op'>&gt;</span><span class='fl'>60000</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2017</span><span class='op'>)</span>
 
-<span class='co'># arrange rows by year and mean income</span>
+<span class='co'># arrange rows </span>
 <span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_mean</span><span class='op'>)</span>
 </code></pre>
 </div>

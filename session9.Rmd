@@ -20,8 +20,29 @@ In the last session, you learned how to use `pivot_longer()` and `pivot_wider()`
 Reload the `billboard` dataset from the package `tidyr`.
 
   1. Separate the column `data.entered` into three new columns containing the corresponding values: `year`, `month` and `date`.
+  2. Reunite the three columns back into `data.entered`, but leave the three columns in the dataset. 
+  Your dataset should look like this:
+```{r include=T}
+library(tidyr)
 
+billboard_new = billboard %>%
+  separate(date.entered, into = c("year", "month", "date"), sep = "-")
 
+billboard_new %>%
+  unite(date.entered, year, month, date, sep = "-", remove = F) %>%
+  print()
+``` 
+
+### Solution
+```{r echo = T, results = 'hide'}
+library(tidyr)
+
+billboard_new = billboard %>%
+  separate(date.entered, into = c("year", "month", "date"), sep = "-")
+
+billboard_new %>%
+  unite(date.entered, year, month, date, sep = "-", remove = F)
+```
 
 
 

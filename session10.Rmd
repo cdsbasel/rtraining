@@ -20,9 +20,51 @@ For this assignment, we will be joining the dataset **taxation** we used in Sess
 You can download this new dataset from [this webpage](https://data.bs.ch/explore/dataset/100011/information/?disjunctive.publikationsjahr&disjunctive.wohnviertel_id&disjunctive.wohnviertel_name&sort=-publikationsjahr) and call it **kennzahlen_basel**.
 
   1. Look at the two datasets. Join the **kennzahlen_basel** to the **taxation** dataset by year and quarter, retaining only the years that are present in both datasets (2015 to 2017).
+  Your output should look like this:
+```{r, include=FALSE}
+options(width = 60)
+local({
+  hook_output <- knitr::knit_hooks$get('output')
+  knitr::knit_hooks$set(output = function(x, options) {
+    if (!is.null(options$max.height)) options$attr.output <- c(
+      options$attr.output,
+      sprintf('style="max-height: %s;"', options$max.height)
+    )
+    hook_output(x, options)
+  })
+})
+```
+``` {r include = T, echo = F, max.height='100px'}
+library(tidyverse)
 
+taxation <- read_csv("data/taxation.csv")
+kennzahlen_basel <- read_csv2("data/kennzahlen_basel.csv") 
 
-  
+# change the variable name in kennzahlen_basel to match taxation
+kennzahlen_basel <- kennzahlen_basel %>%
+  rename(year = Publikationsjahr,
+         quarter = `Wohnviertel Name`)
+
+# join datasets by year and county
+combined_data <- taxation %>%
+  inner_join(kennzahlen_basel, by = c("year", "quarter")) %>%
+  print()
+```
+
+### Solution
+``` {r echo = T, results = 'hide'}
+taxation <- read_csv("data/taxation.csv")
+kennzahlen_basel <- read_csv2("data/kennzahlen_basel.csv") 
+
+# change the variable name in kennzahlen_basel to match taxation
+kennzahlen_basel <- kennzahlen_basel %>%
+  rename(year = Publikationsjahr,
+         quarter = `Wohnviertel Name`)
+
+# join datasets by year and county
+combined_data <- taxation %>%
+  inner_join(kennzahlen_basel, by = c("year", "quarter"))
+```
 
 
 
