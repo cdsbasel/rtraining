@@ -2119,14 +2119,14 @@ S1 (Fall)
 </div>
 <h2 id="tidying-data">10.1 Tidying data</h2>
 <p>Often observations are spread across multiple data sets, and you will have to join data sets into one single table.</p>
-<p><strong>Go through the RStudio Primer 4.3 <a href="https://rstudio.cloud/learn/primers/4.3">Separate and Unite Columns</a></strong> and learn about the different functions to join data sets.</p>
+<p><strong>Go through the RStudio Primer <a href="https://rstudio.cloud/learn/primers/4.3">Separate and Unite Columns</a></strong> and learn about the different functions to join data sets.</p>
 <h3 id="assignment">Assignment</h3>
 <p>For this assignment, we will be joining the dataset <strong>taxation</strong> we used in Session 2 and 4 and a dataset from <strong>Open Data Basel City</strong>. You can download this new dataset from <a href="https://data.bs.ch/explore/dataset/100011/information/?disjunctive.publikationsjahr&amp;disjunctive.wohnviertel_id&amp;disjunctive.wohnviertel_name&amp;sort=-publikationsjahr">this webpage</a> and call it <strong>kennzahlen_basel</strong>.</p>
 <ol type="1">
 <li>Look at the two datasets. Join the <strong>kennzahlen_basel</strong> to the <strong>taxation</strong> dataset by year and quarter, retaining only the years that are present in both datasets (2015 to 2017). Your output should look like this:</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
-<pre style="max-height: 100px;"><code># A tibble: 63 x 29
+<pre><code># A tibble: 63 x 29
     year quarter            quarter_no     N income_mean income_median
    &lt;dbl&gt; &lt;chr&gt;                   &lt;dbl&gt; &lt;dbl&gt;       &lt;dbl&gt;         &lt;dbl&gt;
  1  2015 Altstadt Grossbas~          1  1675       98117         51000
@@ -2163,12 +2163,12 @@ S1 (Fall)
 
 <span class='co'># change the variable name in kennzahlen_basel to match taxation</span>
 <span class='va'>kennzahlen_basel</span> <span class='op'>&lt;-</span> <span class='va'>kennzahlen_basel</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>rename</span><span class='op'>(</span>year <span class='op'>=</span> <span class='va'>Publikationsjahr</span>,
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/rename.html'>rename</a></span><span class='op'>(</span>year <span class='op'>=</span> <span class='va'>Publikationsjahr</span>,
          quarter <span class='op'>=</span> <span class='va'>`Wohnviertel Name`</span><span class='op'>)</span>
 
 <span class='co'># join datasets by year and county</span>
 <span class='va'>combined_data</span> <span class='op'>&lt;-</span> <span class='va'>taxation</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>inner_join</span><span class='op'>(</span><span class='va'>kennzahlen_basel</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"year"</span>, <span class='st'>"quarter"</span><span class='op'>)</span><span class='op'>)</span>
+  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate-joins.html'>inner_join</a></span><span class='op'>(</span><span class='va'>kennzahlen_basel</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"year"</span>, <span class='st'>"quarter"</span><span class='op'>)</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>

@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Often observations are spread across multiple data sets, and you will have to join data sets into one single table. 
 
-**Go through the RStudio Primer 4.3 [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.3)** and learn about the different functions to join data sets.
+**Go through the RStudio Primer [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.3)** and learn about the different functions to join data sets.
 
 ### Assignment
 
@@ -21,20 +21,8 @@ You can download this new dataset from [this webpage](https://data.bs.ch/explore
 
   1. Look at the two datasets. Join the **kennzahlen_basel** to the **taxation** dataset by year and quarter, retaining only the years that are present in both datasets (2015 to 2017).
   Your output should look like this:
-```{r, include=FALSE}
-options(width = 60)
-local({
-  hook_output <- knitr::knit_hooks$get('output')
-  knitr::knit_hooks$set(output = function(x, options) {
-    if (!is.null(options$max.height)) options$attr.output <- c(
-      options$attr.output,
-      sprintf('style="max-height: %s;"', options$max.height)
-    )
-    hook_output(x, options)
-  })
-})
-```
-``` {r include = T, echo = F, max.height='100px'}
+
+``` {r include = T, echo = F}
 library(tidyverse)
 
 taxation <- read_csv("data/taxation.csv")

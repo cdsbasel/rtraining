@@ -14,7 +14,7 @@ There are many ways to Rome, and there are many ways to create a graphic using d
 
 We will be focusing on [ggplot2](https://ggplot2.tidyverse.org/), a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details. 
 
-**Go through the RStudio Primer 1.1 on [Data Visualization Basics](https://rstudio.cloud/learn/primers/1.1)** and **complete the assignments below.**
+**Go through the RStudio Primer on [Data Visualization Basics](https://rstudio.cloud/learn/primers/1.1)** and **complete the assignments below.**
 
 **Tip 1:** Again, cheatsheets will make your (R) life easy! Click [here](resources/session1/data-visualization-2.1.pdf) to download the cheatsheet for *Data Visualization with ggplot2*.
 
@@ -24,7 +24,7 @@ We will be focusing on [ggplot2](https://ggplot2.tidyverse.org/), a package part
 
 In our Github page, there is a data called *taxation*, which is data from Basel on income and inequality. 
 
-  1. Create a data set called **taxation** using the file on our Github page. This time, download the data on your computer and read it in R locally. 
+  1. Create a data set called **taxation** using the file on our Github page. This time, download the data on your computer and read it in R locally. Click [this link](https://github.com/cdsbasel/rtraining/tree/main/data) to access the folder.
 
   2. Create a plot using this data set. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs. 
   

@@ -2124,7 +2124,7 @@ S1 (Fall)
 <p><strong>Go through the RStudio Primer 2.1 on <a href="https://rstudio.cloud/learn/primers/2.1">Working with Tibbles</a>,</strong> which will give you a sneak peak into the world of tibbles. If you want to learn more on tibbles and data frames, we highly recommend reading the <a href="https://r4ds.had.co.nz/tibbles.html">tibbles chapter</a> in <em>R for Data Science</em>.</p>
 <h2 id="isolating-data-with-dplyr">4.2 Isolating Data with dplyr</h2>
 <p>When you have your dataset loaded and ready to go, you will first need to look at your data and make some changes before computing analyses or making visualizations. With the <code>dplyr</code> package, you can easily manipulate and transform your data so that you can work with it much better. In this and the following session, you will learn about a few of the most important and useful functions for data manipulation. These functions are <em>essential</em> for working with data in R, so take some time to understand them thoroughly and play around with them on your own data!</p>
-<p><strong>Go through the RStudio Primer 2.2 on <a href="https://rstudio.cloud/learn/primers/2.2">Isolating Data with dplyr</a>,</strong> and <strong>complete the assignments below.</strong></p>
+<p><strong>Go through the RStudio Primer on <a href="https://rstudio.cloud/learn/primers/2.2">Isolating Data with dplyr</a>,</strong> and <strong>complete the assignments below.</strong></p>
 <p><strong>Tip 1:</strong> <code>dplyr</code> also has a cheatsheet for you - download it <a href="resources/session4/data-transformation.pdf">here</a>.</p>
 <h3 id="assignment">Assignment</h3>
 <p>We will be using the <strong>taxation</strong> data set from Session 2. The four assignments do not build upon each other.</p>
@@ -2155,18 +2155,20 @@ S1 (Fall)
 <h3 id="solution">Solution</h3>
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='co'># select columns</span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>quarter</span>, <span class='va'>income_mean</span>, <span class='va'>income_median</span><span class='op'>)</span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>quarter_no</span>, <span class='va'>N</span>, <span class='va'>income_gini</span>, <span class='va'>wealth_mean</span>, <span class='va'>wealth_median</span>, <span class='va'>wealth_gini</span><span class='op'>)</span><span class='op'>)</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>taxation</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/taxation.csv"</span><span class='op'>)</span>
+
+<span class='co'># select columns</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>quarter</span>, <span class='va'>income_mean</span>, <span class='va'>income_median</span><span class='op'>)</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>quarter_no</span>, <span class='va'>N</span>, <span class='va'>income_gini</span>, <span class='va'>wealth_mean</span>, <span class='va'>wealth_median</span>, <span class='va'>wealth_gini</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># select columns starting with "wealth"</span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='fu'>starts_with</span><span class='op'>(</span><span class='st'>"wealth"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>starts_with</a></span><span class='op'>(</span><span class='st'>"wealth"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># filter quarters</span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>income_mean</span> <span class='op'>&gt;</span><span class='fl'>60000</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2017</span><span class='op'>)</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>income_mean</span> <span class='op'>&gt;</span><span class='fl'>60000</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2017</span><span class='op'>)</span>
 
 <span class='co'># arrange rows </span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_mean</span><span class='op'>)</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_mean</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>

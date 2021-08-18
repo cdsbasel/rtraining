@@ -4,7 +4,14 @@ description: |
   Some additional details about the website
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
 
+```{css, echo=FALSE}
+.watch-out {
+  background-color: lightpink;
+  border: 3px solid red;
+  font-weight: bold;
+}
+```
+```{r include=T, class.source="watch-out"}
+mtcars[1:5, "mpg"]
+```

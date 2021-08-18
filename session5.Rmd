@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 In this session, you will continue learning data manipulation with `dplyr`.
 
-**Go through the RStudio Primer 2.3 on [Derive Information with dplyr](https://rstudio.cloud/learn/primers/2.3),** and **complete the assignments below.**
+**Go through the RStudio Primer on [Derive Information with dplyr](https://rstudio.cloud/learn/primers/2.3),** and **complete the assignments below.**
 
 ### Assignment
  
@@ -23,6 +23,7 @@ Using the **taxation** dataset, complete the following tasks:
   
 ```{r include=FALSE, echo=FALSE}
 library(tidyverse)
+
 taxation <- read_csv("data/taxation.csv")
 taxation = mutate(taxation, income_labels = case_when(income_mean < 50000 ~ "1",
                                               income_mean >= 50000 & income_mean < 80000 ~ "2",
@@ -38,7 +39,6 @@ new_taxation = taxation %>%
 
 ### Solution
 ```{r echo = T, results = 'hide'}
-library(tidyverse)
 taxation <- read_csv("data/taxation.csv")
 
 # create new column

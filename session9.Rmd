@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 In the last session, you learned how to use `pivot_longer()` and `pivot_wider()` to tidy the layout of your data. In this session, you will learn how to separate or combine cells using `separate()` and `unite()`.
 
-**Go through the RStudio Primer 4.2 [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.2).**
+**Go through the RStudio Primer [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.2).**
   
 
 ### Assignment
@@ -35,8 +35,6 @@ billboard_new %>%
 
 ### Solution
 ```{r echo = T, results = 'hide'}
-library(tidyr)
-
 billboard_new = billboard %>%
   separate(date.entered, into = c("year", "month", "date"), sep = "-")
 

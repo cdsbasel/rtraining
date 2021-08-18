@@ -21,7 +21,7 @@ According to the [tibble documentation](https://tibble.tidyverse.org/), tibbles 
 
 When you have your dataset loaded and ready to go, you will first need to look at your data and make some changes before computing analyses or making visualizations. With the `dplyr` package, you can easily manipulate and transform your data so that you can work with it much better. In this and the following session, you will learn about a few of the most important and useful functions for data manipulation. These functions are *essential* for working with data in R, so take some time to understand them thoroughly and play around with them on your own data!
 
-**Go through the RStudio Primer 2.2 on [Isolating Data with dplyr](https://rstudio.cloud/learn/primers/2.2),** and **complete the assignments below.**
+**Go through the RStudio Primer on [Isolating Data with dplyr](https://rstudio.cloud/learn/primers/2.2),** and **complete the assignments below.**
 
 **Tip 1:** `dplyr` also has a cheatsheet for you - download it [here](resources/session4/data-transformation.pdf).
 
@@ -41,7 +41,10 @@ taxation %>% arrange(year, income_mean)
 
 
 ### Solution
-``` {r echo = T, results = 'hide'}
+
+```{r echo = T, results = 'hide'}
+taxation <- read_csv("data/taxation.csv")
+
 # select columns
 taxation %>% select(year, quarter, income_mean, income_median)
 taxation %>% select(!c(quarter_no, N, income_gini, wealth_mean, wealth_median, wealth_gini))

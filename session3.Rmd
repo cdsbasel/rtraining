@@ -18,7 +18,7 @@ To use R while understanding it's language will help you use R more easily. In t
   - R’s basic **data structures** including vectors and lists
   - R’s **package system**
 
-**Go through the RStudio Primer 1.2 on [Programming Basics](https://rstudio.cloud/learn/primers/1.2).** 
+**Go through the RStudio Primer on [Programming Basics](https://rstudio.cloud/learn/primers/1.2).** 
 
 There are **no additional assignments** for this session. 
 
