@@ -7,6 +7,15 @@ description: |
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+<style>
+  .blackbox {
+    padding: 1em;
+    background: #b0c4cf;
+    color: black;
+    border: 2px solid #455a64;
+    border-radius: 7px;
+  }
+</style>
 
 ## 8.1 Tidying data
 
@@ -15,8 +24,11 @@ In order to work with your data more efficiently, you should store it as *tidyda
 
 In the last 4 sessions, you will learn how to tidy your data with ease. For this session, you will familiarize yourself with the functions `pivot_longer()` and `pivot_wider()`, which are modern alternatives to `gather()` and `spread()`. With `pivot_longer()` and `pivot_wider()`, you can manipulate the layout of your data set. 
 
+:::: {.blackbox data-latex=""}
 **Go through the *Tidy Data* Topic in RStudio Primer [Reshape Data](https://rstudio.cloud/learn/primers/4.1).** Then, **read the chapter [*Pivoting*](https://r4ds.had.co.nz/tidy-data.html#pivoting) in *R for Data Science* and complete the exercises there.** 
-  
+::::
+<p>&nbsp;</p>
+
 **Tip 1:** The cheatsheet [*Data Wrangling with dplyr and tidyr*](resources/session8/data-wrangling.pdf) has visual examples of what the tidying functions do to the data set, which will be of use in these last sessions. 
 
 
@@ -30,7 +42,8 @@ For this assignment, you will use the `billboard` dataset that comes with the `t
 ```{r include=TRUE}
 library(tidyr)
 library(dplyr)
-
+library(knitr)
+library(kableExtra)
 billboard_longer <- billboard %>% 
   pivot_longer(
     cols = starts_with("wk"), 
@@ -43,7 +56,10 @@ billboard_longer <- billboard %>%
 billboard_longer %>%
   group_by(track) %>%
   summarise(average = mean(rank)) %>%
-  arrange(average)
+  arrange(average)%>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(height = "300px")
 ```
   
 

@@ -7,12 +7,24 @@ description: |
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+<style>
+  .blackbox {
+    padding: 1em;
+    background: #b0c4cf;
+    color: black;
+    border: 2px solid #455a64;
+    border-radius: 7px;
+  }
+</style>
 
 ## 10.1 Tidying data
 
 Often observations are spread across multiple data sets, and you will have to join data sets into one single table. 
 
+:::: {.blackbox data-latex=""}
 **Go through the RStudio Primer [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.3)** and learn about the different functions to join data sets.
+::::
+<p>&nbsp;</p>
 
 ### Assignment
 
@@ -22,8 +34,10 @@ You can download this new dataset from [this webpage](https://data.bs.ch/explore
   1. Look at the two datasets. Join the **kennzahlen_basel** to the **taxation** dataset by year and quarter, retaining only the years that are present in both datasets (2015 to 2017).
   Your output should look like this:
 
-``` {r include = T, echo = F}
+``` {r echo = F, results = 'asis'}
 library(tidyverse)
+library(knitr)
+library(kableExtra)
 
 taxation <- read_csv("data/taxation.csv")
 kennzahlen_basel <- read_csv2("data/kennzahlen_basel.csv") 
@@ -35,8 +49,14 @@ kennzahlen_basel <- kennzahlen_basel %>%
 
 # join datasets by year and county
 combined_data <- taxation %>%
-  inner_join(kennzahlen_basel, by = c("year", "quarter")) %>%
-  print()
+  inner_join(kennzahlen_basel, by = c("year", "quarter"))
+
+combined_data %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "700px", height = "300px")
+
+
 ```
 
 ### Solution

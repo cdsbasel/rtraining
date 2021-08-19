@@ -7,6 +7,15 @@ description: |
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+<style>
+  .blackbox {
+    padding: 1em;
+    background: #b0c4cf;
+    color: black;
+    border: 2px solid #455a64;
+    border-radius: 7px;
+  }
+</style>
 
 ## 1.1 Getting Started
 
@@ -26,8 +35,11 @@ We assume that you all have some degree of experience with R in your bachelor st
 [![](resources/session1/importing_data.png)](http://www.sthda.com/english/wiki/importing-data-into-r)
 
 One of the most common, beginner problems that we run into is *loading the data in R.* Most of these problems arise because there are different functions we need to use for different file types.  
- 
-**Read [this chapter](http://www.sthda.com/english/wiki/importing-data-into-r) from the STHDA wiki page on Importing Data into R**, which provides an excellent overview of the different functions to import data from txt, csv and Excel into R and also explanations on how to use them. 
+
+:::: {.blackbox data-latex=""}
+**Read [this chapter](http://www.sthda.com/english/wiki/importing-data-into-r) from the STHDA wiki page on Importing Data into R**, which provides an excellent overview of the different functions to import data from txt, csv and Excel into R and also explanations on how to use them.
+::::
+<p>&nbsp;</p>
 
 **Tip 1:** Focus on the chapters *Fast Reading of Data From txt|csv Files into R: readr package* and *Reading data From Excel Files (xls|xlsx) into R*, as these are the most common data files that you will be encountering throughout your R journey!
 

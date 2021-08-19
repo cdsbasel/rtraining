@@ -7,12 +7,24 @@ description: |
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+<style>
+  .blackbox {
+    padding: 1em;
+    background: #b0c4cf;
+    color: black;
+    border: 2px solid #455a64;
+    border-radius: 7px;
+  }
+</style>
 
 ## 5.1 Derive Information with dplyr
 
 In this session, you will continue learning data manipulation with `dplyr`.
 
+:::: {.blackbox data-latex=""}
 **Go through the RStudio Primer on [Derive Information with dplyr](https://rstudio.cloud/learn/primers/2.3),** and **complete the assignments below.**
+::::
+<p>&nbsp;</p>
 
 ### Assignment
  
@@ -21,9 +33,10 @@ Using the **taxation** dataset, complete the following tasks:
   1. Create a new column called `income_labels` from `income_mean`, where you have 4 new income categories **below 50000, 5000-79999, 8000-109999, and above 110000.** You can code the categories as numbers from 1 to 4. 
   2. How many quarters are there for each of the four categories by year? Use `group_by()` and `summarize()` to answer. You can make a table like this:
   
-```{r include=FALSE, echo=FALSE}
+```{r echo = F, results = 'asis'}
 library(tidyverse)
-
+library(knitr)
+library(kableExtra)
 taxation <- read_csv("data/taxation.csv")
 taxation = mutate(taxation, income_labels = case_when(income_mean < 50000 ~ "1",
                                               income_mean >= 50000 & income_mean < 80000 ~ "2",
@@ -33,8 +46,13 @@ taxation = mutate(taxation, income_labels = case_when(income_mean < 50000 ~ "1",
 ``` {r include = T}
 new_taxation = taxation %>% 
   group_by(year, income_labels) %>%
-  summarise(number_quarters = n()) %>%
-  print()
+  summarise(number_quarters = n())
+
+new_taxation %>%
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(height = "300px")
+  
 ```
 
 ### Solution

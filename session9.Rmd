@@ -7,13 +7,24 @@ description: |
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+<style>
+  .blackbox {
+    padding: 1em;
+    background: #b0c4cf;
+    color: black;
+    border: 2px solid #455a64;
+    border-radius: 7px;
+  }
+</style>
 
 ## 9.1 Tidying data
 
 In the last session, you learned how to use `pivot_longer()` and `pivot_wider()` to tidy the layout of your data. In this session, you will learn how to separate or combine cells using `separate()` and `unite()`.
 
+:::: {.blackbox data-latex=""}
 **Go through the RStudio Primer [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.2).**
-  
+::::
+<p>&nbsp;</p>
 
 ### Assignment
 
@@ -22,15 +33,20 @@ Reload the `billboard` dataset from the package `tidyr`.
   1. Separate the column `data.entered` into three new columns containing the corresponding values: `year`, `month` and `date`.
   2. Reunite the three columns back into `data.entered`, but leave the three columns in the dataset. 
   Your dataset should look like this:
+
 ```{r include=T}
 library(tidyr)
+library(knitr)
+library(kableExtra)
 
 billboard_new = billboard %>%
   separate(date.entered, into = c("year", "month", "date"), sep = "-")
 
 billboard_new %>%
   unite(date.entered, year, month, date, sep = "-", remove = F) %>%
-  print()
+  kable() %>%
+  kable_styling() %>%
+  scroll_box(width = "700px", height = "300px")
 ``` 
 
 ### Solution

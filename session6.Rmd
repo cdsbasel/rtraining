@@ -7,13 +7,25 @@ description: |
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+<style>
+  .blackbox {
+    padding: 1em;
+    background: #b0c4cf;
+    color: black;
+    border: 2px solid #455a64;
+    border-radius: 7px;
+  }
+</style>
 
 ## 6.1 Explore your data
 ![](resources/session6/eda.png)
 
 In this module, you will learn how to use `ggplot2` to visualize patterns within values and relationships between variables. You will first learn **Exploratory data analysis** or **EDA**, a way to use visualization and transformation to explore your data systematically.
 
+:::: {.blackbox data-latex=""}
 **Go through the RStudio Primer on [Exploratory Data Analysis](https://rstudio.cloud/learn/primers/3.1)** and **think about possible graphics** that you can employ for EDA in your own master project. 
+::::
+<p>&nbsp;</p>
 
 There are **no additional assignments** for this session.
 
