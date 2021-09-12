@@ -81020,10 +81020,10 @@ NA
 <div class="layout-chunk" data-layout="l-body">
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>billboard_new</span> <span class='op'>=</span> <span class='va'>billboard</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/separate.html'>separate</a></span><span class='op'>(</span><span class='va'>date.entered</span>, into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"year"</span>, <span class='st'>"month"</span>, <span class='st'>"date"</span><span class='op'>)</span>, sep <span class='op'>=</span> <span class='st'>"-"</span><span class='op'>)</span>
+  <span class='fu'>separate</span><span class='op'>(</span><span class='va'>date.entered</span>, into <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"year"</span>, <span class='st'>"month"</span>, <span class='st'>"date"</span><span class='op'>)</span>, sep <span class='op'>=</span> <span class='st'>"-"</span><span class='op'>)</span>
 
 <span class='va'>billboard_new</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://tidyr.tidyverse.org/reference/unite.html'>unite</a></span><span class='op'>(</span><span class='va'>date.entered</span>, <span class='va'>year</span>, <span class='va'>month</span>, <span class='va'>date</span>, sep <span class='op'>=</span> <span class='st'>"-"</span>, remove <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
+  <span class='fu'>unite</span><span class='op'>(</span><span class='va'>date.entered</span>, <span class='va'>year</span>, <span class='va'>month</span>, <span class='va'>date</span>, sep <span class='op'>=</span> <span class='st'>"-"</span>, remove <span class='op'>=</span> <span class='cn'>F</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>

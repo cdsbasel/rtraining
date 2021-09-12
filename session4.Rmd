@@ -45,10 +45,15 @@ When you have your dataset loaded and ready to go, you will first need to look a
 
 We will be using the **taxation** data set from Session 2. The four assignments do not build upon each other.
 
-  1. Select the columns **year, quarter, income_mean** and **income_median** using `select()`. Try to figure out more than one way to select the columns.
-  2. Select all columns with the name **wealth**. *Note.* Try using `starts_with()`or `contains()`.
-  3. Filter quarters that had a mean income of over 60000 in the year 2017. What are the quarters?
-  4. Arrange rows by **year** and **income_mean**. Your dataset should look like this:
+  1. Read the csv file into R (as a data.frame), name it **taxation_df**.  
+  
+  2. Using **taxation_df** create a new data.frame called **taxation_dfB** only containing the following columns: **year, quarter, income_mean** and **income_median** (*hint*: use `select()`). Save this data.frame as a xlsx file.
+  
+  3. Using **taxation_df**, create a new data.frame called **taxation_dfC** only containing columns with the name **wealth.** (*hint*: try using `starts_with()` or `contains()` in combination with `select()`). Save this data.frame as a csv file.
+  
+  4. Using **taxation_df**,  create a new data.frame called **taxation_dfD**  containing only the quarters that had a mean income of over 60000 in the year 2017 (*hint*: use `filter()`). What are the quarters?
+  
+  5. Arrange rows by **year** and **income_mean**. Your dataset should look like this:
 ```{r echo = F, results = 'asis'}
 library(tidyverse)
 library(knitr)

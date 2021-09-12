@@ -1,5 +1,5 @@
 ---
-title: "R Training for Master Students at the Center for Cognitive Decision Sciences (CDS)"
+title: "R Training for Master Students at the Center for Cognitive and Decision Sciences (CDS)"
 description: |
   Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This training is a part of the [CDS Masterproject](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/msc-project/).
   
@@ -59,6 +59,9 @@ This is another great online book to get you started in R. This book also contai
 
 [**Introduction to Tidyverse**](https://brianward1428.medium.com/introduction-to-tidyverse-7b3dbf2337d5)
 Tidyverse is a set of R packages that share a common 'style'. Tidyverse is a neat, clean and easy style of using R that will help you write even more beautiful code in R. This is also the coding style that we will be using again and again in this training program. Check out Brian Ward's practical introduction to the most essential functions of Tidyverse.
+
+[**The Tidyverse Style Guide**](https://style.tidyverse.org/index.html)
+Good coding style is what marks a good coder! This site describes the tidyverse style, which is used throughout this course. Check out this style guide to make your code more elegant.
 
 [**Datacamp**](https://www.datacamp.com/courses/free-introduction-to-r)
 Datacamp is an online learning platform for Data Science. They offer many hands-on lessons and tutorials in R. If you need a little refresher in R, we recommend that you go through the free course [Introduction to R](https://learn.datacamp.com/courses/free-introduction-to-r) in Datacamp.

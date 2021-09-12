@@ -2143,10 +2143,10 @@ S1 (Fall)
 <h3 id="assignment">Assignment</h3>
 <p>Download and read the <strong>verbrechen</strong> data from <a href="https://github.com/cdsbasel/rtraining/tree/main/data">our Github page</a>, or read it directly using this url: <a href="https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv" class="uri">https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv</a></p>
 <ol type="1">
-<li>Look at the data using the functions that you have learned in the previous sessions to get a general idea of the variables. You can use e.g. <code>group_by(), summarize() and filter()</code>. Some ideas for questions are: What is the minimum, mean and maximum number of <code>verbrechen</code> by state? What type of <code>verbrechen</code> is the most common type?</li>
-<li>Make a Scatterplot between <code>bevoelkerung</code> and a type of crime of your choice. Adjust the colour or shape of the dots to show the different states or counties. You will have to use the functions mentioned above to first manipulate your data.</li>
+<li><p>Look at the data using the functions that you have learned in the previous sessions to get a general idea of the variables. You can use e.g. <code>group_by(), summarize() and filter()</code>. Some ideas for questions are: What is the minimum, mean and maximum number of <code>verbrechen</code> by state? What type of <code>verbrechen</code> is the most common type?</p></li>
+<li><p>Make a Scatterplot between <code>bevoelkerung</code> and a type of crime of your choice. Adjust the colour or shape of the dots to show the different states or counties. You will have to use the functions mentioned above to first manipulate your data.</p></li>
 </ol>
-<p><strong>Tip 1:</strong> To show the thousand separators in the axis labels, add <code>scale_y_continuous(labels = comma) + scale_x_continuous(labels = comma)</code> from the package <code>scales</code> in your code.</p>
+<p><strong>Tip 1:</strong> To show the thousand separators in the axis labels, add <code>scale_y_continuous(labels = comma) + scale_x_continuous(labels = comma)</code>. For the comma label, you will first need to install the package <code>scales</code>.</p>
 <p>Here is an example of a scatterplot:</p>
 <p><img src="resources/session7/crime_in_the_states.png" /></p>
 <p><strong>Tip 2:</strong> Of course, there is a ggplot2 cheatsheet for <a href="resources/session7/data-visualization-2.1.pdf"><em>Data Visualization</em></a> as well :)</p>
@@ -2162,9 +2162,9 @@ S1 (Fall)
 
 <span class='co'># make plot as 'my_plot'</span>
 <span class='va'>my_plot</span> <span class='op'>&lt;-</span> <span class='va'>verbrechen</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>verbrechen</span> <span class='op'>==</span> <span class='st'>"diebstahl"</span> <span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>staat</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>sum <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>haeufigkeit</span><span class='op'>)</span>,
+  <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>verbrechen</span> <span class='op'>==</span> <span class='st'>"diebstahl"</span> <span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>staat</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarise</span><span class='op'>(</span>sum <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>haeufigkeit</span><span class='op'>)</span>,
             population <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/sum.html'>sum</a></span><span class='op'>(</span><span class='va'>bevoelkerung</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>population</span>, 
              y <span class='op'>=</span> <span class='va'>sum</span>, 

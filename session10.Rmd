@@ -22,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
 Often observations are spread across multiple data sets, and you will have to join data sets into one single table. 
 
 :::: {.blackbox data-latex=""}
-**Go through the RStudio Primer [Separate and Unite Columns](https://rstudio.cloud/learn/primers/4.3)** and learn about the different functions to join data sets.
+**Go through the RStudio Primer [Join Data Sets](https://rstudio.cloud/learn/primers/4.3)** and learn about the different functions to join data sets.
 ::::
 <p>&nbsp;</p>
 

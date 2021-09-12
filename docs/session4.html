@@ -2151,10 +2151,11 @@ S1 (Fall)
 <h3 id="assignment">Assignment</h3>
 <p>We will be using the <strong>taxation</strong> data set from Session 2. The four assignments do not build upon each other.</p>
 <ol type="1">
-<li>Select the columns <strong>year, quarter, income_mean</strong> and <strong>income_median</strong> using <code>select()</code>. Try to figure out more than one way to select the columns.</li>
-<li>Select all columns with the name <strong>wealth</strong>. <em>Note.</em> Try using <code>starts_with()</code>or <code>contains()</code>.</li>
-<li>Filter quarters that had a mean income of over 60000 in the year 2017. What are the quarters?</li>
-<li>Arrange rows by <strong>year</strong> and <strong>income_mean</strong>. Your dataset should look like this:
+<li><p>Read the csv file into R (as a data.frame), name it <strong>taxation_df</strong>.</p></li>
+<li><p>Using <strong>taxation_df</strong> create a new data.frame called <strong>taxation_dfB</strong> only containing the following columns: <strong>year, quarter, income_mean</strong> and <strong>income_median</strong> (<em>hint</em>: use <code>select()</code>). Save this data.frame as a xlsx file.</p></li>
+<li><p>Using <strong>taxation_df</strong>, create a new data.frame called <strong>taxation_dfC</strong> only containing columns with the name <strong>wealth.</strong> (<em>hint</em>: try using <code>starts_with()</code> or <code>contains()</code> in combination with <code>select()</code>). Save this data.frame as a csv file.</p></li>
+<li><p>Using <strong>taxation_df</strong>, create a new data.frame called <strong>taxation_dfD</strong> containing only the quarters that had a mean income of over 60000 in the year 2017 (<em>hint</em>: use <code>filter()</code>). What are the quarters?</p></li>
+<li><p>Arrange rows by <strong>year</strong> and <strong>income_mean</strong>. Your dataset should look like this:</p>
 <div class="layout-chunk" data-layout="l-body">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:700px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -13628,17 +13629,17 @@ Bettingen
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>taxation</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/taxation.csv"</span><span class='op'>)</span>
 
 <span class='co'># select columns</span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>quarter</span>, <span class='va'>income_mean</span>, <span class='va'>income_median</span><span class='op'>)</span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>quarter_no</span>, <span class='va'>N</span>, <span class='va'>income_gini</span>, <span class='va'>wealth_mean</span>, <span class='va'>wealth_median</span>, <span class='va'>wealth_gini</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>quarter</span>, <span class='va'>income_mean</span>, <span class='va'>income_median</span><span class='op'>)</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='op'>!</span><span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='va'>quarter_no</span>, <span class='va'>N</span>, <span class='va'>income_gini</span>, <span class='va'>wealth_mean</span>, <span class='va'>wealth_median</span>, <span class='va'>wealth_gini</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># select columns starting with "wealth"</span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/select.html'>select</a></span><span class='op'>(</span><span class='fu'><a href='https://tidyselect.r-lib.org/reference/starts_with.html'>starts_with</a></span><span class='op'>(</span><span class='st'>"wealth"</span><span class='op'>)</span><span class='op'>)</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>select</span><span class='op'>(</span><span class='fu'>starts_with</span><span class='op'>(</span><span class='st'>"wealth"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># filter quarters</span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>income_mean</span> <span class='op'>&gt;</span><span class='fl'>60000</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2017</span><span class='op'>)</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://rdrr.io/r/stats/filter.html'>filter</a></span><span class='op'>(</span><span class='va'>income_mean</span> <span class='op'>&gt;</span><span class='fl'>60000</span> <span class='op'>&amp;</span> <span class='va'>year</span> <span class='op'>==</span> <span class='fl'>2017</span><span class='op'>)</span>
 
 <span class='co'># arrange rows </span>
-<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_mean</span><span class='op'>)</span>
+<span class='va'>taxation</span> <span class='op'>%&gt;%</span> <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_mean</span><span class='op'>)</span>
 </code></pre>
 </div>
 </div>

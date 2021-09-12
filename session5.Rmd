@@ -30,7 +30,8 @@ In this session, you will continue learning data manipulation with `dplyr`.
  
 Using the **taxation** dataset, complete the following tasks:
 
-  1. Create a new column called `income_labels` from `income_mean`, where you have 4 new income categories **below 50000, 5000-79999, 8000-109999, and above 110000.** You can code the categories as numbers from 1 to 4. 
+  1. Create a new column called `income_labels` from `income_mean`, where you have 4 new income categories **below 50000, 5000-79999, 8000-109999, and above 110000.** You can code the categories as numbers from 1 to 4. (*hint*: use `case_when()` in `mutate()` when you make the new columns.)
+  
   2. How many quarters are there for each of the four categories by year? Use `group_by()` and `summarize()` to answer. You can make a table like this:
   
 ```{r echo = F, results = 'asis'}

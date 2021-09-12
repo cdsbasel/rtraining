@@ -2142,8 +2142,9 @@ S1 (Fall)
 <ol type="1">
 <li><p>Create a data set called <strong>taxation</strong> using the file on our Github page. This time, download the data on your computer and read it in R locally. Click <a href="https://github.com/cdsbasel/rtraining/tree/main/data">this link</a> to access the folder.</p></li>
 <li><p>Create a plot using this data set. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs.</p></li>
+<li><p>Save the plot as a png.</p></li>
 </ol>
-<p>Below is an example of a plot showing the median income of the quarters by year. <em>Note.</em> If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable “quarter” with <code>arrange()</code> and turn it into a factor with <code>mutate()</code>.</p>
+<p>Below is an example of a plot showing the median income of the quarters by year. <em>Note.</em> If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable “quarter” with <code>arrange(year, yourvariableofinterest)</code> and turn it into a factor with <code>mutate(quarter = as_factor(quarter))</code>.</p>
 <p><img src="resources/session2/inequality_basel.png" /></p>
 <h3 id="solution">Solution</h3>
 <div class="layout-chunk" data-layout="l-body">
@@ -2153,8 +2154,8 @@ S1 (Fall)
 
 <span class='co'># make plot as 'my_plot'</span>
 <span class='va'>my_plot</span> <span class='op'>&lt;-</span> <span class='va'>taxation</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/arrange.html'>arrange</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_median</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span>quarter <span class='op'>=</span> <span class='fu'>as_factor</span><span class='op'>(</span><span class='va'>quarter</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>arrange</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_median</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>mutate</span><span class='op'>(</span>quarter <span class='op'>=</span> <span class='fu'>as_factor</span><span class='op'>(</span><span class='va'>quarter</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'>ggplot</span><span class='op'>(</span><span class='fu'>aes</span><span class='op'>(</span>x <span class='op'>=</span> <span class='va'>year</span>, 
            y <span class='op'>=</span> <span class='va'>income_median</span>, 
            col <span class='op'>=</span> <span class='va'>quarter</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>+</span>

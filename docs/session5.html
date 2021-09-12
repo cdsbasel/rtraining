@@ -2139,8 +2139,8 @@ S1 (Fall)
 <h3 id="assignment">Assignment</h3>
 <p>Using the <strong>taxation</strong> dataset, complete the following tasks:</p>
 <ol type="1">
-<li>Create a new column called <code>income_labels</code> from <code>income_mean</code>, where you have 4 new income categories <strong>below 50000, 5000-79999, 8000-109999, and above 110000.</strong> You can code the categories as numbers from 1 to 4.</li>
-<li>How many quarters are there for each of the four categories by year? Use <code>group_by()</code> and <code>summarize()</code> to answer. You can make a table like this:</li>
+<li><p>Create a new column called <code>income_labels</code> from <code>income_mean</code>, where you have 4 new income categories <strong>below 50000, 5000-79999, 8000-109999, and above 110000.</strong> You can code the categories as numbers from 1 to 4. (<em>hint</em>: use <code>case_when()</code> in <code>mutate()</code> when you make the new columns.)</p></li>
+<li><p>How many quarters are there for each of the four categories by year? Use <code>group_by()</code> and <code>summarize()</code> to answer. You can make a table like this:</p></li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 
@@ -2832,15 +2832,15 @@ number_quarters
 <pre class="sourceCode r"><code class="sourceCode r"><span class='va'>taxation</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/taxation.csv"</span><span class='op'>)</span>
 
 <span class='co'># create new column</span>
-<span class='va'>taxation</span> <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/mutate.html'>mutate</a></span><span class='op'>(</span><span class='va'>taxation</span>, income_labels <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/case_when.html'>case_when</a></span><span class='op'>(</span><span class='va'>income_mean</span> <span class='op'>&lt;</span> <span class='fl'>50000</span> <span class='op'>~</span> <span class='st'>"1"</span>,
+<span class='va'>taxation</span> <span class='op'>=</span> <span class='fu'>mutate</span><span class='op'>(</span><span class='va'>taxation</span>, income_labels <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span><span class='va'>income_mean</span> <span class='op'>&lt;</span> <span class='fl'>50000</span> <span class='op'>~</span> <span class='st'>"1"</span>,
                                               <span class='va'>income_mean</span> <span class='op'>&gt;=</span> <span class='fl'>50000</span> <span class='op'>&amp;</span> <span class='va'>income_mean</span> <span class='op'>&lt;</span> <span class='fl'>80000</span> <span class='op'>~</span> <span class='st'>"2"</span>,
                                               <span class='va'>income_mean</span> <span class='op'>&gt;=</span> <span class='fl'>80000</span> <span class='op'>&amp;</span> <span class='va'>income_mean</span> <span class='op'>&lt;</span> <span class='fl'>110000</span> <span class='op'>~</span> <span class='st'>"3"</span>,
                                               <span class='va'>income_mean</span> <span class='op'>&gt;=</span> <span class='fl'>110000</span>  <span class='op'>~</span> <span class='st'>"4"</span><span class='op'>)</span><span class='op'>)</span>
 
 <span class='co'># count observations by year and quarter</span>
 <span class='va'>new_taxation</span> <span class='op'>=</span> <span class='va'>taxation</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/group_by.html'>group_by</a></span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_labels</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://dplyr.tidyverse.org/reference/summarise.html'>summarise</a></span><span class='op'>(</span>number_quarters <span class='op'>=</span> <span class='fu'><a href='https://dplyr.tidyverse.org/reference/context.html'>n</a></span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_labels</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
+  <span class='fu'>summarise</span><span class='op'>(</span>number_quarters <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
   <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='op'>)</span>
 </code></pre>
 </div>
