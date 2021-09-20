@@ -47,8 +47,8 @@ Below is an example of a plot showing the median income of the quarters by year.
 ![](resources/session2/inequality_basel.png)
   
 
+``` {r echo = F, results = 'hide'}
 ### Solution
-``` {r echo = T, results = 'hide'}
 library(tidyverse)
 taxation <- read_csv("data/taxation.csv")
 

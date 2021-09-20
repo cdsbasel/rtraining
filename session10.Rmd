@@ -59,8 +59,9 @@ combined_data %>%
 
 ```
 
+
+``` {r echo = F, results = 'hide'}
 ### Solution
-``` {r echo = T, results = 'hide'}
 taxation <- read_csv("data/taxation.csv")
 kennzahlen_basel <- read_csv2("data/kennzahlen_basel.csv") 
 

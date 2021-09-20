@@ -56,8 +56,9 @@ new_taxation %>%
   
 ```
 
+
+```{r echo = F, results = 'hide'}
 ### Solution
-```{r echo = T, results = 'hide'}
 taxation <- read_csv("data/taxation.csv")
 
 # create new column

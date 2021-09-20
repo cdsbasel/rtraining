@@ -2114,7 +2114,6 @@ S1 (Fall)
 <li><a href="#tidying-data">10.1 Tidying data</a>
 <ul>
 <li><a href="#assignment">Assignment</a></li>
-<li><a href="#solution">Solution</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -7847,22 +7846,8 @@ Bettingen
 </table>
 </div>
 </div>
-<h3 id="solution">Solution</h3>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>taxation</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/taxation.csv"</span><span class='op'>)</span>
-<span class='va'>kennzahlen_basel</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv2</span><span class='op'>(</span><span class='st'>"data/kennzahlen_basel.csv"</span><span class='op'>)</span> 
 
-<span class='co'># change the variable name in kennzahlen_basel to match taxation</span>
-<span class='va'>kennzahlen_basel</span> <span class='op'>&lt;-</span> <span class='va'>kennzahlen_basel</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>rename</span><span class='op'>(</span>year <span class='op'>=</span> <span class='va'>Publikationsjahr</span>,
-         quarter <span class='op'>=</span> <span class='va'>`Wohnviertel Name`</span><span class='op'>)</span>
-
-<span class='co'># join datasets by year and county</span>
-<span class='va'>combined_data</span> <span class='op'>&lt;-</span> <span class='va'>taxation</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>inner_join</span><span class='op'>(</span><span class='va'>kennzahlen_basel</span>, by <span class='op'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span><span class='op'>(</span><span class='st'>"year"</span>, <span class='st'>"quarter"</span><span class='op'>)</span><span class='op'>)</span>
-</code></pre>
-</div>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

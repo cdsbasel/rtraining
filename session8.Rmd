@@ -63,8 +63,10 @@ billboard_longer %>%
 ```
   
 
+
+```{r echo = F, results = 'hide'}
 ### Solution
-```{r echo = T, results = 'hide'}
+
 # load packages individually, in order to load the "billboard" dataset
 billboard_longer <- billboard %>% 
   pivot_longer(

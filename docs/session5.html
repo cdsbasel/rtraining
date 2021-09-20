@@ -2114,7 +2114,6 @@ S1 (Fall)
 <li><a href="#derive-information-with-dplyr">5.1 Derive Information with dplyr</a>
 <ul>
 <li><a href="#assignment">Assignment</a></li>
-<li><a href="#solution">Solution</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2826,24 +2825,8 @@ number_quarters
 </table>
 </div>
 </div>
-<h3 id="solution">Solution</h3>
 <div class="layout-chunk" data-layout="l-body">
-<div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class='va'>taxation</span> <span class='op'>&lt;-</span> <span class='fu'>read_csv</span><span class='op'>(</span><span class='st'>"data/taxation.csv"</span><span class='op'>)</span>
 
-<span class='co'># create new column</span>
-<span class='va'>taxation</span> <span class='op'>=</span> <span class='fu'>mutate</span><span class='op'>(</span><span class='va'>taxation</span>, income_labels <span class='op'>=</span> <span class='fu'>case_when</span><span class='op'>(</span><span class='va'>income_mean</span> <span class='op'>&lt;</span> <span class='fl'>50000</span> <span class='op'>~</span> <span class='st'>"1"</span>,
-                                              <span class='va'>income_mean</span> <span class='op'>&gt;=</span> <span class='fl'>50000</span> <span class='op'>&amp;</span> <span class='va'>income_mean</span> <span class='op'>&lt;</span> <span class='fl'>80000</span> <span class='op'>~</span> <span class='st'>"2"</span>,
-                                              <span class='va'>income_mean</span> <span class='op'>&gt;=</span> <span class='fl'>80000</span> <span class='op'>&amp;</span> <span class='va'>income_mean</span> <span class='op'>&lt;</span> <span class='fl'>110000</span> <span class='op'>~</span> <span class='st'>"3"</span>,
-                                              <span class='va'>income_mean</span> <span class='op'>&gt;=</span> <span class='fl'>110000</span>  <span class='op'>~</span> <span class='st'>"4"</span><span class='op'>)</span><span class='op'>)</span>
-
-<span class='co'># count observations by year and quarter</span>
-<span class='va'>new_taxation</span> <span class='op'>=</span> <span class='va'>taxation</span> <span class='op'>%&gt;%</span> 
-  <span class='fu'>group_by</span><span class='op'>(</span><span class='va'>year</span>, <span class='va'>income_labels</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'>summarise</span><span class='op'>(</span>number_quarters <span class='op'>=</span> <span class='fu'>n</span><span class='op'>(</span><span class='op'>)</span><span class='op'>)</span> <span class='op'>%&gt;%</span>
-  <span class='fu'><a href='https://rdrr.io/r/base/print.html'>print</a></span><span class='op'>(</span><span class='op'>)</span>
-</code></pre>
-</div>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

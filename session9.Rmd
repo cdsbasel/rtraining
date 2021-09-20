@@ -49,8 +49,9 @@ billboard_new %>%
   scroll_box(width = "700px", height = "300px")
 ``` 
 
+
+```{r echo = F, results = 'hide'}
 ### Solution
-```{r echo = T, results = 'hide'}
 billboard_new = billboard %>%
   separate(date.entered, into = c("year", "month", "date"), sep = "-")
 

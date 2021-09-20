@@ -49,8 +49,9 @@ Here is an example of a scatterplot:
 
 **Tip 2:** Of course, there is a ggplot2 cheatsheet for [*Data Visualization*](resources/session7/data-visualization-2.1.pdf) as well :)
 
+
+```{r echo = F, results = 'hide'}
 ### Solution
-```{r echo = T, results = 'hide'}
 library(tidyverse)
 library(scales) # to later add commas to the axis numbers
 verbrechen <- read_csv("data/verbrechen.csv")

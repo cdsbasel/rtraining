@@ -66,9 +66,10 @@ taxation %>% arrange(year, income_mean) %>%
 ```
 
 
-### Solution
 
-```{r echo = T, results = 'hide'}
+
+```{r echo = F, results = 'hide'}
+### Solution
 taxation <- read_csv("data/taxation.csv")
 
 # select columns
