@@ -8,9 +8,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Introduction
 
-For the first semester (S1 Fall), there are 10 topics for four modules in this R training. For each topic, we have compiled different online materials for you to go through, as well as assignments for you to test your skills. This program is largely based on the great online tutorials from RStudio called [Primers](https://rstudio.cloud/learn/primers). This training is a self-guided learning, which allows you to engage with the material at your own pace and at times that suit you the most. These topics will help you acquire basic skills in R, which will be most useful in the upcoming CDS Hackathons. 
+For the first semester, there are 10 topics for four modules in this R training. For each topic, we have compiled different online materials for you to go through, as well as assignments for you to test your skills. This program is largely based on the great online tutorials from RStudio called [Primers](https://rstudio.cloud/learn/primers). This training is a self-guided learning, which allows you to engage with the material at your own pace and at times that suit you the most. These topics will help you acquire basic skills in R, which will be most useful for your studies and in CDS Hackathons. 
 
-Each session takes around 1-2 hours. The deadline to complete all sessions is at the latest by the end of the semester, where you will have a meeting with our CDS team members to review and discuss your progress. Exact dates will be made known. For any questions, please write to our PhD student [Yunrui Liu](https://psychologie.unibas.ch/en/persons/liu-yunrui/). 
+Each session takes around 1-2 hours. Session 11 is meant for you and your tutors to review your progress. 
 
 
 
@@ -27,6 +27,6 @@ Each session takes around 1-2 hours. The deadline to complete all sessions is at
 | 8 | Tidy your Data | [Reshape Data](session8.html) |
 | 9 | Tidy your Data | [Separate and Unite Columns](session9.html) |
 | 10 | Tidy your Data | [Join Data Sets](session10.html) |
-| 11 | Review | [Review and Meeting with CDS Team](session11.html) |
+| 11 | Review | [Review](session11.html) |
 
 :::
