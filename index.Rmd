@@ -1,7 +1,7 @@
 ---
 title: "R Training for Students at the Center for Cognitive and Decision Sciences (CDS)"
 description: |
-  Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the CDS to support students.
+  Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.
   
   **Last updated:** `r format(Sys.time(), "%a %b %d %X %Y")`
   
@@ -21,7 +21,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 
-![An overview of the R Training Program timeline - see specific topics below](resources/CDS_R_Training_v2.png)
+![An overview of the R Training Program timeline - see specific topics below](resources/CDS_R_Training.png)
 
 Please note that this site is *work-in-progress*.
 

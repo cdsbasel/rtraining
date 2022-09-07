@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { color: #20794d; } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,17 +74,18 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
-code span.sc { color: #20794d; } /* SpecialChar */
+code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
 code span.st { color: #20794d; } /* String */
 code span.va { color: #111111; } /* Variable */
 code span.vs { color: #20794d; } /* VerbatimString */
 code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 </style>
+
 
   <!--radix_placeholder_meta_tags-->
   <title>Home: The Basics: Visualization Basics</title>
@@ -455,7 +457,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
   </style>
 
-  <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+  <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet"/>
   <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet"/>
   <script src="site_libs/headroom-0.9.4/headroom.min.js"></script>
@@ -1027,10 +1029,6 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     position: relative;
     margin-bottom: 2.5em;
     margin-top: 1.5em;
-  }
-
-  .figure img {
-    width: 100%;
   }
 
   .figure .caption {
@@ -1862,7 +1860,16 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        var refHtml = $('#ref-' + $(this).attr('data-cites')).html();
+        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
+          var fn = $(this).children()[0]
+          $(this).html(fn.shadowRoot.querySelector("sup"))
+          $(this).id = fn.id
+          fn.remove()
+        }
+        var refs = $(this).attr('data-cites').split(" ");
+        var refHtml = refs.map(function(ref) {
+          return "<p>" + $('#ref-' + ref).html() + "</p>";
+        }).join("\n");
         window.tippy(this, {
           allowHTML: true,
           content: refHtml,
@@ -1873,6 +1880,31 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
           placement: 'bottom-start'
         });
       });
+
+      // fix footnotes in tables (#411)
+      // replacing broken distill.pub feature
+      $('table d-footnote').each(function() {
+        // we replace internal showAtNode methode which is triggered when hovering a footnote
+        this.hoverBox.showAtNode = function(node) {
+          // ported from https://github.com/distillpub/template/pull/105/files
+          calcOffset = function(elem) {
+              let x = elem.offsetLeft;
+              let y = elem.offsetTop;
+              // Traverse upwards until an `absolute` element is found or `elem`
+              // becomes null.
+              while (elem = elem.offsetParent && elem.style.position != 'absolute') {
+                  x += elem.offsetLeft;
+                  y += elem.offsetTop;
+              }
+
+              return { left: x, top: y };
+          }
+          // https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/offsetTop
+          const bbox = node.getBoundingClientRect();
+          const offset = calcOffset(node);
+          this.show([offset.left + bbox.width, offset.top + bbox.height]);
+        }
+      })
 
       // clear polling timer
       clearInterval(tid);
@@ -1972,6 +2004,8 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // mark non-body figures created by knitr chunks as 100% width
     $('.layout-chunk').each(function(i, val) {
       var figures = $(this).find('img, .html-widget');
+      // ignore leaflet img layers (#106)
+      figures = figures.filter(':not(img[class*="leaflet"])')
       if ($(this).attr('data-layout') !== "l-body") {
         figures.css('width', '100%');
       } else {
@@ -1994,7 +2028,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
     // get rid of index.html references in header
     if (window.location.protocol !== "file:") {
       $('.distill-site-header a[href]').each(function(i,val) {
-        $(this).attr('href', $(this).attr('href').replace("index.html", "./"));
+        $(this).attr('href', $(this).attr('href').replace(/^index[.]html/, "./"));
       });
     }
 
@@ -2033,7 +2067,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.7/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2109,9 +2143,10 @@ S1 (Fall)
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#understanding-ggplot2">2.1 Understanding ggplot2</a>
+<li><a href="#understanding-ggplot2" id="toc-understanding-ggplot2">2.1
+Understanding ggplot2</a>
 <ul>
-<li><a href="#assignment">Assignment</a></li>
+<li><a href="#assignment" id="toc-assignment">Assignment</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -2126,29 +2161,58 @@ S1 (Fall)
   }
 </style>
 <h2 id="understanding-ggplot2">2.1 Understanding ggplot2</h2>
-<p>There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R. :)</p>
-<p>We will be focusing on <a href="https://ggplot2.tidyverse.org/">ggplot2</a>, a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
+<p>There are many ways to Rome, and there are many ways to create a
+graphic using different packages and function in R. :)</p>
+<p>We will be focusing on <a
+href="https://ggplot2.tidyverse.org/">ggplot2</a>, a package part of the
+tidyverse, which is great in creating beautiful graphics. You provide
+the data, tell ggplot2 how to map variables to aesthetics, what
+graphical primitives to use, and it takes care of the details.</p>
 <div class="blackbox">
-<p><strong>Go through the RStudio Primer on <a href="https://rstudio.cloud/learn/primers/1.1">Data Visualization Basics</a></strong> and <strong>complete the assignments below.</strong></p>
+<p><strong>Go through the RStudio Primer on <a
+href="https://rstudio.cloud/learn/primers/1.1">Data Visualization
+Basics</a></strong> and <strong>complete the assignments
+below.</strong></p>
 </div>
 <p>
  
 </p>
-<p><strong>Tip 1:</strong> Again, cheatsheets will make your (R) life easy! Click <a href="resources/session1/data-visualization-2.1.pdf">here</a> to download the cheatsheet for <em>Data Visualization with ggplot2</em>.</p>
-<p><strong>Tip 2:</strong> Check out the <a href="https://www.r-graph-gallery.com/">R graph gallery</a> for an example of graphics and code.</p>
+<p><strong>Tip 1:</strong> Again, cheatsheets will make your (R) life
+easy! Click <a
+href="resources/session1/data-visualization-2.1.pdf">here</a> to
+download the cheatsheet for <em>Data Visualization with
+ggplot2</em>.</p>
+<p><strong>Tip 2:</strong> Check out the <a
+href="https://www.r-graph-gallery.com/">R graph gallery</a> for an
+example of graphics and code.</p>
 <h3 id="assignment">Assignment</h3>
-<p>In our Github page, there is a data called <em>taxation</em>, which is data from Basel on income and inequality.</p>
+<p>In our Github page, there is a data called <em>taxation</em>, which
+is data from Basel on income and inequality.</p>
 <ol type="1">
-<li><p>Create a data set called <strong>taxation</strong> using the file on our Github page. This time, download the data on your computer and read it in R locally. Click <a href="https://github.com/cdsbasel/rtraining/tree/main/data">this link</a> to access the folder.</p></li>
-<li><p>Create a plot using this data set. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs.</p></li>
+<li><p>Create a data set called <strong>taxation</strong> using the file
+on our Github page. This time, download the data on your computer and
+read it in R locally. Click <a
+href="https://github.com/cdsbasel/rtraining/tree/main/data">this
+link</a> to access the folder.</p></li>
+<li><p>Create a plot using this data set. Make a plot with year and a
+variable of interest (e.g. Median Income), and show the different
+quarters. Include a title, subtitle, legend, and rename the axis
+labs.</p></li>
 <li><p>Save the plot as a png.</p></li>
 </ol>
-<p>Below is an example of a plot showing the median income of the quarters by year. <em>Note.</em> If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable “quarter” with <code>arrange(year, yourvariableofinterest)</code> and turn it into a factor with <code>mutate(quarter = as_factor(quarter))</code>.</p>
+<p>Below is an example of a plot showing the median income of the
+quarters by year. <em>Note.</em> If you want to control the order of the
+discrete variables, you need to know some wrangling. Although you will
+learn about these functions in later sessions, you can already try to
+sort the variable “quarter” with
+<code>arrange(year, yourvariableofinterest)</code> and turn it into a
+factor with <code>mutate(quarter = as_factor(quarter))</code>.</p>
 <p><img src="resources/session2/inequality_basel.png" /></p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2164,7 +2228,10 @@ S1 (Fall)
 <!--/radix_placeholder_appendices-->
 <!--radix_placeholder_navigation_after_body-->
 <div class="distill-site-nav distill-site-footer">
-<p>Created by <a href="mailto:g.son@unibas.ch">Gayoung Son</a> for the <a href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">Center of Cognitive and Decision Sciences</a></p>
+<p>Created by <a href="www.gayoungson.github.io">Gayoung Son</a> for the
+<a
+href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">Center
+of Cognitive and Decision Sciences</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 
