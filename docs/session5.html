@@ -788,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1860,15 +1861,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2067,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
@@ -2145,9 +2152,7 @@ S1 (Fall)
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#derive-information-with-dplyr"
-id="toc-derive-information-with-dplyr">5.1 Derive Information with
-dplyr</a>
+<li><a href="#derive-information-with-dplyr" id="toc-derive-information-with-dplyr">5.1 Derive Information with dplyr</a>
 <ul>
 <li><a href="#assignment" id="toc-assignment">Assignment</a></li>
 </ul></li>
@@ -2163,39 +2168,25 @@ dplyr</a>
     border-radius: 7px;
   }
 </style>
-<h2 id="derive-information-with-dplyr">5.1 Derive Information with
-dplyr</h2>
-<p>In this session, you will continue learning data manipulation with
-<code>dplyr</code>.</p>
+<h2 id="derive-information-with-dplyr">5.1 Derive Information with dplyr</h2>
+<p>In this session, you will continue learning data manipulation with <code>dplyr</code>.</p>
 <div class="blackbox">
-<p><strong>Go through the RStudio Primer on <a
-href="https://rstudio.cloud/learn/primers/2.3">Derive Information with
-dplyr</a>,</strong> and <strong>complete the assignments
-below.</strong></p>
+<p><strong>Go through the RStudio Primer on <a href="https://rstudio.cloud/learn/primers/2.3">Derive Information with dplyr</a>,</strong> and <strong>complete the assignments below.</strong></p>
 </div>
 <p>
  
 </p>
 <h3 id="assignment">Assignment</h3>
-<p>Using the <strong>taxation</strong> dataset, complete the following
-tasks:</p>
+<p>Using the <strong>taxation</strong> dataset, complete the following tasks:</p>
 <ol type="1">
-<li><p>Create a new column called <code>income_labels</code> from
-<code>income_mean</code>, where you have 4 new income categories
-<strong>below 50000, 5000-79999, 8000-109999, and above 110000.</strong>
-You can code the categories as numbers from 1 to 4. (<em>hint</em>: use
-<code>case_when()</code> in <code>mutate()</code> when you make the new
-columns.)</p></li>
-<li><p>How many quarters are there for each of the four categories by
-year? Use <code>group_by()</code> and <code>summarize()</code> to
-answer. You can make a table like this:</p></li>
+<li><p>Create a new column called <code>income_labels</code> from <code>income_mean</code>, where you have 4 new income categories <strong>below 50000, 5000-79999, 8000-109999, and above 110000.</strong> You can code the categories as numbers from 1 to 4. (<em>hint</em>: use <code>case_when()</code> in <code>mutate()</code> when you make the new columns.)</p></li>
+<li><p>How many quarters are there for each of the four categories by year? Use <code>group_by()</code> and <code>summarize()</code> to answer. You can make a table like this:</p></li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
 <div class="layout-chunk" data-layout="l-body">
-<div
-style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2878,8 +2869,7 @@ number_quarters
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2898,7 +2888,7 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <p>Created by <a href="www.gayoungson.github.io">Gayoung Son</a> for the
 <a
 href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">Center
-of Cognitive and Decision Sciences</a></p>
+for Cognitive and Decision Sciences</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

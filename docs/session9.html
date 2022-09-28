@@ -788,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1860,15 +1861,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2067,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
@@ -2162,33 +2169,22 @@ S1 (Fall)
   }
 </style>
 <h2 id="tidying-data">9.1 Tidying data</h2>
-<p>In the last session, you learned how to use
-<code>pivot_longer()</code> and <code>pivot_wider()</code> to tidy the
-layout of your data. In this session, you will learn how to separate or
-combine cells using <code>separate()</code> and
-<code>unite()</code>.</p>
+<p>In the last session, you learned how to use <code>pivot_longer()</code> and <code>pivot_wider()</code> to tidy the layout of your data. In this session, you will learn how to separate or combine cells using <code>separate()</code> and <code>unite()</code>.</p>
 <div class="blackbox">
-<p><strong>Go through the RStudio Primer <a
-href="https://rstudio.cloud/learn/primers/4.2">Separate and Unite
-Columns</a>.</strong></p>
+<p><strong>Go through the RStudio Primer <a href="https://rstudio.cloud/learn/primers/4.2">Separate and Unite Columns</a>.</strong></p>
 </div>
 <p>
  
 </p>
 <h3 id="assignment">Assignment</h3>
-<p>Reload the <code>billboard</code> dataset from the package
-<code>tidyr</code>.</p>
+<p>Reload the <code>billboard</code> dataset from the package <code>tidyr</code>.</p>
 <ol type="1">
-<li>Separate the column <code>data.entered</code> into three new columns
-containing the corresponding values: <code>year</code>,
-<code>month</code> and <code>date</code>.</li>
-<li>Reunite the three columns back into <code>data.entered</code>, but
-leave the three columns in the dataset. Your dataset should look like
-this:</li>
+<li>Separate the column <code>data.entered</code> into three new columns containing the corresponding values: <code>year</code>, <code>month</code> and <code>date</code>.</li>
+<li>Reunite the three columns back into <code>data.entered</code>, but leave the three columns in the dataset.
+Your dataset should look like this:</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
-<div
-style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:700px; ">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:700px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -81064,8 +81060,7 @@ NA
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -81084,7 +81079,7 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <p>Created by <a href="www.gayoungson.github.io">Gayoung Son</a> for the
 <a
 href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">Center
-of Cognitive and Decision Sciences</a></p>
+for Cognitive and Decision Sciences</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

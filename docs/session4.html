@@ -788,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1860,15 +1861,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2067,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
@@ -2136,8 +2143,7 @@ S1 (Fall)
 <h1>Work with Data: Working with Tibbles/Isolating Data with dplyr</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p><strong>Session 4</strong>: Working with Tibbles/Isolating Data
-with dplyr</p></p>
+<p><p><strong>Session 4</strong>: Working with Tibbles/Isolating Data with dplyr</p></p>
 </div>
 
 
@@ -2146,10 +2152,8 @@ with dplyr</p></p>
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#working-with-tibbles" id="toc-working-with-tibbles">4.1
-Working with Tibbles</a></li>
-<li><a href="#isolating-data-with-dplyr"
-id="toc-isolating-data-with-dplyr">4.2 Isolating Data with dplyr</a>
+<li><a href="#working-with-tibbles" id="toc-working-with-tibbles">4.1 Working with Tibbles</a></li>
+<li><a href="#isolating-data-with-dplyr" id="toc-isolating-data-with-dplyr">4.2 Isolating Data with dplyr</a>
 <ul>
 <li><a href="#assignment" id="toc-assignment">Assignment</a></li>
 </ul></li>
@@ -2166,79 +2170,34 @@ id="toc-isolating-data-with-dplyr">4.2 Isolating Data with dplyr</a>
   }
 </style>
 <h2 id="working-with-tibbles">4.1 Working with Tibbles</h2>
-<p>Throughout this R Training, you will mostly be confronted with
-<strong>tibbles</strong>. Tibbles, or <code>tbl_df</code>, <em>are</em>
-in fact data frames, but they keep what has proven to be effective, and
-throwing out what is not.</p>
-<p>According to the <a href="https://tibble.tidyverse.org/">tibble
-documentation</a>, tibbles are “data.frames that are lazy and surly:
-they do less (i.e. they don’t change variable names or types, and don’t
-do partial matching) and complain more (e.g. when a variable does not
-exist). This forces you to confront problems earlier, typically leading
-to cleaner, more expressive code. Tibbles also have an enhanced
-<code>print()</code> method which makes them easier to use with large
-datasets containing complex objects.”</p>
+<p>Throughout this R Training, you will mostly be confronted with <strong>tibbles</strong>. Tibbles, or <code>tbl_df</code>, <em>are</em> in fact data frames, but they keep what has proven to be effective, and throwing out what is not.</p>
+<p>According to the <a href="https://tibble.tidyverse.org/">tibble documentation</a>, tibbles are “data.frames that are lazy and surly: they do less (i.e. they don’t change variable names or types, and don’t do partial matching) and complain more (e.g. when a variable does not exist). This forces you to confront problems earlier, typically leading to cleaner, more expressive code. Tibbles also have an enhanced <code>print()</code> method which makes them easier to use with large datasets containing complex objects.”</p>
 <div class="blackbox">
-<p><strong>Go through the RStudio Primer on <a
-href="https://rstudio.cloud/learn/primers/2.1">Working with
-Tibbles</a>,</strong> which will give you a sneak peak into the world of
-tibbles.</p>
+<p><strong>Go through the RStudio Primer on <a href="https://rstudio.cloud/learn/primers/2.1">Working with Tibbles</a>,</strong> which will give you a sneak peak into the world of tibbles.</p>
 </div>
 <p>
  
 </p>
-<p>If you want to learn more on tibbles and data frames, we highly
-recommend reading the <a
-href="https://r4ds.had.co.nz/tibbles.html">tibbles chapter</a> in <em>R
-for Data Science</em>.</p>
+<p>If you want to learn more on tibbles and data frames, we highly recommend reading the <a href="https://r4ds.had.co.nz/tibbles.html">tibbles chapter</a> in <em>R for Data Science</em>.</p>
 <h2 id="isolating-data-with-dplyr">4.2 Isolating Data with dplyr</h2>
-<p>When you have your dataset loaded and ready to go, you will first
-need to look at your data and make some changes before computing
-analyses or making visualizations. With the <code>dplyr</code> package,
-you can easily manipulate and transform your data so that you can work
-with it much better. In this and the following session, you will learn
-about a few of the most important and useful functions for data
-manipulation. These functions are <em>essential</em> for working with
-data in R, so take some time to understand them thoroughly and play
-around with them on your own data!</p>
+<p>When you have your dataset loaded and ready to go, you will first need to look at your data and make some changes before computing analyses or making visualizations. With the <code>dplyr</code> package, you can easily manipulate and transform your data so that you can work with it much better. In this and the following session, you will learn about a few of the most important and useful functions for data manipulation. These functions are <em>essential</em> for working with data in R, so take some time to understand them thoroughly and play around with them on your own data!</p>
 <div class="blackbox">
-<p><strong>Go through the RStudio Primer on <a
-href="https://rstudio.cloud/learn/primers/2.2">Isolating Data with
-dplyr</a>,</strong> and <strong>complete the assignments
-below.</strong></p>
+<p><strong>Go through the RStudio Primer on <a href="https://rstudio.cloud/learn/primers/2.2">Isolating Data with dplyr</a>,</strong> and <strong>complete the assignments below.</strong></p>
 </div>
 <p>
  
 </p>
-<p><strong>Tip 1:</strong> <code>dplyr</code> also has a cheatsheet for
-you - download it <a
-href="resources/session4/data-transformation.pdf">here</a>.</p>
+<p><strong>Tip 1:</strong> <code>dplyr</code> also has a cheatsheet for you - download it <a href="resources/session4/data-transformation.pdf">here</a>.</p>
 <h3 id="assignment">Assignment</h3>
-<p>We will be using the <strong>taxation</strong> data set from Session
-2. The four assignments do not build upon each other.</p>
+<p>We will be using the <strong>taxation</strong> data set from Session 2. The four assignments do not build upon each other.</p>
 <ol type="1">
-<li><p>Read the csv file into R (as a data.frame), name it
-<strong>taxation_df</strong>.</p></li>
-<li><p>Using <strong>taxation_df</strong> create a new data.frame called
-<strong>taxation_dfB</strong> only containing the following columns:
-<strong>year, quarter, income_mean</strong> and
-<strong>income_median</strong> (<em>hint</em>: use
-<code>select()</code>). Save this data.frame as a xlsx file.</p></li>
-<li><p>Using <strong>taxation_df</strong>, create a new data.frame
-called <strong>taxation_dfC</strong> only containing columns with the
-name <strong>wealth.</strong> (<em>hint</em>: try using
-<code>starts_with()</code> or <code>contains()</code> in combination
-with <code>select()</code>). Save this data.frame as a csv
-file.</p></li>
-<li><p>Using <strong>taxation_df</strong>, create a new data.frame
-called <strong>taxation_dfD</strong> containing only the quarters that
-had a mean income of over 60000 in the year 2017 (<em>hint</em>: use
-<code>filter()</code>). What are the quarters?</p></li>
-<li><p>Arrange rows by <strong>year</strong> and
-<strong>income_mean</strong>. Your dataset should look like this:</p>
+<li><p>Read the csv file into R (as a data.frame), name it <strong>taxation_df</strong>.</p></li>
+<li><p>Using <strong>taxation_df</strong> create a new data.frame called <strong>taxation_dfB</strong> only containing the following columns: <strong>year, quarter, income_mean</strong> and <strong>income_median</strong> (<em>hint</em>: use <code>select()</code>). Save this data.frame as a xlsx file.</p></li>
+<li><p>Using <strong>taxation_df</strong>, create a new data.frame called <strong>taxation_dfC</strong> only containing columns with the name <strong>wealth.</strong> (<em>hint</em>: try using <code>starts_with()</code> or <code>contains()</code> in combination with <code>select()</code>). Save this data.frame as a csv file.</p></li>
+<li><p>Using <strong>taxation_df</strong>, create a new data.frame called <strong>taxation_dfD</strong> containing only the quarters that had a mean income of over 60000 in the year 2017 (<em>hint</em>: use <code>filter()</code>). What are the quarters?</p></li>
+<li><p>Arrange rows by <strong>year</strong> and <strong>income_mean</strong>. Your dataset should look like this:</p>
 <div class="layout-chunk" data-layout="l-body">
-<div
-style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:700px; ">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:400px; overflow-x: scroll; width:700px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -13707,8 +13666,7 @@ Bettingen
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -13727,7 +13685,7 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <p>Created by <a href="www.gayoungson.github.io">Gayoung Son</a> for the
 <a
 href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">Center
-of Cognitive and Decision Sciences</a></p>
+for Cognitive and Decision Sciences</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

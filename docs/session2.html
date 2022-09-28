@@ -788,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1860,15 +1861,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2067,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2143,8 +2150,7 @@ S1 (Fall)
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#understanding-ggplot2" id="toc-understanding-ggplot2">2.1
-Understanding ggplot2</a>
+<li><a href="#understanding-ggplot2" id="toc-understanding-ggplot2">2.1 Understanding ggplot2</a>
 <ul>
 <li><a href="#assignment" id="toc-assignment">Assignment</a></li>
 </ul></li>
@@ -2161,58 +2167,29 @@ Understanding ggplot2</a>
   }
 </style>
 <h2 id="understanding-ggplot2">2.1 Understanding ggplot2</h2>
-<p>There are many ways to Rome, and there are many ways to create a
-graphic using different packages and function in R. :)</p>
-<p>We will be focusing on <a
-href="https://ggplot2.tidyverse.org/">ggplot2</a>, a package part of the
-tidyverse, which is great in creating beautiful graphics. You provide
-the data, tell ggplot2 how to map variables to aesthetics, what
-graphical primitives to use, and it takes care of the details.</p>
+<p>There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R. :)</p>
+<p>We will be focusing on <a href="https://ggplot2.tidyverse.org/">ggplot2</a>, a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
 <div class="blackbox">
-<p><strong>Go through the RStudio Primer on <a
-href="https://rstudio.cloud/learn/primers/1.1">Data Visualization
-Basics</a></strong> and <strong>complete the assignments
-below.</strong></p>
+<p><strong>Go through the RStudio Primer on <a href="https://rstudio.cloud/learn/primers/1.1">Data Visualization Basics</a></strong> and <strong>complete the assignments below.</strong></p>
 </div>
 <p>
  
 </p>
-<p><strong>Tip 1:</strong> Again, cheatsheets will make your (R) life
-easy! Click <a
-href="resources/session1/data-visualization-2.1.pdf">here</a> to
-download the cheatsheet for <em>Data Visualization with
-ggplot2</em>.</p>
-<p><strong>Tip 2:</strong> Check out the <a
-href="https://www.r-graph-gallery.com/">R graph gallery</a> for an
-example of graphics and code.</p>
+<p><strong>Tip 1:</strong> Again, cheatsheets will make your (R) life easy! Click <a href="resources/session1/data-visualization-2.1.pdf">here</a> to download the cheatsheet for <em>Data Visualization with ggplot2</em>.</p>
+<p><strong>Tip 2:</strong> Check out the <a href="https://www.r-graph-gallery.com/">R graph gallery</a> for an example of graphics and code.</p>
 <h3 id="assignment">Assignment</h3>
-<p>In our Github page, there is a data called <em>taxation</em>, which
-is data from Basel on income and inequality.</p>
+<p>In our Github page, there is a data called <em>taxation</em>, which is data from Basel on income and inequality.</p>
 <ol type="1">
-<li><p>Create a data set called <strong>taxation</strong> using the file
-on our Github page. This time, download the data on your computer and
-read it in R locally. Click <a
-href="https://github.com/cdsbasel/rtraining/tree/main/data">this
-link</a> to access the folder.</p></li>
-<li><p>Create a plot using this data set. Make a plot with year and a
-variable of interest (e.g. Median Income), and show the different
-quarters. Include a title, subtitle, legend, and rename the axis
-labs.</p></li>
+<li><p>Create a data set called <strong>taxation</strong> using the file on our Github page. This time, download the data on your computer and read it in R locally. Click <a href="https://github.com/cdsbasel/rtraining/tree/main/data">this link</a> to access the folder.</p></li>
+<li><p>Create a plot using this data set. Make a plot with year and a variable of interest (e.g. Median Income), and show the different quarters. Include a title, subtitle, legend, and rename the axis labs.</p></li>
 <li><p>Save the plot as a png.</p></li>
 </ol>
-<p>Below is an example of a plot showing the median income of the
-quarters by year. <em>Note.</em> If you want to control the order of the
-discrete variables, you need to know some wrangling. Although you will
-learn about these functions in later sessions, you can already try to
-sort the variable “quarter” with
-<code>arrange(year, yourvariableofinterest)</code> and turn it into a
-factor with <code>mutate(quarter = as_factor(quarter))</code>.</p>
+<p>Below is an example of a plot showing the median income of the quarters by year. <em>Note.</em> If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable “quarter” with <code>arrange(year, yourvariableofinterest)</code> and turn it into a factor with <code>mutate(quarter = as_factor(quarter))</code>.</p>
 <p><img src="resources/session2/inequality_basel.png" /></p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2231,7 +2208,7 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <p>Created by <a href="www.gayoungson.github.io">Gayoung Son</a> for the
 <a
 href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">Center
-of Cognitive and Decision Sciences</a></p>
+for Cognitive and Decision Sciences</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

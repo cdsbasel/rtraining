@@ -90,27 +90,27 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_meta_tags-->
   <title>Home: R Training for Students at the Center for Cognitive and Decision Sciences (CDS)</title>
 
-  <meta property="description" itemprop="description" content="Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.&#10;&#10;**Last updated:** Wed Sep 07 12:13:56 PM 2022"/>
+  <meta property="description" itemprop="description" content="Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.&#10;&#10;**Last updated:** Wed Sep 28 3:23:53 PM 2022"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
   <meta property="og:title" content="Home: R Training for Students at the Center for Cognitive and Decision Sciences (CDS)"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.&#10;&#10;**Last updated:** Wed Sep 07 12:13:56 PM 2022"/>
+  <meta property="og:description" content="Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.&#10;&#10;**Last updated:** Wed Sep 28 3:23:53 PM 2022"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Home"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
   <meta property="twitter:title" content="Home: R Training for Students at the Center for Cognitive and Decision Sciences (CDS)"/>
-  <meta property="twitter:description" content="Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.&#10;&#10;**Last updated:** Wed Sep 07 12:13:56 PM 2022"/>
+  <meta property="twitter:description" content="Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.&#10;&#10;**Last updated:** Wed Sep 28 3:23:53 PM 2022"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["R Training for Students at the Center for Cognitive and Decision Sciences (CDS)"]},{"type":"character","attributes":{},"value":["Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.\n\n**Last updated:** Wed Sep 07 12:13:56 PM 2022\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","site"]}},"value":[{"type":"character","attributes":{},"value":["R Training for Students at the Center for Cognitive and Decision Sciences (CDS)"]},{"type":"character","attributes":{},"value":["Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.\n\n**Last updated:** Wed Sep 28 3:23:53 PM 2022\n"]},{"type":"character","attributes":{},"value":["distill::distill_website"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -788,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1860,15 +1861,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2067,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2087,7 +2094,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"R Training for Students at the Center for Cognitive and Decision Sciences (CDS)","description":"Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.\n\n**Last updated:** Wed Sep 07 12:13:56 PM 2022","authors":[]}
+{"title":"R Training for Students at the Center for Cognitive and Decision Sciences (CDS)","description":"Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the [CDS](https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/) to support students.\n\n**Last updated:** Wed Sep 28 3:23:53 PM 2022","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2134,12 +2141,8 @@ S1 (Fall)
 <h1>R Training for Students at the Center for Cognitive and Decision Sciences (CDS)</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Although you might be intimidated by starting with R, this website
-is here to help you get established in R so that you will be equipped
-with the basics of this program! This website was created by the <a
-href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">CDS</a>
-to support students.</p>
-<p><strong>Last updated:</strong> Wed Sep 07 12:13:56 PM 2022</p></p>
+<p><p>Although you might be intimidated by starting with R, this website is here to help you get established in R so that you will be equipped with the basics of this program! This website was created by the <a href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">CDS</a> to support students.</p>
+<p><strong>Last updated:</strong> Wed Sep 28 3:23:53 PM 2022</p></p>
 </div>
 
 
@@ -2148,92 +2151,41 @@ to support students.</p>
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#s1-fall-basic-r-skills"
-id="toc-s1-fall-basic-r-skills"><span>S1 (Fall): Basic R
-skills</span></a></li>
-<li><a href="#tips-to-getting-started"
-id="toc-tips-to-getting-started">Tips to getting started</a></li>
-<li><a href="#useful-links-and-resources"
-id="toc-useful-links-and-resources">Useful Links and Resources</a></li>
+<li><a href="#s1-fall-basic-r-skills" id="toc-s1-fall-basic-r-skills"><span>S1 (Fall): Basic R skills</span></a></li>
+<li><a href="#tips-to-getting-started" id="toc-tips-to-getting-started">Tips to getting started</a></li>
+<li><a href="#useful-links-and-resources" id="toc-useful-links-and-resources">Useful Links and Resources</a></li>
 </ul>
 </nav>
 </div>
 <figure>
-<img src="resources/CDS_R_Training.png"
-alt="An overview of the R Training Program timeline - see specific topics below" />
-<figcaption aria-hidden="true">An overview of the R Training Program
-timeline - see specific topics below</figcaption>
+<img src="resources/CDS_R_Training.png" alt="An overview of the R Training Program timeline - see specific topics below" />
+<figcaption aria-hidden="true">An overview of the R Training Program timeline - see specific topics below</figcaption>
 </figure>
 <p>Please note that this site is <em>work-in-progress</em>.</p>
-<h2 id="s1-fall-basic-r-skills"><a href="session0.html">S1 (Fall): Basic
-R skills</a></h2>
+<h2 id="s1-fall-basic-r-skills"><a href="session0.html">S1 (Fall): Basic R skills</a></h2>
 <h2 id="tips-to-getting-started">Tips to getting started</h2>
-<p>Learning R can be challenging, but ultimately rewarding! Below are
-some of tips to get you through the learning process easier.</p>
-<p><strong>Use the help function</strong> The help function in R can
-help you understand how the function works or what it is doing. You can
-go to the ‘help’ tab in the viewer pane and type the name of the
-function its search tab. Note: only functions in the currently loaded
-packages will show up, so make sure you have the package with the
-function of interest loaded with the command ‘library(packagename)’. You
-can also type ?functionname into the console (e.g. ?mean). Every
-function has documentation, and this command will bring it up. If you
-don’t know the exact function name, you can also type ??thingIamlooking
-(e.g. ??mean) to perform a search for related documentation. See <a
-href="https://www.r-project.org/help.html">this page</a> for how to get
-help in R.</p>
-<p><strong>Search in forums</strong> There are many forums such as <a
-href="https://stackoverflow.com/">stackoverflow.com</a> or <a
-href="https://stackexchange.com/">stackexchange.com</a> where many
-people ask questions on R. It is most likely that someone has already
-asked a question that you have on one of these forums and have provided
-detailed answers.</p>
-<p><strong>Discuss with other students</strong> There are many different
-ways of solving a problem in R. Chances are that a new, easier solution
-that you have not thought about emerges from discussing with others.
-Connect with your fellow students and don’t hesitate to work in groups
-as well as asking those in higher semesters for help!</p>
+<p>Learning R can be challenging, but ultimately rewarding! Below are some of tips to get you through the learning process easier.</p>
+<p><strong>Use the help function</strong>
+The help function in R can help you understand how the function works or what it is doing. You can go to the ‘help’ tab in the viewer pane and type the name of the function its search tab. Note: only functions in the currently loaded packages will show up, so make sure you have the package with the function of interest loaded with the command ‘library(packagename)’. You can also type ?functionname into the console (e.g. ?mean). Every function has documentation, and this command will bring it up. If you don’t know the exact function name, you can also type ??thingIamlooking (e.g. ??mean) to perform a search for related documentation. See <a href="https://www.r-project.org/help.html">this page</a> for how to get help in R.</p>
+<p><strong>Search in forums</strong>
+There are many forums such as <a href="https://stackoverflow.com/">stackoverflow.com</a> or <a href="https://stackexchange.com/">stackexchange.com</a> where many people ask questions on R. It is most likely that someone has already asked a question that you have on one of these forums and have provided detailed answers.</p>
+<p><strong>Discuss with other students</strong>
+There are many different ways of solving a problem in R. Chances are that a new, easier solution that you have not thought about emerges from discussing with others. Connect with your fellow students and don’t hesitate to work in groups as well as asking those in higher semesters for help!</p>
 <h2 id="useful-links-and-resources">Useful Links and Resources</h2>
-<p>The internet is full of resources for learning R. Below are few of
-the most helpful links to support you with your learning.</p>
-<p><a href="https://r4ds.had.co.nz/index.html"><strong>R for Data
-Science</strong></a> This online book has great explanations and codes
-to many of the topics that you will be going through in the R training.
-It offers in-depth explanations to R as well as to individual
-functions.</p>
-<p><a href="https://bookdown.org/ndphillips/YaRrr/"><strong>YaRrr! The
-Pirate’s Guide to R</strong></a> This is another great online book to
-get you started in R. This book also contains great explanations to R as
-well as guides to conducting different hypothesis tests such as t-tests,
-ANOVA and regressions.</p>
-<p><a
-href="https://brianward1428.medium.com/introduction-to-tidyverse-7b3dbf2337d5"><strong>Introduction
-to Tidyverse</strong></a> Tidyverse is a set of R packages that share a
-common ‘style’. Tidyverse is a neat, clean and easy style of using R
-that will help you write even more beautiful code in R. This is also the
-coding style that we will be using again and again in this training
-program. Check out Brian Ward’s practical introduction to the most
-essential functions of Tidyverse.</p>
-<p><a href="https://style.tidyverse.org/index.html"><strong>The
-Tidyverse Style Guide</strong></a> Good coding style is what marks a
-good coder! This site describes the tidyverse style, which is used
-throughout this course. Check out this style guide to make your code
-more elegant.</p>
-<p><a
-href="https://www.datacamp.com/courses/free-introduction-to-r"><strong>Datacamp</strong></a>
-Datacamp is an online learning platform for Data Science. They offer
-many hands-on lessons and tutorials in R. If you need a little refresher
-in R, we recommend that you go through the free course <a
-href="https://learn.datacamp.com/courses/free-introduction-to-r">Introduction
-to R</a> in Datacamp.</p>
-<p><a
-href="https://www.rstudio.com/resources/cheatsheets/"><strong>RStudio
-Cheatsheets</strong></a> It would be impossible to learn all the
-different functions in R by heart, and nobody expects you to have these
-all in memory :) Cheatsheets are a great way to have an overview of the
-most basic functions and will make your life (with R) much easier.</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<p>The internet is full of resources for learning R. Below are few of the most helpful links to support you with your learning.</p>
+<p><a href="https://r4ds.had.co.nz/index.html"><strong>R for Data Science</strong></a>
+This online book has great explanations and codes to many of the topics that you will be going through in the R training. It offers in-depth explanations to R as well as to individual functions.</p>
+<p><a href="https://bookdown.org/ndphillips/YaRrr/"><strong>YaRrr! The Pirate’s Guide to R</strong></a>
+This is another great online book to get you started in R. This book also contains great explanations to R as well as guides to conducting different hypothesis tests such as t-tests, ANOVA and regressions.</p>
+<p><a href="https://brianward1428.medium.com/introduction-to-tidyverse-7b3dbf2337d5"><strong>Introduction to Tidyverse</strong></a>
+Tidyverse is a set of R packages that share a common ‘style’. Tidyverse is a neat, clean and easy style of using R that will help you write even more beautiful code in R. This is also the coding style that we will be using again and again in this training program. Check out Brian Ward’s practical introduction to the most essential functions of Tidyverse.</p>
+<p><a href="https://style.tidyverse.org/index.html"><strong>The Tidyverse Style Guide</strong></a>
+Good coding style is what marks a good coder! This site describes the tidyverse style, which is used throughout this course. Check out this style guide to make your code more elegant.</p>
+<p><a href="https://www.datacamp.com/courses/free-introduction-to-r"><strong>Datacamp</strong></a>
+Datacamp is an online learning platform for Data Science. They offer many hands-on lessons and tutorials in R. If you need a little refresher in R, we recommend that you go through the free course <a href="https://learn.datacamp.com/courses/free-introduction-to-r">Introduction to R</a> in Datacamp.</p>
+<p><a href="https://www.rstudio.com/resources/cheatsheets/"><strong>RStudio Cheatsheets</strong></a>
+It would be impossible to learn all the different functions in R by heart, and nobody expects you to have these all in memory :) Cheatsheets are a great way to have an overview of the most basic functions and will make your life (with R) much easier.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2252,7 +2204,7 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <p>Created by <a href="www.gayoungson.github.io">Gayoung Son</a> for the
 <a
 href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">Center
-of Cognitive and Decision Sciences</a></p>
+for Cognitive and Decision Sciences</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

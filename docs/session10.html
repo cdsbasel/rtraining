@@ -788,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1860,15 +1861,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2067,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
   <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
@@ -2162,33 +2169,22 @@ S1 (Fall)
   }
 </style>
 <h2 id="tidying-data">10.1 Tidying data</h2>
-<p>Often observations are spread across multiple data sets, and you will
-have to join data sets into one single table.</p>
+<p>Often observations are spread across multiple data sets, and you will have to join data sets into one single table.</p>
 <div class="blackbox">
-<p><strong>Go through the RStudio Primer <a
-href="https://rstudio.cloud/learn/primers/4.3">Join Data
-Sets</a></strong> and learn about the different functions to join data
-sets.</p>
+<p><strong>Go through the RStudio Primer <a href="https://rstudio.cloud/learn/primers/4.3">Join Data Sets</a></strong> and learn about the different functions to join data sets.</p>
 </div>
 <p>
  
 </p>
 <h3 id="assignment">Assignment</h3>
-<p>For this assignment, we will be joining the dataset
-<strong>taxation</strong> we used in Session 2 and 4 and a dataset from
-<strong>Open Data Basel City</strong>. You can download this new dataset
-from <a
-href="https://data.bs.ch/explore/dataset/100011/information/?disjunctive.publikationsjahr&amp;disjunctive.wohnviertel_id&amp;disjunctive.wohnviertel_name&amp;sort=-publikationsjahr">this
-webpage</a> and call it <strong>kennzahlen_basel</strong>.</p>
+<p>For this assignment, we will be joining the dataset <strong>taxation</strong> we used in Session 2 and 4 and a dataset from <strong>Open Data Basel City</strong>.
+You can download this new dataset from <a href="https://data.bs.ch/explore/dataset/100011/information/?disjunctive.publikationsjahr&amp;disjunctive.wohnviertel_id&amp;disjunctive.wohnviertel_name&amp;sort=-publikationsjahr">this webpage</a> and call it <strong>kennzahlen_basel</strong>.</p>
 <ol type="1">
-<li>Look at the two datasets. Join the <strong>kennzahlen_basel</strong>
-to the <strong>taxation</strong> dataset by year and quarter, retaining
-only the years that are present in both datasets (2015 to 2017). Your
-output should look like this:</li>
+<li>Look at the two datasets. Join the <strong>kennzahlen_basel</strong> to the <strong>taxation</strong> dataset by year and quarter, retaining only the years that are present in both datasets (2015 to 2017).
+Your output should look like this:</li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
-<div
-style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:700px; ">
+<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; overflow-x: scroll; width:700px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -7896,8 +7892,7 @@ Bettingen
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -7916,7 +7911,7 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <p>Created by <a href="www.gayoungson.github.io">Gayoung Son</a> for the
 <a
 href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">Center
-of Cognitive and Decision Sciences</a></p>
+for Cognitive and Decision Sciences</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 

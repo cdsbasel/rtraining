@@ -788,6 +788,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   d-article table.gt_table td,
   d-article table.gt_table th {
     border-bottom: none;
+    font-size: 100%;
   }
 
   .html-widget {
@@ -1860,15 +1861,21 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
       // hoverable references
       $('span.citation[data-cites]').each(function() {
-        if ($(this).children()[0].nodeName == "D-FOOTNOTE") {
-          var fn = $(this).children()[0]
+        const citeChild = $(this).children()[0]
+        // Do not process if @xyz has been used without escaping and without bibliography activated
+        // https://github.com/rstudio/distill/issues/466
+        if (citeChild === undefined) return true
+
+        if (citeChild.nodeName == "D-FOOTNOTE") {
+          var fn = citeChild
           $(this).html(fn.shadowRoot.querySelector("sup"))
           $(this).id = fn.id
           fn.remove()
         }
         var refs = $(this).attr('data-cites').split(" ");
         var refHtml = refs.map(function(ref) {
-          return "<p>" + $('#ref-' + ref).html() + "</p>";
+          // Could use CSS.escape too here, we insure backward compatibility in navigator
+          return "<p>" + $('div[id="ref-' + ref + '"]').html() + "</p>";
         }).join("\n");
         window.tippy(this, {
           allowHTML: true,
@@ -2067,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2143,8 +2150,7 @@ S1 (Fall)
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#making-graphics" id="toc-making-graphics">7.1 Making
-graphics</a>
+<li><a href="#making-graphics" id="toc-making-graphics">7.1 Making graphics</a>
 <ul>
 <li><a href="#assignment" id="toc-assignment">Assignment</a></li>
 </ul></li>
@@ -2161,63 +2167,33 @@ graphics</a>
   }
 </style>
 <h2 id="making-graphics">7.1 Making graphics</h2>
-<p>In the previous session, you learned how you can systematically
-explore your data and which questions to ask in order to determine the
-best visualizations for your data. In this session, you will learn about
-the individual charts and plots and how to make them.</p>
+<p>In the previous session, you learned how you can systematically explore your data and which questions to ask in order to determine the best visualizations for your data. In this session, you will learn about the individual charts and plots and how to make them.</p>
 <div class="blackbox">
 <p><strong>Go through the following RStudio Primers:</strong></p>
 <ul>
-<li><a href="https://rstudio.cloud/learn/primers/3.2"><strong>Bar
-charts</strong></a></li>
-<li><a
-href="https://rstudio.cloud/learn/primers/3.3"><strong>Histograms</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.4"><strong>Boxplots
-and Counts</strong></a></li>
-<li><a
-href="https://rstudio.cloud/learn/primers/3.5"><strong>Scatterplots</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.6"><strong>Line
-Plots</strong></a></li>
-<li><a
-href="https://rstudio.cloud/learn/primers/3.7"><strong>Overplotting and
-Big Data</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.8"><strong>Customize
-Your Plots</strong></a></li>
+<li><a href="https://rstudio.cloud/learn/primers/3.2"><strong>Bar charts</strong></a></li>
+<li><a href="https://rstudio.cloud/learn/primers/3.3"><strong>Histograms</strong></a></li>
+<li><a href="https://rstudio.cloud/learn/primers/3.4"><strong>Boxplots and Counts</strong></a></li>
+<li><a href="https://rstudio.cloud/learn/primers/3.5"><strong>Scatterplots</strong></a></li>
+<li><a href="https://rstudio.cloud/learn/primers/3.6"><strong>Line Plots</strong></a></li>
+<li><a href="https://rstudio.cloud/learn/primers/3.7"><strong>Overplotting and Big Data</strong></a></li>
+<li><a href="https://rstudio.cloud/learn/primers/3.8"><strong>Customize Your Plots</strong></a></li>
 </ul>
 </div>
 <h3 id="assignment">Assignment</h3>
-<p>Download and read the <strong>verbrechen</strong> data from <a
-href="https://github.com/cdsbasel/rtraining/tree/main/data">our Github
-page</a>, or read it directly using this url: <a
-href="https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv"
-class="uri">https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv</a></p>
+<p>Download and read the <strong>verbrechen</strong> data from <a href="https://github.com/cdsbasel/rtraining/tree/main/data">our Github page</a>, or read it directly using this url: <a href="https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv" class="uri">https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv</a></p>
 <ol type="1">
-<li><p>Look at the data using the functions that you have learned in the
-previous sessions to get a general idea of the variables. You can use
-e.g. <code>group_by(), summarize() and filter()</code>. Some ideas for
-questions are: What is the minimum, mean and maximum number of
-<code>verbrechen</code> by state? What type of <code>verbrechen</code>
-is the most common type?</p></li>
-<li><p>Make a Scatterplot between <code>bevoelkerung</code> and a type
-of crime of your choice. Adjust the colour or shape of the dots to show
-the different states or counties. You will have to use the functions
-mentioned above to first manipulate your data.</p></li>
+<li><p>Look at the data using the functions that you have learned in the previous sessions to get a general idea of the variables. You can use e.g. <code>group_by(), summarize() and filter()</code>. Some ideas for questions are: What is the minimum, mean and maximum number of <code>verbrechen</code> by state? What type of <code>verbrechen</code> is the most common type?</p></li>
+<li><p>Make a Scatterplot between <code>bevoelkerung</code> and a type of crime of your choice. Adjust the colour or shape of the dots to show the different states or counties. You will have to use the functions mentioned above to first manipulate your data.</p></li>
 </ol>
-<p><strong>Tip 1:</strong> To show the thousand separators in the axis
-labels, add
-<code>scale_y_continuous(labels = comma) + scale_x_continuous(labels = comma)</code>.
-For the comma label, you will first need to install the package
-<code>scales</code>.</p>
+<p><strong>Tip 1:</strong> To show the thousand separators in the axis labels, add <code>scale_y_continuous(labels = comma) + scale_x_continuous(labels = comma)</code>. For the comma label, you will first need to install the package <code>scales</code>.</p>
 <p>Here is an example of a scatterplot:</p>
 <p><img src="resources/session7/crime_in_the_states.png" /></p>
-<p><strong>Tip 2:</strong> Of course, there is a ggplot2 cheatsheet for
-<a href="resources/session7/data-visualization-2.1.pdf"><em>Data
-Visualization</em></a> as well :)</p>
+<p><strong>Tip 2:</strong> Of course, there is a ggplot2 cheatsheet for <a href="resources/session7/data-visualization-2.1.pdf"><em>Data Visualization</em></a> as well :)</p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
@@ -2236,7 +2212,7 @@ class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"><
 <p>Created by <a href="www.gayoungson.github.io">Gayoung Son</a> for the
 <a
 href="https://psychologie.unibas.ch/de/fakultaet/abteilungen/cognitive-and-decision-sciences-305/">Center
-of Cognitive and Decision Sciences</a></p>
+for Cognitive and Decision Sciences</a></p>
 </div>
 <!--/radix_placeholder_navigation_after_body-->
 
