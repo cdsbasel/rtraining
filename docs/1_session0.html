@@ -88,29 +88,26 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Home: Visualize Data: Charts and Plots</title>
+  <title>Home: S1 (Fall): Introduction</title>
 
-  <meta property="description" itemprop="description" content="**Session 7**: Charts and Plots"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Home: Visualize Data: Charts and Plots"/>
+  <meta property="og:title" content="Home: S1 (Fall): Introduction"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="**Session 7**: Charts and Plots"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Home"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Home: Visualize Data: Charts and Plots"/>
-  <meta property="twitter:description" content="**Session 7**: Charts and Plots"/>
+  <meta property="twitter:title" content="Home: S1 (Fall): Introduction"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["Visualize Data: Charts and Plots"]},{"type":"character","attributes":{},"value":["**Session 7**: Charts and Plots"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title"]}},"value":[{"type":"character","attributes":{},"value":["S1 (Fall): Introduction"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2094,7 +2091,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Visualize Data: Charts and Plots","description":"**Session 7**: Charts and Plots","authors":[]}
+{"title":"S1 (Fall): Introduction","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2115,18 +2112,18 @@ S1 (Fall)
 <span class="down-arrow">&#x25BE;</span>
 </button>
 <div class="nav-dropdown-content">
-<a href="session0.html">Introduction</a>
-<a href="session1.html">1: Getting Started</a>
-<a href="session2.html">2: Visualization Basics</a>
-<a href="session3.html">3: Programming Basics</a>
-<a href="session4.html">4: Working with Tibbles / Isolating Data with dplyr</a>
-<a href="session5.html">5: Derive Information with dplyr</a>
-<a href="session6.html">6: Exploratory Data Analysis</a>
-<a href="session7.html">7: Charts and Plots</a>
-<a href="session8.html">8: Reshape Data</a>
-<a href="session9.html">9: Separate and Unite Columns</a>
-<a href="session10.html">10: Join Data Sets</a>
-<a href="session11.html">11: Review</a>
+<a href="1_session0.html">Introduction</a>
+<a href="1_session1.html">1: Getting Started</a>
+<a href="1_session2.html">2: Visualization Basics</a>
+<a href="1_session3.html">3: Programming Basics</a>
+<a href="1_session4.html">4: Working with Tibbles / Isolating Data with dplyr</a>
+<a href="1_session5.html">5: Derive Information with dplyr</a>
+<a href="1_session6.html">6: Exploratory Data Analysis</a>
+<a href="1_session7.html">7: Charts and Plots</a>
+<a href="1_session8.html">8: Reshape Data</a>
+<a href="1_session9.html">9: Separate and Unite Columns</a>
+<a href="1_session10.html">10: Join Data Sets</a>
+<a href="1_session11.html">11: Review</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2138,10 +2135,10 @@ S1 (Fall)
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Visualize Data: Charts and Plots</h1>
+<h1>S1 (Fall): Introduction</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p><strong>Session 7</strong>: Charts and Plots</p></p>
+
 </div>
 
 
@@ -2150,48 +2147,85 @@ S1 (Fall)
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#making-graphics" id="toc-making-graphics">7.1 Making graphics</a>
-<ul>
-<li><a href="#assignment" id="toc-assignment">Assignment</a></li>
-</ul></li>
+<li><a href="#introduction" id="toc-introduction">Introduction</a></li>
 </ul>
 </nav>
 </div>
-<style>
-  .blackbox {
-    padding: 1em;
-    background: #b0c4cf;
-    color: black;
-    border: 2px solid #455a64;
-    border-radius: 7px;
-  }
-</style>
-<h2 id="making-graphics">7.1 Making graphics</h2>
-<p>In the previous session, you learned how you can systematically explore your data and which questions to ask in order to determine the best visualizations for your data. In this session, you will learn about the individual charts and plots and how to make them.</p>
-<div class="blackbox">
-<p><strong>Go through the following RStudio Primers:</strong></p>
-<ul>
-<li><a href="https://rstudio.cloud/learn/primers/3.2"><strong>Bar charts</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.3"><strong>Histograms</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.4"><strong>Boxplots and Counts</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.5"><strong>Scatterplots</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.6"><strong>Line Plots</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.7"><strong>Overplotting and Big Data</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.8"><strong>Customize Your Plots</strong></a></li>
-</ul>
-</div>
-<h3 id="assignment">Assignment</h3>
-<p>Download and read the <strong>verbrechen</strong> data from <a href="https://github.com/cdsbasel/rtraining/tree/main/data">our Github page</a>, or read it directly using this url: <a href="https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv" class="uri">https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv</a></p>
-<ol type="1">
-<li><p>Look at the data using the functions that you have learned in the previous sessions to get a general idea of the variables. You can use e.g. <code>group_by(), summarize() and filter()</code>. Some ideas for questions are: What is the minimum, mean and maximum number of <code>verbrechen</code> by state? What type of <code>verbrechen</code> is the most common type?</p></li>
-<li><p>Make a Scatterplot between <code>bevoelkerung</code> and a type of crime of your choice. Adjust the colour or shape of the dots to show the different states or counties. You will have to use the functions mentioned above to first manipulate your data.</p></li>
-</ol>
-<p><strong>Tip 1:</strong> To show the thousand separators in the axis labels, add <code>scale_y_continuous(labels = comma) + scale_x_continuous(labels = comma)</code>. For the comma label, you will first need to install the package <code>scales</code>.</p>
-<p>Here is an example of a scatterplot:</p>
-<p><img src="resources/session7/crime_in_the_states.png" /></p>
-<p><strong>Tip 2:</strong> Of course, there is a ggplot2 cheatsheet for <a href="resources/session7/data-visualization-2.1.pdf"><em>Data Visualization</em></a> as well :)</p>
-<div class="layout-chunk" data-layout="l-body">
-
+<h2 id="introduction">Introduction</h2>
+<p>For the first semester, there are 10 topics for four modules in this R training. For each topic, we have compiled different online materials for you to go through, as well as assignments for you to test your skills. This program is largely based on the great online tutorials from RStudio called <a href="https://rstudio.cloud/learn/primers">Primers</a>. This training is a self-guided learning, which allows you to engage with the material at your own pace and at times that suit you the most. These topics will help you acquire basic skills in R, which will be most useful for your studies and in CDS Hackathons.</p>
+<p>Each session takes around 1-2 hours. Session 11 is meant for you and your tutors to review your progress.</p>
+<div class="l-body">
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 20%" />
+<col style="width: 72%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th>#</th>
+<th>Module</th>
+<th>Topic</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1</td>
+<td>The Basics</td>
+<td><a href="session1.html">Getting Started</a></td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>The Basics</td>
+<td><a href="session2.html">Visualization Basics</a></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>The Basics</td>
+<td><a href="session3.html">Programming Basics</a></td>
+</tr>
+<tr class="even">
+<td>4</td>
+<td>Work with Data</td>
+<td><a href="session4.html">Working with Tibbles/Isolating Data with dplyr</a></td>
+</tr>
+<tr class="odd">
+<td>5</td>
+<td>Work with Data</td>
+<td><a href="session5.html">Derive Information with dplyr</a></td>
+</tr>
+<tr class="even">
+<td>6</td>
+<td>Visualize Data</td>
+<td><a href="session6.html">Exploratory Data Analysis</a></td>
+</tr>
+<tr class="odd">
+<td>7</td>
+<td>Visualize Data</td>
+<td><a href="session7.html">Charts and Plots</a></td>
+</tr>
+<tr class="even">
+<td>8</td>
+<td>Tidy your Data</td>
+<td><a href="session8.html">Reshape Data</a></td>
+</tr>
+<tr class="odd">
+<td>9</td>
+<td>Tidy your Data</td>
+<td><a href="session9.html">Separate and Unite Columns</a></td>
+</tr>
+<tr class="even">
+<td>10</td>
+<td>Tidy your Data</td>
+<td><a href="session10.html">Join Data Sets</a></td>
+</tr>
+<tr class="odd">
+<td>11</td>
+<td>Review</td>
+<td><a href="session11.html">Review</a></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->

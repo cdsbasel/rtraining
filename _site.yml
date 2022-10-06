@@ -12,29 +12,29 @@ navbar:
     - text: "S1 (Fall)"
       menu:
       - text: "Introduction"
-        href: session0.html
+        href: 1_session0.html
       - text: "1: Getting Started"
-        href: session1.html
+        href: 1_session1.html
       - text: "2: Visualization Basics"
-        href: session2.html
+        href: 1_session2.html
       - text: "3: Programming Basics"
-        href: session3.html
+        href: 1_session3.html
       - text: "4: Working with Tibbles / Isolating Data with dplyr"
-        href: session4.html
+        href: 1_session4.html
       - text: "5: Derive Information with dplyr"
-        href: session5.html
+        href: 1_session5.html
       - text: "6: Exploratory Data Analysis"
-        href: session6.html
+        href: 1_session6.html
       - text: "7: Charts and Plots"
-        href: session7.html
+        href: 1_session7.html
       - text: "8: Reshape Data"  
-        href: session8.html
+        href: 1_session8.html
       - text: "9: Separate and Unite Columns"
-        href: session9.html
+        href: 1_session9.html
       - text: "10: Join Data Sets"
-        href: session10.html
+        href: 1_session10.html
       - text: "11: Review"
-        href: session11.html
+        href: 1_session11.html
         search: true
 output:   
   distill::distill_article:
