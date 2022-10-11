@@ -1,7 +1,9 @@
 ---
-title: "Regression"
+title: "Statistical Modeling and Regression"
 description: |
-  **Session 2**: Regression
+  **Session 2**: `swirl()`
+  
+  Details will be added soon!
 ---
 
 ```{r setup, include=FALSE}
@@ -19,10 +21,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Swirl
 
+For this session, you will learn how to run regressions with the interactive course from [`swirl()`](https://swirlstats.com/).
+
 ```{r, eval=FALSE, echo=TRUE}
 install.packages("swirl")
 library(swirl)
 ```  
-`2: Regression Models: The basics of regression modeling in R`
+Choose module `2: Regression Models: The basics of regression modeling in R`.
 
-There are 13 Topics in Regression! Start with the **Introduction** 
+There are 13 Topics in Regression! Each Topic takes around 15 minutes. Start with the **Introduction**.

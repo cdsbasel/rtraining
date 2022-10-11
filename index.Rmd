@@ -27,7 +27,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Please note that this site is *work-in-progress*.
 
-## [Semester 1: Basic R skills](1_session0.html)
+## [Semester 1: Basic R Skills](1_session0.html)
 
 ## [Semester 2: Intermediate R Skills](2_session0.html)
 
@@ -37,7 +37,7 @@ Please note that this site is *work-in-progress*.
 Learning R can be challenging, but ultimately rewarding! Below are some of tips to get you through the learning process easier.
 
 **Use the help function**
-The help function in R can help you understand how the function works or what it is doing. You can go to the 'help' tab in the viewer pane and type the name of the function its search tab. Note: only functions in the currently loaded packages will show up, so make sure you have the package with the function of interest loaded with the command 'library(packagename)'. You can also type ?functionname into the console (e.g. ?mean). Every function has documentation, and this command will bring it up. If you don't know the exact function name, you can also type ??thingIamlooking (e.g. ??mean) to perform a search for related documentation. See [this page](https://www.r-project.org/help.html) for how to get help in R.
+The help function in R can help you understand how the function works or what it is doing. You can go to the 'help' tab in the viewer pane and type the name of the function its search tab. Note: only functions in the currently loaded packages will show up, so make sure you have the package with the function of interest loaded with the command `library(packagename)`. You can also type `?functionname` into the console (e.g. `?mean`). Every function has documentation, and this command will bring it up. If you don't know the exact function name, you can also type `??thingIamlooking` (e.g. `??mean`) to perform a search for related documentation. See [this page](https://www.r-project.org/help.html) for how to get help in R.
 
 **Search in forums**
 There are many forums such as [stackoverflow.com](https://stackoverflow.com/) or [stackexchange.com](https://stackexchange.com/) where many people ask questions on R. It is most likely that someone has already asked a question that you have on one of these forums and have provided detailed answers. 

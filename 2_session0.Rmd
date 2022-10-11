@@ -1,0 +1,25 @@
+---
+title: "Semester 2: Intermediate R Skills"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+For the second semester, you will learn how to make your personal website in [R Markdown](https://rmarkdown.rstudio.com/index.html) with [Distill](https://rstudio.github.io/distill/) and publishing it on [GitHub](https://github.com/).
+
+You will also learn about how to do Statistical Modeling and Regression in R with [`swirl()`](https://swirlstats.com/) package.
+
+The idea is to create your own website such as this website and add some analyses and data visualizations of your choice. Depending on how far you are with your master project, you could upload your own data analyses on your website, or add analyses from the regression modeling that you will learn in `swirl()`.
+
+
+::: l-body
+| # | Module     | Topic                         |
+|---| -----------------|-----------------------|
+| 1 | Creating Your Website | [R Markdown and GitHub](2_session1.html) |
+| 2 | Statistical Modeling and Regression| [`swirl()`](2_session2.html) |
+| 3 | Presentation | [Presentation](2_session3.html) |
+
+:::
