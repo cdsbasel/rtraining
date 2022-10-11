@@ -9,7 +9,7 @@ navbar:
     image: resources/unibas.png
     href: https://cds.unibas.ch
   right:
-    - text: "S1 (Fall)"
+    - text: "Semester 1"
       menu:
       - text: "Introduction"
         href: 1_session0.html
@@ -35,6 +35,14 @@ navbar:
         href: 1_session10.html
       - text: "11: Review"
         href: 1_session11.html
+    - text: "Semester 2"
+      menu:
+      - text: "Introduction"
+        href: 2_session0.html
+      - text: "1: R Markdown"
+        href: 2_session1.html
+      - text: "2: Regression"
+        href: 2_session2.html
         search: true
 output:   
   distill::distill_article:

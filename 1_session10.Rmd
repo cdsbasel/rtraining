@@ -59,7 +59,6 @@ combined_data %>%
 
 ```
 
-
 ``` {r echo = F, results = 'hide'}
 ### Solution
 taxation <- read_csv("data/taxation.csv")

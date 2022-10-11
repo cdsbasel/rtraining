@@ -32,7 +32,7 @@ We assume that you all have some degree of experience with R in your bachelor st
 
 
 ## 1.2 Importing and Exporting Data
-[![](resources/session1/importing_data.png)](http://www.sthda.com/english/wiki/importing-data-into-r)
+[![](resources/1_session1/importing_data.png)](http://www.sthda.com/english/wiki/importing-data-into-r)
 
 One of the most common, beginner problems that we run into is *loading the data in R.* Most of these problems arise because there are different functions we need to use for different file types.  
 
@@ -43,7 +43,7 @@ One of the most common, beginner problems that we run into is *loading the data 
 
 **Tip 1:** Focus on the chapters *Fast Reading of Data From txt|csv Files into R: readr package* and *Reading data From Excel Files (xls|xlsx) into R*, as these are the most common data files that you will be encountering throughout your R journey!
 
-**Tip 2:** Use the Cheatsheets! They are a great way of quickly looking for a function you need. Click [here](resources/session1/data-import.pdf) to download the the cheatsheet for *Data Import with readr*.
+**Tip 2:** Use the Cheatsheets! They are a great way of quickly looking for a function you need. Click [here](resources/1_session1/data-import.pdf) to download the the cheatsheet for *Data Import with readr*.
 
 
 

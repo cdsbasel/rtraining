@@ -17,16 +17,16 @@ Each session takes around 1-2 hours. Session 11 is meant for you and your tutors
 ::: l-body
 | # | Module     | Topic                         |
 |---| ---------|-------------------------------|
-| 1 | The Basics | [Getting Started](session1.html) |
-| 2 | The Basics | [Visualization Basics](session2.html) |
-| 3 | The Basics | [Programming Basics](session3.html) ||
-| 4 | Work with Data | [Working with Tibbles/Isolating Data with dplyr](session4.html) |
-| 5 | Work with Data | [Derive Information with dplyr](session5.html) |
-| 6 | Visualize Data | [Exploratory Data Analysis](session6.html) |
-| 7 | Visualize Data | [Charts and Plots](session7.html) |
-| 8 | Tidy your Data | [Reshape Data](session8.html) |
-| 9 | Tidy your Data | [Separate and Unite Columns](session9.html) |
-| 10 | Tidy your Data | [Join Data Sets](session10.html) |
-| 11 | Review | [Review](session11.html) |
+| 1 | The Basics | [Getting Started](1_session1.html) |
+| 2 | The Basics | [Visualization Basics](1_session2.html) |
+| 3 | The Basics | [Programming Basics](1_session3.html) ||
+| 4 | Work with Data | [Working with Tibbles/Isolating Data with dplyr](1_session4.html) |
+| 5 | Work with Data | [Derive Information with dplyr](1_session5.html) |
+| 6 | Visualize Data | [Exploratory Data Analysis](1_session6.html) |
+| 7 | Visualize Data | [Charts and Plots](1_session7.html) |
+| 8 | Tidy your Data | [Reshape Data](1_session8.html) |
+| 9 | Tidy your Data | [Separate and Unite Columns](1_session9.html) |
+| 10 | Tidy your Data | [Join Data Sets](1_session10.html) |
+| 11 | Review | [Review](1_session11.html) |
 
 :::

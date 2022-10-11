@@ -19,7 +19,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## 8.1 Tidying data
 
-![](resources/session8/tidy_data.png)
+![](resources/1_session8/tidy_data.png)
 In order to work with your data more efficiently, you should store it as *tidydata*. In tidy data, each variable forms a **column**, and each observation forms a **row.** This is *crucial* for data manipulation, visualization and further analyses. If you keep all your data tidy, you will not have to spend hours transforming one format of data into another, in order to run analyses or to make graphics in R. 
 
 In the last 4 sessions, you will learn how to tidy your data with ease. For this session, you will familiarize yourself with the functions `pivot_longer()` and `pivot_wider()`, which are modern alternatives to `gather()` and `spread()`. With `pivot_longer()` and `pivot_wider()`, you can manipulate the layout of your data set. 
@@ -29,7 +29,7 @@ In the last 4 sessions, you will learn how to tidy your data with ease. For this
 ::::
 <p>&nbsp;</p>
 
-**Tip 1:** The cheatsheet [*Data Wrangling with dplyr and tidyr*](resources/session8/data-wrangling.pdf) has visual examples of what the tidying functions do to the data set, which will be of use in these last sessions. 
+**Tip 1:** The cheatsheet [*Data Wrangling with dplyr and tidyr*](resources/1_session8/data-wrangling.pdf) has visual examples of what the tidying functions do to the data set, which will be of use in these last sessions. 
 
 
 ### Assignment
@@ -39,6 +39,7 @@ For this assignment, you will use the `billboard` dataset that comes with the `t
   1. Look the the `billboard` data set. You will need to load `tidyr()` and `dplyr()` individually, because the data set is embedded in the packages.
   2. Using a pivot function, make a new dataset called `billboard_longer`, and store the weeks to a variable named `week` and the values to `rank`. Drop the missing values.
   3. Calculate the average rank of each song. Which three songs have the highest average rank? Did you know these songs already? You should get a table as such:
+  
 ```{r include=TRUE}
 library(tidyr)
 library(dplyr)
@@ -61,8 +62,6 @@ billboard_longer %>%
   kable_styling() %>%
   scroll_box(height = "300px")
 ```
-  
-
 
 ```{r echo = F, results = 'hide'}
 ### Solution

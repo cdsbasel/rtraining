@@ -5,7 +5,9 @@ description: |
   
   **Last updated:** `r format(Sys.time(), "%a %b %d %X %Y")`
   
-site: distill::distill_website
+output: 
+  distill::distill_article:
+    md_extensions: +emoji
 ---
 
 ```{r setup, include=FALSE}
@@ -25,7 +27,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Please note that this site is *work-in-progress*.
 
-## [S1 (Fall): Basic R skills](session0.html)
+## [Semester 1: Basic R skills](1_session0.html)
+
+## [Semester 2: Intermediate R Skills](2_session0.html)
 
 
 ## Tips to getting started
@@ -62,4 +66,4 @@ Good coding style is what marks a good coder! This site describes the tidyverse 
 Datacamp is an online learning platform for Data Science. They offer many hands-on lessons and tutorials in R. If you need a little refresher in R, we recommend that you go through the free course [Introduction to R](https://learn.datacamp.com/courses/free-introduction-to-r) in Datacamp.
 
 [**RStudio Cheatsheets**](https://www.rstudio.com/resources/cheatsheets/)
-It would be impossible to learn all the different functions in R by heart, and nobody expects you to have these all in memory :) Cheatsheets are a great way to have an overview of the most basic functions and will make your life (with R) much easier.
+It would be impossible to learn all the different functions in R by heart, and nobody expects you to have these all in memory. :relaxed: Cheatsheets are a great way to have an overview of the most basic functions and will make your life (with R) much easier.

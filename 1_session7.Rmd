@@ -2,6 +2,9 @@
 title: "Visualize Data: Charts and Plots"
 description: |
   **Session 7**: Charts and Plots
+output: 
+  distill::distill_article:
+    md_extensions: +emoji
 ---
 
 ```{r setup, include=FALSE}
@@ -45,9 +48,9 @@ Download and read the **verbrechen** data from [our Github page](https://github.
   
 Here is an example of a scatterplot:
   
-![](resources/session7/crime_in_the_states.png)
+![](resources/1_session7/crime_in_the_states.png)
 
-**Tip 2:** Of course, there is a ggplot2 cheatsheet for [*Data Visualization*](resources/session7/data-visualization-2.1.pdf) as well :)
+**Tip 2:** Of course, there is a ggplot2 cheatsheet for [*Data Visualization*](resources/1_session7/data-visualization-2.1.pdf) as well. :smiley:
 
 
 ```{r echo = F, results = 'hide'}

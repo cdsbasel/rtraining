@@ -110,7 +110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["The Basics: Visualization Basics"]},{"type":"character","attributes":{},"value":["**Session 2**: Visualization Basics"]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","output"]}},"value":[{"type":"character","attributes":{},"value":["The Basics: Visualization Basics"]},{"type":"character","attributes":{},"value":["**Session 2**: Visualization Basics\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["md_extensions"]}},"value":[{"type":"character","attributes":{},"value":["+emoji"]}]}]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2110,7 +2110,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="nav-right">
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-S1 (Fall)
+Semester 1
  
 <span class="down-arrow">&#x25BE;</span>
 </button>
@@ -2127,6 +2127,18 @@ S1 (Fall)
 <a href="1_session9.html">9: Separate and Unite Columns</a>
 <a href="1_session10.html">10: Join Data Sets</a>
 <a href="1_session11.html">11: Review</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Semester 2
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="2_session0.html">Introduction</a>
+<a href="2_session1.html">1: R Markdown</a>
+<a href="2_session2.html">2: Regression</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2167,7 +2179,7 @@ S1 (Fall)
   }
 </style>
 <h2 id="understanding-ggplot2">2.1 Understanding ggplot2</h2>
-<p>There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R. :)</p>
+<p>There are many ways to Rome, and there are many ways to create a graphic using different packages and function in R. <span class="emoji" data-emoji="smiley">😃</span></p>
 <p>We will be focusing on <a href="https://ggplot2.tidyverse.org/">ggplot2</a>, a package part of the tidyverse, which is great in creating beautiful graphics. You provide the data, tell ggplot2 how to map variables to aesthetics, what graphical primitives to use, and it takes care of the details.</p>
 <div class="blackbox">
 <p><strong>Go through the RStudio Primer on <a href="https://rstudio.cloud/learn/primers/1.1">Data Visualization Basics</a></strong> and <strong>complete the assignments below.</strong></p>
@@ -2175,7 +2187,7 @@ S1 (Fall)
 <p>
  
 </p>
-<p><strong>Tip 1:</strong> Again, cheatsheets will make your (R) life easy! Click <a href="resources/session1/data-visualization-2.1.pdf">here</a> to download the cheatsheet for <em>Data Visualization with ggplot2</em>.</p>
+<p><strong>Tip 1:</strong> Again, cheatsheets will make your (R) life easy! Click <a href="resources/1_session1/data-visualization-2.1.pdf">here</a> to download the cheatsheet for <em>Data Visualization with ggplot2</em>.</p>
 <p><strong>Tip 2:</strong> Check out the <a href="https://www.r-graph-gallery.com/">R graph gallery</a> for an example of graphics and code.</p>
 <h3 id="assignment">Assignment</h3>
 <p>In our Github page, there is a data called <em>taxation</em>, which is data from Basel on income and inequality.</p>
@@ -2185,7 +2197,7 @@ S1 (Fall)
 <li><p>Save the plot as a png.</p></li>
 </ol>
 <p>Below is an example of a plot showing the median income of the quarters by year. <em>Note.</em> If you want to control the order of the discrete variables, you need to know some wrangling. Although you will learn about these functions in later sessions, you can already try to sort the variable “quarter” with <code>arrange(year, yourvariableofinterest)</code> and turn it into a factor with <code>mutate(quarter = as_factor(quarter))</code>.</p>
-<p><img src="resources/session2/inequality_basel.png" /></p>
+<p><img src="resources/1_session2/inequality_basel.png" /></p>
 <div class="layout-chunk" data-layout="l-body">
 
 </div>

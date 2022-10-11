@@ -54,6 +54,7 @@ We will be using the **taxation** data set from Session 2. The four assignments 
   4. Using **taxation_df**,  create a new data.frame called **taxation_dfD**  containing only the quarters that had a mean income of over 60000 in the year 2017 (*hint*: use `filter()`). What are the quarters?
   
   5. Arrange rows by **year** and **income_mean**. Your dataset should look like this:
+  
 ```{r echo = F, results = 'asis'}
 library(tidyverse)
 library(knitr)
@@ -64,9 +65,6 @@ taxation %>% arrange(year, income_mean) %>%
   kable_styling() %>%
   scroll_box(width = "700px", height = "400px")
 ```
-
-
-
 
 ```{r echo = F, results = 'hide'}
 ### Solution

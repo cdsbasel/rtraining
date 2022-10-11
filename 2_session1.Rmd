@@ -1,0 +1,20 @@
+---
+title: "R Markdown"
+description: |
+  **Session 1**: Setting up your personal website
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+<style>
+  .blackbox {
+    padding: 1em;
+    background: #b0c4cf;
+    color: black;
+    border: 2px solid #455a64;
+    border-radius: 7px;
+  }
+</style>
+
+## R Markdown

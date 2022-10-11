@@ -2112,7 +2112,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <div class="nav-right">
 <div class="nav-dropdown">
 <button class="nav-dropbtn">
-S1 (Fall)
+Semester 1
  
 <span class="down-arrow">&#x25BE;</span>
 </button>
@@ -2129,6 +2129,18 @@ S1 (Fall)
 <a href="1_session9.html">9: Separate and Unite Columns</a>
 <a href="1_session10.html">10: Join Data Sets</a>
 <a href="1_session11.html">11: Review</a>
+</div>
+</div>
+<div class="nav-dropdown">
+<button class="nav-dropbtn">
+Semester 2
+ 
+<span class="down-arrow">&#x25BE;</span>
+</button>
+<div class="nav-dropdown-content">
+<a href="2_session0.html">Introduction</a>
+<a href="2_session1.html">1: R Markdown</a>
+<a href="2_session2.html">2: Regression</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2169,7 +2181,7 @@ S1 (Fall)
   }
 </style>
 <h2 id="tidying-data">8.1 Tidying data</h2>
-<p><img src="resources/session8/tidy_data.png" />
+<p><img src="resources/1_session8/tidy_data.png" />
 In order to work with your data more efficiently, you should store it as <em>tidydata</em>. In tidy data, each variable forms a <strong>column</strong>, and each observation forms a <strong>row.</strong> This is <em>crucial</em> for data manipulation, visualization and further analyses. If you keep all your data tidy, you will not have to spend hours transforming one format of data into another, in order to run analyses or to make graphics in R.</p>
 <p>In the last 4 sessions, you will learn how to tidy your data with ease. For this session, you will familiarize yourself with the functions <code>pivot_longer()</code> and <code>pivot_wider()</code>, which are modern alternatives to <code>gather()</code> and <code>spread()</code>. With <code>pivot_longer()</code> and <code>pivot_wider()</code>, you can manipulate the layout of your data set.</p>
 <div class="blackbox">
@@ -2178,13 +2190,14 @@ In order to work with your data more efficiently, you should store it as <em>tid
 <p>
  
 </p>
-<p><strong>Tip 1:</strong> The cheatsheet <a href="resources/session8/data-wrangling.pdf"><em>Data Wrangling with dplyr and tidyr</em></a> has visual examples of what the tidying functions do to the data set, which will be of use in these last sessions.</p>
+<p><strong>Tip 1:</strong> The cheatsheet <a href="resources/1_session8/data-wrangling.pdf"><em>Data Wrangling with dplyr and tidyr</em></a> has visual examples of what the tidying functions do to the data set, which will be of use in these last sessions.</p>
 <h3 id="assignment">Assignment</h3>
 <p>For this assignment, you will use the <code>billboard</code> dataset that comes with the <code>tidyr()</code> package. This dataset shows the billboard rank of songs in the year 2000.</p>
 <ol type="1">
 <li>Look the the <code>billboard</code> data set. You will need to load <code>tidyr()</code> and <code>dplyr()</code> individually, because the data set is embedded in the packages.</li>
 <li>Using a pivot function, make a new dataset called <code>billboard_longer</code>, and store the weeks to a variable named <code>week</code> and the values to <code>rank</code>. Drop the missing values.</li>
-<li>Calculate the average rank of each song. Which three songs have the highest average rank? Did you know these songs already? You should get a table as such:
+<li>Calculate the average rank of each song. Which three songs have the highest average rank? Did you know these songs already? You should get a table as such:</li>
+</ol>
 <div class="layout-chunk" data-layout="l-body">
 <div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:300px; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
@@ -4729,8 +4742,7 @@ Toca’s Miracle
 </tr>
 </tbody>
 </table>
-</div></li>
-</ol>
+</div>
 </div>
 <div class="layout-chunk" data-layout="l-body">
 

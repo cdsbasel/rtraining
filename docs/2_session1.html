@@ -88,29 +88,29 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-  <title>Home: Visualize Data: Charts and Plots</title>
+  <title>Home: R Markdown</title>
 
-  <meta property="description" itemprop="description" content="**Session 7**: Charts and Plots"/>
+  <meta property="description" itemprop="description" content="**Session 1**: Setting up your personal website"/>
 
 
 
   <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-  <meta property="og:title" content="Home: Visualize Data: Charts and Plots"/>
+  <meta property="og:title" content="Home: R Markdown"/>
   <meta property="og:type" content="article"/>
-  <meta property="og:description" content="**Session 7**: Charts and Plots"/>
+  <meta property="og:description" content="**Session 1**: Setting up your personal website"/>
   <meta property="og:locale" content="en_US"/>
   <meta property="og:site_name" content="Home"/>
 
   <!--  https://dev.twitter.com/cards/types/summary -->
   <meta property="twitter:card" content="summary"/>
-  <meta property="twitter:title" content="Home: Visualize Data: Charts and Plots"/>
-  <meta property="twitter:description" content="**Session 7**: Charts and Plots"/>
+  <meta property="twitter:title" content="Home: R Markdown"/>
+  <meta property="twitter:description" content="**Session 1**: Setting up your personal website"/>
 
   <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
   <script type="text/json" id="radix-rmarkdown-metadata">
-  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","output"]}},"value":[{"type":"character","attributes":{},"value":["Visualize Data: Charts and Plots"]},{"type":"character","attributes":{},"value":["**Session 7**: Charts and Plots\n"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["md_extensions"]}},"value":[{"type":"character","attributes":{},"value":["+emoji"]}]}]}]}
+  {"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description"]}},"value":[{"type":"character","attributes":{},"value":["R Markdown"]},{"type":"character","attributes":{},"value":["**Session 1**: Setting up your personal website"]}]}
   </script>
   <!--/radix_placeholder_rmarkdown_metadata-->
   <!--radix_placeholder_navigation_in_header-->
@@ -2094,7 +2094,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Visualize Data: Charts and Plots","description":"**Session 7**: Charts and Plots","authors":[]}
+{"title":"R Markdown","description":"**Session 1**: Setting up your personal website","authors":[]}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2150,10 +2150,10 @@ Semester 2
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Visualize Data: Charts and Plots</h1>
+<h1>R Markdown</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p><strong>Session 7</strong>: Charts and Plots</p></p>
+<p><p><strong>Session 1</strong>: Setting up your personal website</p></p>
 </div>
 
 
@@ -2162,10 +2162,7 @@ Semester 2
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#making-graphics" id="toc-making-graphics">7.1 Making graphics</a>
-<ul>
-<li><a href="#assignment" id="toc-assignment">Assignment</a></li>
-</ul></li>
+<li><a href="#r-markdown" id="toc-r-markdown">R Markdown</a></li>
 </ul>
 </nav>
 </div>
@@ -2178,33 +2175,7 @@ Semester 2
     border-radius: 7px;
   }
 </style>
-<h2 id="making-graphics">7.1 Making graphics</h2>
-<p>In the previous session, you learned how you can systematically explore your data and which questions to ask in order to determine the best visualizations for your data. In this session, you will learn about the individual charts and plots and how to make them.</p>
-<div class="blackbox">
-<p><strong>Go through the following RStudio Primers:</strong></p>
-<ul>
-<li><a href="https://rstudio.cloud/learn/primers/3.2"><strong>Bar charts</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.3"><strong>Histograms</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.4"><strong>Boxplots and Counts</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.5"><strong>Scatterplots</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.6"><strong>Line Plots</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.7"><strong>Overplotting and Big Data</strong></a></li>
-<li><a href="https://rstudio.cloud/learn/primers/3.8"><strong>Customize Your Plots</strong></a></li>
-</ul>
-</div>
-<h3 id="assignment">Assignment</h3>
-<p>Download and read the <strong>verbrechen</strong> data from <a href="https://github.com/cdsbasel/rtraining/tree/main/data">our Github page</a>, or read it directly using this url: <a href="https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv" class="uri">https://raw.githubusercontent.com/cdsbasel/rtraining/main/data/verbrechen.csv</a></p>
-<ol type="1">
-<li><p>Look at the data using the functions that you have learned in the previous sessions to get a general idea of the variables. You can use e.g. <code>group_by(), summarize() and filter()</code>. Some ideas for questions are: What is the minimum, mean and maximum number of <code>verbrechen</code> by state? What type of <code>verbrechen</code> is the most common type?</p></li>
-<li><p>Make a Scatterplot between <code>bevoelkerung</code> and a type of crime of your choice. Adjust the colour or shape of the dots to show the different states or counties. You will have to use the functions mentioned above to first manipulate your data.</p></li>
-</ol>
-<p><strong>Tip 1:</strong> To show the thousand separators in the axis labels, add <code>scale_y_continuous(labels = comma) + scale_x_continuous(labels = comma)</code>. For the comma label, you will first need to install the package <code>scales</code>.</p>
-<p>Here is an example of a scatterplot:</p>
-<p><img src="resources/1_session7/crime_in_the_states.png" /></p>
-<p><strong>Tip 2:</strong> Of course, there is a ggplot2 cheatsheet for <a href="resources/1_session7/data-visualization-2.1.pdf"><em>Data Visualization</em></a> as well. <span class="emoji" data-emoji="smiley">😃</span></p>
-<div class="layout-chunk" data-layout="l-body">
-
-</div>
+<h2 id="r-markdown">R Markdown</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->

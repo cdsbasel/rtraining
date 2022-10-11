@@ -1,0 +1,28 @@
+---
+title: "Regression"
+description: |
+  **Session 2**: Regression
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+<style>
+  .blackbox {
+    padding: 1em;
+    background: #b0c4cf;
+    color: black;
+    border: 2px solid #455a64;
+    border-radius: 7px;
+  }
+</style>
+
+## Swirl
+
+```{r, eval=FALSE, echo=TRUE}
+install.packages("swirl")
+library(swirl)
+```  
+`2: Regression Models: The basics of regression modeling in R`
+
+There are 13 Topics in Regression! Start with the **Introduction** 
