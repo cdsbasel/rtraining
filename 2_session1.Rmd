@@ -79,10 +79,10 @@ Personalize your website! Your website should contain the following pages:
   1. A **landing page**: Include *author, published date, an introductory text, and a photo related to your website.*
   2. An **about me page**: Include *your photo, a text about you, and a few links of your choice (i.e., Email, LinkedIn).*
   **Tip 1:** This [article](https://www.apreshill.com/blog/2020-12-postcards-distill/) from [Alison Hill](https://www.apreshill.com/) has great step-by-step details on how to make postcards.
-  3. A **project page**: Include *a description of your project, a table using the knitr's `kable` function and a plot using `ggplot2`.
+  3. A **project page**: Include *a description of your project, a table* using the knitr's `kable` function and *a plot* using `ggplot2`.
   **Tip 2:** Check out [this chapter](https://r4ds.had.co.nz/r-markdown.html) on R Markdown in [R for Data Science](https://r4ds.had.co.nz/index.html). They use other formats to process and publish, but they have a great explanation and some exercises as well!
   4. A **footer** and a **table of contents** on each page.
   
-Feel free to add any customizations you want on your website. You can play around with changing the template or adding emojis :smiley:. 
+Feel free to add any customizations you want on your website. You can play around with changing the template (i.e., changing themes) or adding emojis :smiley:. 
 
 **Tip 3:** Download the [R Markdown Cheatsheet](resources/2_session1/rmarkdown_cheatsheet.pdf) for an overview of commands!
