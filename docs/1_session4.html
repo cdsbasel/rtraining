@@ -2203,10 +2203,10 @@ Semester 2
 <h3 id="assignment">Assignment</h3>
 <p>We will be using the <strong>taxation</strong> data set from Session 2. The four assignments do not build upon each other.</p>
 <ol type="1">
-<li><p>Read the csv file into R (as a data.frame), name it <strong>taxation_df</strong>.</p></li>
-<li><p>Using <strong>taxation_df</strong> create a new data.frame called <strong>taxation_dfB</strong> only containing the following columns: <strong>year, quarter, income_mean</strong> and <strong>income_median</strong> (<em>hint</em>: use <code>select()</code>). Save this data.frame as a xlsx file.</p></li>
-<li><p>Using <strong>taxation_df</strong>, create a new data.frame called <strong>taxation_dfC</strong> only containing columns with the name <strong>wealth.</strong> (<em>hint</em>: try using <code>starts_with()</code> or <code>contains()</code> in combination with <code>select()</code>). Save this data.frame as a csv file.</p></li>
-<li><p>Using <strong>taxation_df</strong>, create a new data.frame called <strong>taxation_dfD</strong> containing only the quarters that had a mean income of over 60000 in the year 2017 (<em>hint</em>: use <code>filter()</code>). What are the quarters?</p></li>
+<li><p>Read the csv file into R, name it <strong>taxation_df</strong>.</p></li>
+<li><p>Using <strong>taxation_df</strong> create a new data frame called <strong>taxation_dfB</strong> only containing the following columns: <strong>year, quarter, income_mean</strong> and <strong>income_median</strong> (<em>hint</em>: use <code>select()</code>). Save this data frame as a xlsx file.</p></li>
+<li><p>Using <strong>taxation_df</strong>, create a new data frame called <strong>taxation_dfC</strong> only containing columns with the name <strong>wealth.</strong> (<em>hint</em>: try using <code>starts_with()</code> or <code>contains()</code> in combination with <code>select()</code>). Save this data frame as a csv file.</p></li>
+<li><p>Using <strong>taxation_df</strong>, create a new data frame called <strong>taxation_dfD</strong> containing only the quarters that had a mean income of over 60000 in the year 2017 (<em>hint</em>: use <code>filter()</code>). What are the quarters?</p></li>
 <li><p>Arrange rows by <strong>year</strong> and <strong>income_mean</strong>. Your dataset should look like this:</p></li>
 </ol>
 <div class="layout-chunk" data-layout="l-body">
