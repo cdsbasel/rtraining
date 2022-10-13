@@ -39,7 +39,7 @@ When you have your dataset loaded and ready to go, you will first need to look a
 ::::
 <p>&nbsp;</p>
 
-**Tip 1:** `dplyr` also has a cheatsheet for you - download it [here](resources/session4/data-transformation.pdf).
+**Tip 1:** `dplyr` also has a cheatsheet for you - download it [here](resources/1_session4/data-transformation.pdf).
 
 ### Assignment
 
