@@ -36,6 +36,9 @@ Please note that this site is *work-in-progress*.
 
 Learning R can be challenging, but ultimately rewarding! Below are some of tips to get you through the learning process easier.
 
+**Setting up RStudio**
+Check out this [PDF](literature/edi_tricks.pdf) from Edi Most, which describes some useful tips to setting up RStudio.
+
 **Use the help function**
 The help function in R can help you understand how the function works or what it is doing. You can go to the 'help' tab in the viewer pane and type the name of the function its search tab. Note: only functions in the currently loaded packages will show up, so make sure you have the package with the function of interest loaded with the command `library(packagename)`. You can also type `?functionname` into the console (e.g. `?mean`). Every function has documentation, and this command will bring it up. If you don't know the exact function name, you can also type `??thingIamlooking` (e.g. `??mean`) to perform a search for related documentation. See [this page](https://www.r-project.org/help.html) for how to get help in R.
 
