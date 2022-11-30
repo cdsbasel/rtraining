@@ -10,6 +10,12 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ### 11 Final Review
 
+In addition to our Cookies and R Meetings, we have prepared some optional tasks for you to go through. These are tasks for those who want to practice their R skills further! The tasks are described in the PDF document below. 
+
+**Please send your answers to [Yunrui](mailto: yunrui.liu@unibas.ch) before the end of this year.**
+
+![R Final Review](literature/final_review.pdf){width=700px height=600px}
+
 
 
   
