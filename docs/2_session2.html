@@ -2074,7 +2074,7 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </script>
 
   <!--/radix_placeholder_distill-->
-  <script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+  <script src="site_libs/header-attrs-2.18/header-attrs.js"></script>
   <script src="site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
   <link href="site_libs/tippy-6.2.7/tippy-light-border.css" rel="stylesheet" />
@@ -2163,7 +2163,10 @@ Semester 2
 <nav class="l-text toc figcaption" id="TOC">
 <h3>Contents</h3>
 <ul>
-<li><a href="#swirl" id="toc-swirl">Swirl</a></li>
+<li><a href="#swirl" id="toc-swirl">Swirl</a>
+<ul>
+<li><a href="#assignment" id="toc-assignment">Assignment</a></li>
+</ul></li>
 </ul>
 </nav>
 </div>
@@ -2186,7 +2189,40 @@ Semester 2
 </div>
 <p>Choose module <code>2: Regression Models: The basics of regression modeling in R</code>.</p>
 <p>There are 13 Topics in Regression! Each Topic takes around 15 minutes. Start with the <strong>Introduction</strong>.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
+<h3 id="assignment">Assignment</h3>
+<p>In this part, your assignment is to pratice some regression tasks. We expect you to be familar with regression model in R and can use it confidently.</p>
+<h4 id="task-1-creating-a-linear-model-in-r">Task 1: Creating a linear model in R</h4>
+<ol type="1">
+<li>Downloading of the data is trivial today, as we will use a built-in dataset called iris</li>
+</ol>
+<div class="layout-chunk" data-layout="l-body">
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span><span class='va'>iris</span> <span class='op'>&lt;-</span> <span class='va'>iris</span></span>
+<span><span class='fu'><a href='https://rdrr.io/r/utils/head.html'>head</a></span><span class='op'>(</span><span class='va'>iris</span><span class='op'>)</span></span></code></pre>
+</div>
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+<p>Here is an illustration of the variables
+(image source: <a href="https://www.datacamp.com/community/tutorials/machine-learning-in-r" class="uri">https://www.datacamp.com/community/tutorials/machine-learning-in-r</a>):
+<img src="resources/2_session2/iris.jpeg" /></p>
+<ol start="2" type="1">
+<li>Creating a linear model to explore the relationship between <em>Sepal.Length</em> and <em>Petal.Length</em></li>
+<li>Understanding the result of a linear fit</li>
+<li>Visualizing the linear fit</li>
+</ol>
+<h4 id="task-2-creating-a-multiple-linear-regression">Task 2: Creating a multiple linear regression</h4>
+<ol type="1">
+<li>Add <em>Species</em> to the model from before, exploring the relationship between <em>Sepal.Length</em> and <em>Petal.Length</em> for different <em>Species</em></li>
+<li>Understanding the result of a linear fit</li>
+<li>Visualizing the multiple linear fit</li>
+</ol>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <!--/radix_placeholder_article_footer-->
 </div>
