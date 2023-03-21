@@ -2,8 +2,6 @@
 title: "Statistical Modeling and Regression"
 description: |
   **Session 2**: `swirl()`
-  
-  Details will be added soon!
 ---
 
 ```{r setup, include=FALSE}
